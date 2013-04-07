@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		64054687170DBC17008A0B43 /* logo_2011_horiz.png in Resources */ = {isa = PBXBuildFile; fileRef = 64054685170DBC17008A0B43 /* logo_2011_horiz.png */; };
+		64054688170DBC17008A0B43 /* logo_2011_horiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64054686170DBC17008A0B43 /* logo_2011_horiz@2x.png */; };
+		640546B1170DC2DD008A0B43 /* RPWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 640546B0170DC2DC008A0B43 /* RPWindowController.m */; };
+		640546B3170DC6B5008A0B43 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640546B2170DC6B5008A0B43 /* AVFoundation.framework */; };
+		643499A517122E5C00012413 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 643499A417122E5C00012413 /* icon.icns */; };
+		643499C21712305300012413 /* pbutton-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499AA1712305300012413 /* pbutton-left.png */; };
+		643499C31712305300012413 /* pbutton-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499AB1712305300012413 /* pbutton-left@2x.png */; };
+		643499C81712305300012413 /* pbutton-play.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B01712305300012413 /* pbutton-play.png */; };
+		643499C91712305300012413 /* pbutton-play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B11712305300012413 /* pbutton-play@2x.png */; };
+		643499CA1712305300012413 /* pbutton-psd-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B21712305300012413 /* pbutton-psd-active.png */; };
+		643499CB1712305300012413 /* pbutton-psd-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B31712305300012413 /* pbutton-psd-active@2x.png */; };
+		643499CC1712305300012413 /* pbutton-psd.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B41712305300012413 /* pbutton-psd.png */; };
+		643499CD1712305300012413 /* pbutton-psd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B51712305300012413 /* pbutton-psd@2x.png */; };
+		643499CE1712305300012413 /* pbutton-songinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B61712305300012413 /* pbutton-songinfo.png */; };
+		643499CF1712305300012413 /* pbutton-songinfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B71712305300012413 /* pbutton-songinfo@2x.png */; };
+		643499D21712305300012413 /* pbutton-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499BA1712305300012413 /* pbutton-stop.png */; };
+		643499D31712305300012413 /* pbutton-stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499BB1712305300012413 /* pbutton-stop@2x.png */; };
+		643499D41712305300012413 /* pbutton-supportrp.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499BC1712305300012413 /* pbutton-supportrp.png */; };
+		643499D51712305300012413 /* pbutton-supportrp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499BD1712305300012413 /* pbutton-supportrp@2x.png */; };
+		64510446170ECE660060C2FB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64510445170ECE660060C2FB /* CoreMedia.framework */; };
+		648EB8C3170DB873000185C6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648EB8C2170DB873000185C6 /* Cocoa.framework */; };
+		648EB8CD170DB873000185C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 648EB8CB170DB873000185C6 /* InfoPlist.strings */; };
+		648EB8CF170DB873000185C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 648EB8CE170DB873000185C6 /* main.m */; };
+		648EB8D3170DB873000185C6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 648EB8D1170DB873000185C6 /* Credits.rtf */; };
+		648EB8D6170DB873000185C6 /* RPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 648EB8D5170DB873000185C6 /* RPAppDelegate.m */; };
+		648EB8D9170DB873000185C6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648EB8D7170DB873000185C6 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		64054685170DBC17008A0B43 /* logo_2011_horiz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_2011_horiz.png; path = "Radio Paradise/Images/logo_2011_horiz.png"; sourceTree = "<group>"; };
+		64054686170DBC17008A0B43 /* logo_2011_horiz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo_2011_horiz@2x.png"; path = "Radio Paradise/Images/logo_2011_horiz@2x.png"; sourceTree = "<group>"; };
+		640546AF170DC2DC008A0B43 /* RPWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPWindowController.h; sourceTree = "<group>"; };
+		640546B0170DC2DC008A0B43 /* RPWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPWindowController.m; sourceTree = "<group>"; };
+		640546B2170DC6B5008A0B43 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		643499A417122E5C00012413 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = icon.icns; path = ../icon.icns; sourceTree = "<group>"; };
+		643499AA1712305300012413 /* pbutton-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-left.png"; sourceTree = "<group>"; };
+		643499AB1712305300012413 /* pbutton-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-left@2x.png"; sourceTree = "<group>"; };
+		643499B01712305300012413 /* pbutton-play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-play.png"; sourceTree = "<group>"; };
+		643499B11712305300012413 /* pbutton-play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-play@2x.png"; sourceTree = "<group>"; };
+		643499B21712305300012413 /* pbutton-psd-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-psd-active.png"; sourceTree = "<group>"; };
+		643499B31712305300012413 /* pbutton-psd-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-psd-active@2x.png"; sourceTree = "<group>"; };
+		643499B41712305300012413 /* pbutton-psd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-psd.png"; sourceTree = "<group>"; };
+		643499B51712305300012413 /* pbutton-psd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-psd@2x.png"; sourceTree = "<group>"; };
+		643499B61712305300012413 /* pbutton-songinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-songinfo.png"; sourceTree = "<group>"; };
+		643499B71712305300012413 /* pbutton-songinfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-songinfo@2x.png"; sourceTree = "<group>"; };
+		643499BA1712305300012413 /* pbutton-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-stop.png"; sourceTree = "<group>"; };
+		643499BB1712305300012413 /* pbutton-stop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-stop@2x.png"; sourceTree = "<group>"; };
+		643499BC1712305300012413 /* pbutton-supportrp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-supportrp.png"; sourceTree = "<group>"; };
+		643499BD1712305300012413 /* pbutton-supportrp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-supportrp@2x.png"; sourceTree = "<group>"; };
+		64510445170ECE660060C2FB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		648EB8BF170DB873000185C6 /* Radio Paradise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radio Paradise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		648EB8C2170DB873000185C6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		648EB8C5170DB873000185C6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		648EB8C6170DB873000185C6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		648EB8C7170DB873000185C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		648EB8CA170DB873000185C6 /* Radio Paradise-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Radio Paradise-Info.plist"; sourceTree = "<group>"; };
+		648EB8CC170DB873000185C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		648EB8CE170DB873000185C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		648EB8D0170DB873000185C6 /* Radio Paradise-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Radio Paradise-Prefix.pch"; sourceTree = "<group>"; };
+		648EB8D2170DB873000185C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		648EB8D4170DB873000185C6 /* RPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RPAppDelegate.h; sourceTree = "<group>"; };
+		648EB8D5170DB873000185C6 /* RPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RPAppDelegate.m; sourceTree = "<group>"; };
+		648EB8D8170DB873000185C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		648EB8DF170DB88A000185C6 /* Radio Paradise.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Radio Paradise.entitlements"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		648EB8BC170DB873000185C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64510446170ECE660060C2FB /* CoreMedia.framework in Frameworks */,
+				640546B3170DC6B5008A0B43 /* AVFoundation.framework in Frameworks */,
+				648EB8C3170DB873000185C6 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		64054684170DBC07008A0B43 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				648EB8E0170DB945000185C6 /* Buttons */,
+				64054685170DBC17008A0B43 /* logo_2011_horiz.png */,
+				64054686170DBC17008A0B43 /* logo_2011_horiz@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		648EB8B6170DB873000185C6 = {
+			isa = PBXGroup;
+			children = (
+				648EB8C9170DB873000185C6 /* Supporting Files */,
+				64054684170DBC07008A0B43 /* Images */,
+				648EB8C8170DB873000185C6 /* Radio Paradise */,
+				648EB8C1170DB873000185C6 /* Frameworks */,
+				648EB8C0170DB873000185C6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		648EB8C0170DB873000185C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				648EB8BF170DB873000185C6 /* Radio Paradise.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		648EB8C1170DB873000185C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64510445170ECE660060C2FB /* CoreMedia.framework */,
+				640546B2170DC6B5008A0B43 /* AVFoundation.framework */,
+				648EB8C2170DB873000185C6 /* Cocoa.framework */,
+				648EB8C4170DB873000185C6 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		648EB8C4170DB873000185C6 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				648EB8C5170DB873000185C6 /* AppKit.framework */,
+				648EB8C6170DB873000185C6 /* CoreData.framework */,
+				648EB8C7170DB873000185C6 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		648EB8C8170DB873000185C6 /* Radio Paradise */ = {
+			isa = PBXGroup;
+			children = (
+				648EB8D4170DB873000185C6 /* RPAppDelegate.h */,
+				648EB8D5170DB873000185C6 /* RPAppDelegate.m */,
+				648EB8D7170DB873000185C6 /* MainMenu.xib */,
+				640546AF170DC2DC008A0B43 /* RPWindowController.h */,
+				640546B0170DC2DC008A0B43 /* RPWindowController.m */,
+			);
+			path = "Radio Paradise";
+			sourceTree = "<group>";
+		};
+		648EB8C9170DB873000185C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				643499A417122E5C00012413 /* icon.icns */,
+				648EB8DF170DB88A000185C6 /* Radio Paradise.entitlements */,
+				648EB8CA170DB873000185C6 /* Radio Paradise-Info.plist */,
+				648EB8CB170DB873000185C6 /* InfoPlist.strings */,
+				648EB8CE170DB873000185C6 /* main.m */,
+				648EB8D0170DB873000185C6 /* Radio Paradise-Prefix.pch */,
+				648EB8D1170DB873000185C6 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			path = "Radio Paradise";
+			sourceTree = "<group>";
+		};
+		648EB8E0170DB945000185C6 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				643499AA1712305300012413 /* pbutton-left.png */,
+				643499AB1712305300012413 /* pbutton-left@2x.png */,
+				643499B01712305300012413 /* pbutton-play.png */,
+				643499B11712305300012413 /* pbutton-play@2x.png */,
+				643499B21712305300012413 /* pbutton-psd-active.png */,
+				643499B31712305300012413 /* pbutton-psd-active@2x.png */,
+				643499B41712305300012413 /* pbutton-psd.png */,
+				643499B51712305300012413 /* pbutton-psd@2x.png */,
+				643499B61712305300012413 /* pbutton-songinfo.png */,
+				643499B71712305300012413 /* pbutton-songinfo@2x.png */,
+				643499BA1712305300012413 /* pbutton-stop.png */,
+				643499BB1712305300012413 /* pbutton-stop@2x.png */,
+				643499BC1712305300012413 /* pbutton-supportrp.png */,
+				643499BD1712305300012413 /* pbutton-supportrp@2x.png */,
+			);
+			name = Buttons;
+			path = "Radio Paradise/Images";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		648EB8BE170DB873000185C6 /* Radio Paradise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 648EB8DC170DB873000185C6 /* Build configuration list for PBXNativeTarget "Radio Paradise" */;
+			buildPhases = (
+				648EB8BB170DB873000185C6 /* Sources */,
+				648EB8BC170DB873000185C6 /* Frameworks */,
+				648EB8BD170DB873000185C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Radio Paradise";
+			productName = "Radio Paradise";
+			productReference = 648EB8BF170DB873000185C6 /* Radio Paradise.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		648EB8B7170DB873000185C6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RP;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Giacomo Tufano";
+			};
+			buildConfigurationList = 648EB8BA170DB873000185C6 /* Build configuration list for PBXProject "Radio Paradise" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 648EB8B6170DB873000185C6;
+			productRefGroup = 648EB8C0170DB873000185C6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				648EB8BE170DB873000185C6 /* Radio Paradise */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		648EB8BD170DB873000185C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				648EB8CD170DB873000185C6 /* InfoPlist.strings in Resources */,
+				648EB8D3170DB873000185C6 /* Credits.rtf in Resources */,
+				648EB8D9170DB873000185C6 /* MainMenu.xib in Resources */,
+				64054687170DBC17008A0B43 /* logo_2011_horiz.png in Resources */,
+				64054688170DBC17008A0B43 /* logo_2011_horiz@2x.png in Resources */,
+				643499A517122E5C00012413 /* icon.icns in Resources */,
+				643499C21712305300012413 /* pbutton-left.png in Resources */,
+				643499C31712305300012413 /* pbutton-left@2x.png in Resources */,
+				643499C81712305300012413 /* pbutton-play.png in Resources */,
+				643499C91712305300012413 /* pbutton-play@2x.png in Resources */,
+				643499CA1712305300012413 /* pbutton-psd-active.png in Resources */,
+				643499CB1712305300012413 /* pbutton-psd-active@2x.png in Resources */,
+				643499CC1712305300012413 /* pbutton-psd.png in Resources */,
+				643499CD1712305300012413 /* pbutton-psd@2x.png in Resources */,
+				643499CE1712305300012413 /* pbutton-songinfo.png in Resources */,
+				643499CF1712305300012413 /* pbutton-songinfo@2x.png in Resources */,
+				643499D21712305300012413 /* pbutton-stop.png in Resources */,
+				643499D31712305300012413 /* pbutton-stop@2x.png in Resources */,
+				643499D41712305300012413 /* pbutton-supportrp.png in Resources */,
+				643499D51712305300012413 /* pbutton-supportrp@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		648EB8BB170DB873000185C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				648EB8CF170DB873000185C6 /* main.m in Sources */,
+				648EB8D6170DB873000185C6 /* RPAppDelegate.m in Sources */,
+				640546B1170DC2DD008A0B43 /* RPWindowController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		648EB8CB170DB873000185C6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				648EB8CC170DB873000185C6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		648EB8D1170DB873000185C6 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				648EB8D2170DB873000185C6 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		648EB8D7170DB873000185C6 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				648EB8D8170DB873000185C6 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		648EB8DA170DB873000185C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		648EB8DB170DB873000185C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		648EB8DD170DB873000185C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Radio Paradise/Radio Paradise.entitlements";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Radio Paradise/Radio Paradise-Prefix.pch";
+				INFOPLIST_FILE = "Radio Paradise/Radio Paradise-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		648EB8DE170DB873000185C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Radio Paradise/Radio Paradise.entitlements";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Radio Paradise/Radio Paradise-Prefix.pch";
+				INFOPLIST_FILE = "Radio Paradise/Radio Paradise-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		648EB8BA170DB873000185C6 /* Build configuration list for PBXProject "Radio Paradise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				648EB8DA170DB873000185C6 /* Debug */,
+				648EB8DB170DB873000185C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		648EB8DC170DB873000185C6 /* Build configuration list for PBXNativeTarget "Radio Paradise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				648EB8DD170DB873000185C6 /* Debug */,
+				648EB8DE170DB873000185C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 648EB8B7170DB873000185C6 /* Project object */;
+}

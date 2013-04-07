@@ -358,8 +358,6 @@
     self.bitrateSelector.enabled = NO;
     self.psdButton.enabled = NO;
     self.songInfoButton.enabled = NO;
-//    if(self.isLyricsToBeShown)
-//        [self showLyrics:nil];
 }
 
 -(void)interfacePlay
@@ -370,9 +368,7 @@
     [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd"]];
     self.playOrStopButton.enabled = YES;
     self.psdButton.enabled = YES;
-//    ((RPAppDelegate *)[[UIApplication sharedApplication] delegate]).windowTV.hidden = NO;
     self.songInfoButton.enabled = YES;
-//    self.hdImage.hidden = NO;
     self.songIsAlreadySaved = NO;
     [self scheduleImagesTimer];
     // Start metadata reading.
@@ -387,7 +383,6 @@
     self.bitrateSelector.enabled = NO;
     self.psdButton.enabled = NO;
     self.songInfoButton.enabled = NO;
-//    self.hdImage.hidden  = NO;
 }
 
 -(void)interfacePsd
@@ -401,8 +396,6 @@
     self.psdButton.enabled = YES;
     self.songInfoButton.enabled = YES;
     self.songIsAlreadySaved = NO;
-//    self.hdImage.hidden = NO;
-//    ((RPAppDelegate *)[[UIApplication sharedApplication] delegate]).windowTV.hidden = NO;
     [self scheduleImagesTimer];
     DLog(@"Getting PSD metadata...");
     [self metatadaHandler:nil];

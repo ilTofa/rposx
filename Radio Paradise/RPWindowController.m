@@ -10,7 +10,10 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-@interface RPWindowController ()
+#import "RPLoginWindowController.h"
+#import "STKeychain.h"
+
+@interface RPWindowController () <RPLoginWindowControllerDelegate>
 
 @property (strong, nonatomic) AVPlayer *theStreamer;
 @property (strong, nonatomic) AVPlayer *thePsdStreamer;
@@ -36,6 +39,8 @@
 
 @property BOOL isLyricsToBeShown;
 
+@property (strong, nonatomic) RPLoginWindowController *theLoginBox;
+
 @property (weak, nonatomic) IBOutlet NSTextField *metadataInfo;
 @property (weak) IBOutlet NSButton *psdButton;
 @property (weak) IBOutlet NSButton *playOrStopButton;
@@ -56,6 +61,7 @@
 - (IBAction)toggleLyrics:(id)sender;
 - (IBAction)toggleSlideshow:(id)sender;
 - (IBAction)supportRP:(id)sender;
+- (IBAction)startPSD:(id)sender;
 
 @end
 
@@ -74,6 +80,7 @@
 -(void)awakeFromNib {
     DLog(@"Initing UI");
     self.window.backgroundColor = [NSColor blackColor];
+    [self.slideshowWindow setAspectRatio:self.slideshowWindow.frame.size];
     NSMutableAttributedString *attributedButtonTitle = [[NSMutableAttributedString alloc] initWithString:@"Lyrics"];
     [attributedButtonTitle addAttribute:NSForegroundColorAttributeName value:[NSColor whiteColor] range:NSMakeRange(0,[@"Lyrics" length] )];
     [self.lyricsWindowButton setAttributedTitle:attributedButtonTitle];
@@ -520,6 +527,32 @@
     }
 }
 
+-(void)stopPsdFromTimer:(NSTimer *)aTimer {
+    DLog(@"This is the PSD timer triggering the end of the PSD song");
+    // If still playing PSD, restart "normal" stream
+    if(self.isPSDPlaying) {
+        [self interfacePlayPending];
+        self.isPSDPlaying = NO;
+        if(self.thePsdTimer) {
+            [self.thePsdTimer invalidate];
+            self.thePsdTimer = nil;
+        }
+        DLog(@"Stopping stream in timer firing (starting fade out)");
+        if(self.theImagesTimer)
+            [self unscheduleImagesTimer];
+        // restart main stream...
+        [self playMainStream];
+        // ...while giving the delay to the fading
+        [self.thePsdStreamer removeObserver:self forKeyPath:@"status"];
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, kPsdFadeOutTime * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+            DLog(@"PSD stream now stopped!");
+            [self.thePsdStreamer pause];
+            self.thePsdStreamer = nil;
+        });
+    }
+}
+
 #pragma mark - Audio Fading
 
 -(void)setupFading:(AVPlayer *)stream fadeOut:(BOOL)isFadingOut startingAt:(CMTime)start ending:(CMTime)end
@@ -604,6 +637,61 @@
     }
 }
 
+- (void)RPLoginWindowControllerDidCancel:(RPLoginWindowController *)controller {
+    [self.theLoginBox.window orderOut:self];
+    self.theLoginBox = nil;
+}
+
+- (void)RPLoginWindowControllerDidSelect:(RPLoginWindowController *)controller withCookies:(NSString *)cookiesString {
+    [self RPLoginWindowControllerDidCancel:controller];
+    self.cookieString = cookiesString;
+    [self playPSDNow];
+}
+
+
+- (void)playPSDNow
+{
+    DLog(@"playPSDNow called. Cookie is <%@>", self.cookieString);
+    [self interfacePsdPending];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.radioparadise.com/ajax_replace.php?option=0"]];
+    [req addValue:self.cookieString forHTTPHeaderField:@"Cookie"];
+    [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err) {
+         if(data) {
+             NSString *retValue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+             retValue = [retValue stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+             NSArray *values = [retValue componentsSeparatedByString:@"|"];
+             if([values count] != 4) {
+                 NSLog(@"ERROR: too many values (%ld) returned from ajax_replace", (unsigned long)[values count]);
+                 NSLog(@"retValue: <%@>", retValue);
+                 [self playMainStream];
+                 return;
+             }
+             NSString *psdSongUrl = [values objectAtIndex:0];
+             NSNumber *psdSongLenght = [values objectAtIndex:1];
+             NSNumber * __unused psdSongFadeIn = [values objectAtIndex:2];
+             NSNumber * __unused psdSongFadeOut = [values objectAtIndex:3];
+             DLog(@"Got PSD song information: <%@>, should run for %@ ms, with fade-in, fade-out for %@ and %@", psdSongUrl, psdSongLenght, psdSongFadeIn, psdSongFadeOut);
+             // reset stream on main thread
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 // If PSD is already running...
+                 if(self.isPSDPlaying) {
+                     self.theOldPsdStreamer = self.thePsdStreamer;
+                     [self.thePsdStreamer removeObserver:self forKeyPath:@"status"];
+                 }
+                 // Begin buffering...
+                 self.thePsdStreamer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:psdSongUrl]];
+                 // Add observer for real start and stop.
+                 self.psdDurationInSeconds = @(([psdSongLenght doubleValue] / 1000.0));
+                 [self.thePsdStreamer addObserver:self forKeyPath:@"status" options:0 context:nil];
+             });
+         }
+         else // we have an error in PSD processing, (re)start main stream)
+         {
+             [self playMainStream];
+         }
+     }];
+}
+
 - (void)playMainStream
 {
     [self interfacePlayPending];
@@ -659,4 +747,36 @@
 - (IBAction)supportRP:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://www.radioparadise.com/rp2s-content.php?name=Support&file=settings"]];
 }
+
+- (IBAction)startPSD:(id)sender {
+    // Try to understand if we have cookie string in KeyChain
+    NSError *err;
+    self.cookieString = [STKeychain getPasswordForUsername:@"cookies" andServiceName:@"RP" error:&err];
+    if(self.cookieString) {
+        [self playPSDNow];
+        return;
+    }
+    if(self.cookieString != nil) {   // already logged in. no need to show the login box
+        [self playPSDNow];
+    } else {
+        // Show login window if it already exists, else init controller and set ourself for callback
+        if(self.theLoginBox) {
+            [self.theLoginBox.window makeKeyAndOrderFront:self];
+        } else {
+            self.theLoginBox = [[RPLoginWindowController alloc] initWithWindowNibName:@"RPLoginWindowController"];
+            self.theLoginBox.delegate = self;
+            [self.theLoginBox showWindow:self];
+        }
+    }
+}
+
+/*
+ if(!self.bunniesController)
+ {
+ self.bunniesController = [[BunniesWindowController alloc] initWithWindowNibName:@"BunniesWindowController"];
+ self.bunniesController.delegate = self;
+ }
+ [self.bunniesController showWindow:self];
+ }
+*/
 @end

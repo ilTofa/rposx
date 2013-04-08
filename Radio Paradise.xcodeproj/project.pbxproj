@@ -26,8 +26,10 @@
 		643499D31712305300012413 /* pbutton-stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499BB1712305300012413 /* pbutton-stop@2x.png */; };
 		643499D41712305300012413 /* pbutton-supportrp.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499BC1712305300012413 /* pbutton-supportrp.png */; };
 		643499D51712305300012413 /* pbutton-supportrp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499BD1712305300012413 /* pbutton-supportrp@2x.png */; };
-		643499D9171234C500012413 /* RPLoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 643499D7171234C500012413 /* RPLoginWindow.m */; };
-		643499DA171234C500012413 /* RPLoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 643499D8171234C500012413 /* RPLoginWindow.xib */; };
+		643499D9171234C500012413 /* RPLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643499D7171234C500012413 /* RPLoginWindowController.m */; };
+		643499DA171234C500012413 /* RPLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 643499D8171234C500012413 /* RPLoginWindowController.xib */; };
+		643499DE1712AB6100012413 /* STKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 643499DD1712AB6100012413 /* STKeychain.m */; };
+		643499E01712AC3300012413 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643499DF1712AC3300012413 /* Security.framework */; };
 		64510446170ECE660060C2FB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64510445170ECE660060C2FB /* CoreMedia.framework */; };
 		648EB8C3170DB873000185C6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648EB8C2170DB873000185C6 /* Cocoa.framework */; };
 		648EB8CD170DB873000185C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 648EB8CB170DB873000185C6 /* InfoPlist.strings */; };
@@ -58,9 +60,12 @@
 		643499BB1712305300012413 /* pbutton-stop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-stop@2x.png"; sourceTree = "<group>"; };
 		643499BC1712305300012413 /* pbutton-supportrp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-supportrp.png"; sourceTree = "<group>"; };
 		643499BD1712305300012413 /* pbutton-supportrp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-supportrp@2x.png"; sourceTree = "<group>"; };
-		643499D6171234C500012413 /* RPLoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPLoginWindow.h; sourceTree = "<group>"; };
-		643499D7171234C500012413 /* RPLoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPLoginWindow.m; sourceTree = "<group>"; };
-		643499D8171234C500012413 /* RPLoginWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RPLoginWindow.xib; sourceTree = "<group>"; };
+		643499D6171234C500012413 /* RPLoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPLoginWindowController.h; sourceTree = "<group>"; };
+		643499D7171234C500012413 /* RPLoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPLoginWindowController.m; sourceTree = "<group>"; };
+		643499D8171234C500012413 /* RPLoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RPLoginWindowController.xib; sourceTree = "<group>"; };
+		643499DC1712AB6100012413 /* STKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKeychain.h; sourceTree = "<group>"; };
+		643499DD1712AB6100012413 /* STKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKeychain.m; sourceTree = "<group>"; };
+		643499DF1712AC3300012413 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		64510445170ECE660060C2FB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		648EB8BF170DB873000185C6 /* Radio Paradise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radio Paradise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		648EB8C2170DB873000185C6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -83,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				643499E01712AC3300012413 /* Security.framework in Frameworks */,
 				64510446170ECE660060C2FB /* CoreMedia.framework in Frameworks */,
 				640546B3170DC6B5008A0B43 /* AVFoundation.framework in Frameworks */,
 				648EB8C3170DB873000185C6 /* Cocoa.framework in Frameworks */,
@@ -100,6 +106,15 @@
 				64054686170DBC17008A0B43 /* logo_2011_horiz@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		643499DB1712AB6100012413 /* STKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				643499DC1712AB6100012413 /* STKeychain.h */,
+				643499DD1712AB6100012413 /* STKeychain.m */,
+			);
+			path = STKeychain;
 			sourceTree = "<group>";
 		};
 		648EB8B6170DB873000185C6 = {
@@ -124,6 +139,7 @@
 		648EB8C1170DB873000185C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				643499DF1712AC3300012413 /* Security.framework */,
 				64510445170ECE660060C2FB /* CoreMedia.framework */,
 				640546B2170DC6B5008A0B43 /* AVFoundation.framework */,
 				648EB8C2170DB873000185C6 /* Cocoa.framework */,
@@ -145,14 +161,15 @@
 		648EB8C8170DB873000185C6 /* Radio Paradise */ = {
 			isa = PBXGroup;
 			children = (
+				643499DB1712AB6100012413 /* STKeychain */,
 				648EB8D4170DB873000185C6 /* RPAppDelegate.h */,
 				648EB8D5170DB873000185C6 /* RPAppDelegate.m */,
 				648EB8D7170DB873000185C6 /* MainMenu.xib */,
 				640546AF170DC2DC008A0B43 /* RPWindowController.h */,
 				640546B0170DC2DC008A0B43 /* RPWindowController.m */,
-				643499D6171234C500012413 /* RPLoginWindow.h */,
-				643499D7171234C500012413 /* RPLoginWindow.m */,
-				643499D8171234C500012413 /* RPLoginWindow.xib */,
+				643499D6171234C500012413 /* RPLoginWindowController.h */,
+				643499D7171234C500012413 /* RPLoginWindowController.m */,
+				643499D8171234C500012413 /* RPLoginWindowController.xib */,
 			);
 			path = "Radio Paradise";
 			sourceTree = "<group>";
@@ -266,7 +283,7 @@
 				643499D31712305300012413 /* pbutton-stop@2x.png in Resources */,
 				643499D41712305300012413 /* pbutton-supportrp.png in Resources */,
 				643499D51712305300012413 /* pbutton-supportrp@2x.png in Resources */,
-				643499DA171234C500012413 /* RPLoginWindow.xib in Resources */,
+				643499DA171234C500012413 /* RPLoginWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +297,8 @@
 				648EB8CF170DB873000185C6 /* main.m in Sources */,
 				648EB8D6170DB873000185C6 /* RPAppDelegate.m in Sources */,
 				640546B1170DC2DD008A0B43 /* RPWindowController.m in Sources */,
-				643499D9171234C500012413 /* RPLoginWindow.m in Sources */,
+				643499D9171234C500012413 /* RPLoginWindowController.m in Sources */,
+				643499DE1712AB6100012413 /* STKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

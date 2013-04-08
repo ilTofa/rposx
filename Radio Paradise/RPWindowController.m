@@ -62,6 +62,7 @@
 - (IBAction)toggleSlideshow:(id)sender;
 - (IBAction)supportRP:(id)sender;
 - (IBAction)startPSD:(id)sender;
+- (IBAction)showSongInformations:(id)sender;
 
 @end
 
@@ -770,13 +771,10 @@
     }
 }
 
-/*
- if(!self.bunniesController)
- {
- self.bunniesController = [[BunniesWindowController alloc] initWithWindowNibName:@"BunniesWindowController"];
- self.bunniesController.delegate = self;
- }
- [self.bunniesController showWindow:self];
- }
-*/
+- (IBAction)showSongInformations:(id)sender {
+    NSString *url = [NSString stringWithFormat:@"http://www.radioparadise.com/rp_2.php?#name=Music&file=songinfo&song_id=%@", self.currentSongId];
+    DLog(@"Opening %@ per user request", url);
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+}
+
 @end

@@ -89,7 +89,7 @@
     [attributedButtonTitle addAttribute:NSForegroundColorAttributeName value:[NSColor whiteColor] range:NSMakeRange(0,[@"Slideshow" length] )];
     [self.slideshowWindowButton setAttributedTitle:attributedButtonTitle];
     // reset text
-    self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.rawMetadataString = @"";
+    self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.rawMetadataString = self.lyricsText.string = @"";
     // Let's see if we already have a preferred bitrate
     long savedBitrate = [[NSUserDefaults standardUserDefaults] integerForKey:@"bitrate"];
     if(savedBitrate == 0) {
@@ -338,15 +338,14 @@
 -(void)interfaceStop
 {
     DLog(@"*** interfaceStop");
-    self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.rawMetadataString = @"";
+    self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.rawMetadataString = self.lyricsText.string = @"";
     self.psdButton.enabled = YES;
     self.bitrateSelector.enabled = YES;
     [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-play"]];
     [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd"]];
     self.playOrStopButton.enabled = YES;
     self.psdButton.enabled = YES;
-//    ((RPAppDelegate *)[[UIApplication sharedApplication] delegate]).windowTV.hidden = YES;
-//    self.hdImage.hidden = self.dissolveHdImage.hidden = YES;
+    self.hdImage.hidden = YES;
     self.songInfoButton.enabled = NO;
     self.songIsAlreadySaved = YES;
 //    if(self.isLyricsToBeShown)
@@ -378,7 +377,9 @@
     self.psdButton.enabled = YES;
     self.songInfoButton.enabled = YES;
     self.songIsAlreadySaved = NO;
-    [self scheduleImagesTimer];
+    self.hdImage.hidden = NO;
+    if([self.slideshowWindow isVisible])
+        [self scheduleImagesTimer];
     // Start metadata reading.
     DLog(@"Starting metadata handler...");
     [self metatadaHandler:nil];
@@ -404,7 +405,9 @@
     self.psdButton.enabled = YES;
     self.songInfoButton.enabled = YES;
     self.songIsAlreadySaved = NO;
-    [self scheduleImagesTimer];
+    self.hdImage.hidden = NO;
+    if([self.slideshowWindow isVisible])
+        [self scheduleImagesTimer];
     DLog(@"Getting PSD metadata...");
     [self metatadaHandler:nil];
 }
@@ -739,10 +742,13 @@
 }
 
 - (IBAction)toggleSlideshow:(id)sender {
-    if(self.slideshowWindowButton.state == 0)
+    if(self.slideshowWindowButton.state == 0) {
         [self.slideshowWindow orderOut:self];
-    else
+        [self unscheduleImagesTimer];
+    } else {
         [self.slideshowWindow makeKeyAndOrderFront:self];
+        [self scheduleImagesTimer];
+    }
 }
 
 - (IBAction)supportRP:(id)sender {

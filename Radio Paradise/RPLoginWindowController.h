@@ -17,6 +17,6 @@
 
 @interface RPLoginWindowController : NSWindowController
 
-@property(weak, nonatomic) id<RPLoginWindowControllerDelegate> delegate;
+@property(unsafe_unretained, nonatomic) id<RPLoginWindowControllerDelegate> delegate;
 
 @end

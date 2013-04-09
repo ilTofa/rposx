@@ -557,6 +557,18 @@
     }
 }
 
+- (void)windowWillClose:(NSNotification *)notification {
+    if(notification.object == self.lyricsWindow) {
+        DLog(@"Lyrics Window is closing");
+        [self.lyricsWindowButton setState:0];
+    } else if(notification.object == self.slideshowWindow) {
+        DLog(@"Slideshow Window is closing");
+        [self unscheduleImagesTimer];
+        [self.slideshowWindowButton setState:0];
+    }
+}
+
+
 #pragma mark - Audio Fading
 
 -(void)setupFading:(AVPlayer *)stream fadeOut:(BOOL)isFadingOut startingAt:(CMTime)start ending:(CMTime)end

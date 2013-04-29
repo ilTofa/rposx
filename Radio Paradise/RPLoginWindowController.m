@@ -3,7 +3,8 @@
 //  Radio Paradise
 //
 //  Created by Giacomo Tufano on 08/04/13.
-//  Copyright (c) 2013 Giacomo Tufano. All rights reserved.
+//  ©2013 Giacomo Tufano.
+//  Licensed under MIT license. See LICENSE file or http://www.opensource.org/licenses/mit-license.php
 //
 
 #import "RPLoginWindowController.h"

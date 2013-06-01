@@ -42,10 +42,19 @@
 
 @property (strong, nonatomic) RPLoginWindowController *theLoginBox;
 
+@property (strong) NSStatusItem *theStatusItem;
+@property (strong) IBOutlet NSMenu *theStatusMenu;
+@property (weak) IBOutlet NSMenuItem *mainUIMenuItem;
+@property (weak) IBOutlet NSMenuItem *menuItem24K;
+@property (weak) IBOutlet NSMenuItem *menuItem64K;
+@property (weak) IBOutlet NSMenuItem *menuItem128K;
+@property (weak) IBOutlet NSMenuItem *lyricsWindowMenuItem;
+@property (weak) IBOutlet NSMenuItem *slideshowWindowMenuItem;
+@property (weak) IBOutlet NSMenuItem *bitrateMenu;
+
 @property (weak, nonatomic) IBOutlet NSTextField *metadataInfo;
 @property (weak) IBOutlet NSButton *psdButton;
 @property (weak) IBOutlet NSButton *playOrStopButton;
-@property (weak) IBOutlet NSPopUpButton *bitrateSelector;
 @property (weak) IBOutlet NSButton *supportRPButton;
 @property (weak) IBOutlet NSImageView *coverImageView;
 @property (weak) IBOutlet NSImageView *hdImage;
@@ -53,17 +62,18 @@
 @property (unsafe_unretained) IBOutlet NSTextView *lyricsText;
 @property (unsafe_unretained) IBOutlet NSWindow *slideshowWindow;
 @property (unsafe_unretained) IBOutlet NSWindow *lyricsWindow;
-@property (weak) IBOutlet NSButton *lyricsWindowButton;
-@property (weak) IBOutlet NSButton *slideshowWindowButton;
 @property (weak) IBOutlet NSTextField *metadataIntoLyrics;
 
-- (IBAction)bitrateChanged:(id)sender;
 - (IBAction)playOrStop:(id)sender;
-- (IBAction)toggleLyrics:(id)sender;
-- (IBAction)toggleSlideshow:(id)sender;
 - (IBAction)supportRP:(id)sender;
 - (IBAction)startPSD:(id)sender;
 - (IBAction)showSongInformations:(id)sender;
+
+- (IBAction)showMainUI:(id)sender;
+- (IBAction)showLyricsWindow:(id)sender;
+- (IBAction)showSlideshowWindow:(id)sender;
+
+- (IBAction)bitrateSelected:(id)sender;
 
 @end
 
@@ -81,23 +91,21 @@
 
 -(void)awakeFromNib {
     DLog(@"Initing UI");
-    self.window.backgroundColor = [NSColor blackColor];
-    [self.slideshowWindow setAspectRatio:self.slideshowWindow.frame.size];
-    NSMutableAttributedString *attributedButtonTitle = [[NSMutableAttributedString alloc] initWithString:@"Lyrics"];
-    [attributedButtonTitle addAttribute:NSForegroundColorAttributeName value:[NSColor whiteColor] range:NSMakeRange(0,[@"Lyrics" length] )];
-    [self.lyricsWindowButton setAttributedTitle:attributedButtonTitle];
-    attributedButtonTitle = [[NSMutableAttributedString alloc] initWithString:@"Slideshow"];
-    [attributedButtonTitle addAttribute:NSForegroundColorAttributeName value:[NSColor whiteColor] range:NSMakeRange(0,[@"Slideshow" length] )];
-    [self.slideshowWindowButton setAttributedTitle:attributedButtonTitle];
+    [self.window setExcludedFromWindowsMenu:YES];
+    [self.mainUIMenuItem setState:NSOnState];
+    [self.slideshowWindowMenuItem setState:NSOnState];
+    [self.lyricsWindowMenuItem setState:NSOnState];
+    [self.slideshowWindow setContentAspectRatio:NSMakeSize(16.0, 9.0)];
     // reset text
     self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.rawMetadataString = self.lyricsText.string = @"";
+    // Set menu
+    [self statusItemSetup];
     // Let's see if we already have a preferred bitrate
     long savedBitrate = [[NSUserDefaults standardUserDefaults] integerForKey:@"bitrate"];
     if(savedBitrate == 0) {
         self.theRedirector = kRPURL128K;
     } else {
-        [self.bitrateSelector selectItemAtIndex:savedBitrate - 1];
-        [self bitrateChanged:self.bitrateSelector];
+        [self selectBitrate:savedBitrate - 1];
     }
 
     self.imageLoadQueue = [[NSOperationQueue alloc] init];
@@ -105,13 +113,6 @@
     self.cookieString = nil;
     self.isPSDPlaying = NO;
     [self playMainStream];
-}
-
-- (void)windowDidLoad
-{
-    [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
 #pragma mark - HD images loading
@@ -124,19 +125,13 @@
         return;
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSTimeInterval howMuchTimeBetweenImages = 60.0;
-        switch (self.bitrateSelector.indexOfSelectedItem) {
-            case 0:
-                howMuchTimeBetweenImages = 60.0;
-                break;
-            case 1:
-                howMuchTimeBetweenImages = 20.0;
-                break;
-            case 2:
-                howMuchTimeBetweenImages = 15.0;
-                break;
-            default:
-                break;
+        NSTimeInterval howMuchTimeBetweenImages;
+        if ([self.theRedirector isEqualToString:kRPURL24K]) {
+            howMuchTimeBetweenImages = 60.0;
+        } if ([self.theRedirector isEqualToString:kRPURL64K]) {
+            howMuchTimeBetweenImages = 25.0;
+        } else {
+            howMuchTimeBetweenImages = 15.0;
         }
         self.theImagesTimer = [NSTimer scheduledTimerWithTimeInterval:howMuchTimeBetweenImages target:self selector:@selector(loadNewImage:) userInfo:nil repeats:YES];
         // While we are at it, let's load a first image...
@@ -278,9 +273,9 @@
              {
                  DLog(@"Given value for song duration is: %@. Now calculating encode skew.", whenRefresh);
                  // Manually compensate for skew in encoder on lower bitrates.
-                 if(self.bitrateSelector.indexOfSelectedItem == 0 && !self.isPSDPlaying)
+                 if([self.theRedirector isEqualToString:kRPURL24K] && !self.isPSDPlaying)
                      whenRefresh = @([whenRefresh intValue] + 70);
-                 else if(self.bitrateSelector.indexOfSelectedItem == 1 && !self.isPSDPlaying)
+                 else if([self.theRedirector isEqualToString:kRPURL64K] && !self.isPSDPlaying)
                      whenRefresh = @([whenRefresh intValue] + 25);
                  DLog(@"This song will last for %.0f seconds, rescheduling ourselves for refresh", [whenRefresh doubleValue]);
              }
@@ -336,12 +331,23 @@
 
 #pragma mark - UI management
 
+-(void)statusItemSetup
+{
+    DLog(@"Creating status menu.");
+    // Init the status menu
+    NSStatusBar *bar = [NSStatusBar systemStatusBar];
+    self.theStatusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
+    [self.theStatusItem setImage:[NSImage imageNamed:@"sessionitem-icon"]];
+    [self.theStatusItem setHighlightMode:YES];
+    [self.theStatusItem setMenu:self.theStatusMenu];
+}
+
 -(void)interfaceStop
 {
     DLog(@"*** interfaceStop");
     self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.rawMetadataString = self.lyricsText.string = @"";
     self.psdButton.enabled = YES;
-    self.bitrateSelector.enabled = YES;
+    [self.bitrateMenu setEnabled:YES];
     [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-play"]];
     [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd"]];
     self.playOrStopButton.enabled = YES;
@@ -363,7 +369,7 @@
 {
     DLog(@"*** interfaceStopPending");
     self.playOrStopButton.enabled = NO;
-    self.bitrateSelector.enabled = NO;
+    [self.bitrateMenu setEnabled:NO];
     self.psdButton.enabled = NO;
     self.songInfoButton.enabled = NO;
 }
@@ -371,7 +377,7 @@
 -(void)interfacePlay
 {
     DLog(@"*** interfacePlay");
-    self.bitrateSelector.enabled = YES;
+    [self.bitrateMenu setEnabled:YES];
     [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-stop"]];
     [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd"]];
     self.playOrStopButton.enabled = YES;
@@ -390,7 +396,7 @@
 {
     DLog(@"*** interfacePlayPending");
     self.playOrStopButton.enabled = NO;
-    self.bitrateSelector.enabled = NO;
+    [self.bitrateMenu setEnabled:NO];
     self.psdButton.enabled = NO;
     self.songInfoButton.enabled = NO;
 }
@@ -399,7 +405,7 @@
 {
     DLog(@"*** interfacePsd");
     self.psdButton.enabled = YES;
-    self.bitrateSelector.enabled = NO;
+    [self.bitrateMenu setEnabled:NO];
     [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-left"]];
     [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd-active"]];
     self.playOrStopButton.enabled = YES;
@@ -417,7 +423,7 @@
 {
     DLog(@"*** interfacePsdPending");
     self.playOrStopButton.enabled = NO;
-    self.bitrateSelector.enabled = NO;
+    [self.bitrateMenu setEnabled:NO];
     self.psdButton.enabled = NO;
     self.songInfoButton.enabled = NO;
 //    self.hdImage.hidden = NO;
@@ -558,14 +564,34 @@
     }
 }
 
+/*
+- (BOOL)windowShouldClose:(id)sender {
+    if(sender == self.window) {
+        DLog(@"main window shouldClose");
+    } else if(sender == self.lyricsWindow) {
+        DLog(@"main window shouldClose");
+    } else if(sender == self.slideshowWindow) {
+        DLog(@"slideshow window shouldClose");
+    } else {
+        DLog(@"Object %@, of class %@ is the sender", sender, [sender class]);
+    }
+    DLog(@"Hiding main UI");
+    [self.window orderOut:self];
+    return NO;
+}
+*/
+
 - (void)windowWillClose:(NSNotification *)notification {
     if(notification.object == self.lyricsWindow) {
         DLog(@"Lyrics Window is closing");
-        [self.lyricsWindowButton setState:0];
+        [self.lyricsWindowMenuItem setState:NSOffState];
     } else if(notification.object == self.slideshowWindow) {
         DLog(@"Slideshow Window is closing");
         [self unscheduleImagesTimer];
-        [self.slideshowWindowButton setState:0];
+        [self.slideshowWindowMenuItem setState:NSOffState];
+    } else if(notification.object == self.window) {
+        DLog(@"Main UI closing");
+        [self.mainUIMenuItem setState:NSOffState];        
     }
 }
 
@@ -717,51 +743,11 @@
     [self.theStreamer play];
 }
 
-- (IBAction)bitrateChanged:(id)sender {
-    NSInteger selectedIndex = [sender indexOfSelectedItem];
-    switch (selectedIndex)
-    {
-        case 0:
-            self.theRedirector = kRPURL24K;
-            break;
-        case 1:
-            self.theRedirector = kRPURL64K;
-            break;
-        case 2:
-            self.theRedirector = kRPURL128K;
-            break;
-        default:
-            break;
-    }
-    // Save it for next time (+1 to use 0 as "not saved")
-    [[NSUserDefaults standardUserDefaults] setInteger:selectedIndex + 1 forKey:@"bitrate"];
-    // If needed, stop the stream
-    if(self.theStreamer.rate != 0.0)
-        [self stopPressed:self];
-}
-
 - (IBAction)playOrStop:(id)sender {
     if(self.theStreamer.rate != 0.0 || self.isPSDPlaying)
         [self stopPressed:nil];
     else
         [self playMainStream];
-}
-
-- (IBAction)toggleLyrics:(id)sender {
-    if(self.lyricsWindowButton.state == 0)
-        [self.lyricsWindow orderOut:self];
-    else
-        [self.lyricsWindow makeKeyAndOrderFront:self];
-}
-
-- (IBAction)toggleSlideshow:(id)sender {
-    if(self.slideshowWindowButton.state == 0) {
-        [self.slideshowWindow orderOut:self];
-        [self unscheduleImagesTimer];
-    } else {
-        [self.slideshowWindow makeKeyAndOrderFront:self];
-        [self scheduleImagesTimer];
-    }
 }
 
 - (IBAction)supportRP:(id)sender {
@@ -794,6 +780,68 @@
     NSString *url = [NSString stringWithFormat:@"http://www.radioparadise.com/rp_2.php?#name=Music&file=songinfo&song_id=%@", self.currentSongId];
     DLog(@"Opening %@ per user request", url);
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+}
+
+- (IBAction)showMainUI:(id)sender {
+    DLog(@"called.");
+    [self.window makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
+    [self.mainUIMenuItem setState:NSOnState];
+}
+
+- (IBAction)showLyricsWindow:(id)sender {
+    [self.lyricsWindow makeKeyAndOrderFront:self];
+    [self.lyricsWindowMenuItem setState:NSOnState];
+}
+
+- (IBAction)showSlideshowWindow:(id)sender {
+    [self.slideshowWindow makeKeyAndOrderFront:self];
+    [self.slideshowWindowMenuItem setState:NSOnState];
+}
+
+- (void)selectBitrate:(NSInteger)index {
+    switch (index)
+    {
+        case 0:
+            [self bitrateSelected:self.menuItem24K];
+            break;
+        case 1:
+            [self bitrateSelected:self.menuItem64K];
+            break;
+        case 2:
+            [self bitrateSelected:self.menuItem128K];
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)bitrateSelected:(id)sender {
+    NSInteger selectedIndex;
+    if (sender == self.menuItem24K) {
+        selectedIndex = 1;
+        self.theRedirector = kRPURL24K;
+        [self.menuItem24K setState:NSOnState];
+        [self.menuItem64K setState:NSOffState];
+        [self.menuItem128K setState:NSOffState];
+    } else if (sender == self.menuItem64K) {
+        selectedIndex = 2;
+        self.theRedirector = kRPURL64K;
+        [self.menuItem24K setState:NSOffState];
+        [self.menuItem64K setState:NSOnState];
+        [self.menuItem128K setState:NSOffState];
+    } else {
+        selectedIndex = 3;
+        self.theRedirector = kRPURL128K;
+        [self.menuItem24K setState:NSOffState];
+        [self.menuItem64K setState:NSOffState];
+        [self.menuItem128K setState:NSOnState];
+    }
+    // Save it for next time (+1 to use 0 as "not saved")
+    [[NSUserDefaults standardUserDefaults] setInteger:selectedIndex forKey:@"bitrate"];
+    // If needed, stop the stream
+    if(self.theStreamer.rate != 0.0)
+        [self stopPressed:self];
 }
 
 @end

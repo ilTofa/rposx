@@ -51,11 +51,15 @@
 @property (weak) IBOutlet NSMenuItem *lyricsWindowMenuItem;
 @property (weak) IBOutlet NSMenuItem *slideshowWindowMenuItem;
 @property (weak) IBOutlet NSMenuItem *bitrateMenu;
+@property (weak) IBOutlet NSMenuItem *songNameMenuItem;
+@property (weak) IBOutlet NSMenuItem *singerMenuItem;
+@property (weak) IBOutlet NSMenuItem *songInfoMenuItem;
+@property (weak) IBOutlet NSMenuItem *playOrStopMenuItem;
+@property (weak) IBOutlet NSMenuItem *psdMenuItem;
 
 @property (weak, nonatomic) IBOutlet NSTextField *metadataInfo;
 @property (weak) IBOutlet NSButton *psdButton;
 @property (weak) IBOutlet NSButton *playOrStopButton;
-@property (weak) IBOutlet NSButton *supportRPButton;
 @property (weak) IBOutlet NSImageView *coverImageView;
 @property (weak) IBOutlet NSImageView *hdImage;
 @property (weak) IBOutlet NSButton *songInfoButton;
@@ -63,6 +67,7 @@
 @property (unsafe_unretained) IBOutlet NSWindow *slideshowWindow;
 @property (unsafe_unretained) IBOutlet NSWindow *lyricsWindow;
 @property (weak) IBOutlet NSTextField *metadataIntoLyrics;
+@property (weak) IBOutlet NSTextField *metadataOnSlideShow;
 
 - (IBAction)playOrStop:(id)sender;
 - (IBAction)supportRP:(id)sender;
@@ -92,12 +97,9 @@
 -(void)awakeFromNib {
     DLog(@"Initing UI");
     [self.window setExcludedFromWindowsMenu:YES];
-    [self.mainUIMenuItem setState:NSOnState];
-    [self.slideshowWindowMenuItem setState:NSOnState];
-    [self.lyricsWindowMenuItem setState:NSOnState];
     [self.slideshowWindow setContentAspectRatio:NSMakeSize(16.0, 9.0)];
     // reset text
-    self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.rawMetadataString = self.lyricsText.string = @"";
+    self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.metadataOnSlideShow.stringValue = self.rawMetadataString = self.lyricsText.string = @"";
     // Set menu
     [self statusItemSetup];
     // Let's see if we already have a preferred bitrate
@@ -239,13 +241,14 @@
              metaText = [metaText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
              metaText = [metaText stringByReplacingOccurrencesOfString:@"&mdash;" withString:@"-"];
              dispatch_async(dispatch_get_main_queue(), ^{
-                 self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.rawMetadataString = metaText;
-                 self.slideshowWindow.title = [NSString stringWithFormat:@"Radio Paradise - %@", metaText];
+                 self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.metadataOnSlideShow.stringValue = self.rawMetadataString = metaText;
                  // Update metadata info
                  NSArray *songPieces = [metaText componentsSeparatedByString:@" - "];
                  if([songPieces count] == 2) {
                      self.coverImage = nil;
                      self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = [NSString stringWithFormat:@"%@\n%@", songPieces[0], songPieces[1]];
+                     self.songNameMenuItem.title = songPieces[0];
+                     self.singerMenuItem.title = songPieces[1];
                  }
              });
              // remembering songid for forum view
@@ -346,14 +349,19 @@
 {
     DLog(@"*** interfaceStop");
     self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.rawMetadataString = self.lyricsText.string = @"";
-    self.psdButton.enabled = YES;
+    self.songNameMenuItem.title = @"Radio Paradise";
+    self.singerMenuItem.title = @"Commercial Free, Listener Supported Radio";
     [self.bitrateMenu setEnabled:YES];
     [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-play"]];
     [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd"]];
     self.playOrStopButton.enabled = YES;
+    [self.playOrStopMenuItem setTitle:@"Play"];
+    [self.playOrStopMenuItem setEnabled:YES];
     self.psdButton.enabled = YES;
+    [self.psdMenuItem setEnabled:YES];
     self.hdImage.hidden = YES;
     self.songInfoButton.enabled = NO;
+    [self.songNameMenuItem setEnabled:NO];
     self.songIsAlreadySaved = YES;
 //    if(self.isLyricsToBeShown)
 //        [self showLyrics:nil];
@@ -369,9 +377,12 @@
 {
     DLog(@"*** interfaceStopPending");
     self.playOrStopButton.enabled = NO;
+    [self.playOrStopMenuItem setEnabled:NO];
     [self.bitrateMenu setEnabled:NO];
     self.psdButton.enabled = NO;
+    [self.psdMenuItem setEnabled:NO];
     self.songInfoButton.enabled = NO;
+    [self.songNameMenuItem setEnabled:NO];
 }
 
 -(void)interfacePlay
@@ -381,8 +392,12 @@
     [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-stop"]];
     [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd"]];
     self.playOrStopButton.enabled = YES;
+    [self.playOrStopMenuItem setTitle:@"Stop"];
+    [self.playOrStopMenuItem setEnabled:YES];
     self.psdButton.enabled = YES;
+    [self.psdMenuItem setEnabled:YES];
     self.songInfoButton.enabled = YES;
+    [self.songNameMenuItem setEnabled:YES];
     self.songIsAlreadySaved = NO;
     self.hdImage.hidden = NO;
     if([self.slideshowWindow isVisible])
@@ -396,21 +411,27 @@
 {
     DLog(@"*** interfacePlayPending");
     self.playOrStopButton.enabled = NO;
+    [self.playOrStopMenuItem setEnabled:NO];
     [self.bitrateMenu setEnabled:NO];
     self.psdButton.enabled = NO;
+    [self.psdMenuItem setEnabled:NO];
     self.songInfoButton.enabled = NO;
+    [self.songNameMenuItem setEnabled:NO];
 }
 
 -(void)interfacePsd
 {
     DLog(@"*** interfacePsd");
-    self.psdButton.enabled = YES;
+    [self.psdMenuItem setEnabled:YES];
     [self.bitrateMenu setEnabled:NO];
     [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-left"]];
     [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd-active"]];
     self.playOrStopButton.enabled = YES;
     self.psdButton.enabled = YES;
+    [self.playOrStopMenuItem setTitle:@"Stop PSD"];
+    [self.playOrStopMenuItem setEnabled:YES];
     self.songInfoButton.enabled = YES;
+    [self.songNameMenuItem setEnabled:YES];
     self.songIsAlreadySaved = NO;
     self.hdImage.hidden = NO;
     if([self.slideshowWindow isVisible])
@@ -423,9 +444,12 @@
 {
     DLog(@"*** interfacePsdPending");
     self.playOrStopButton.enabled = NO;
+    [self.playOrStopMenuItem setEnabled:NO];
     [self.bitrateMenu setEnabled:NO];
     self.psdButton.enabled = NO;
+    [self.psdMenuItem setEnabled:NO];
     self.songInfoButton.enabled = NO;
+    [self.songNameMenuItem setEnabled:NO];
 //    self.hdImage.hidden = NO;
 }
 
@@ -563,38 +587,6 @@
         });
     }
 }
-
-/*
-- (BOOL)windowShouldClose:(id)sender {
-    if(sender == self.window) {
-        DLog(@"main window shouldClose");
-    } else if(sender == self.lyricsWindow) {
-        DLog(@"main window shouldClose");
-    } else if(sender == self.slideshowWindow) {
-        DLog(@"slideshow window shouldClose");
-    } else {
-        DLog(@"Object %@, of class %@ is the sender", sender, [sender class]);
-    }
-    DLog(@"Hiding main UI");
-    [self.window orderOut:self];
-    return NO;
-}
-*/
-
-- (void)windowWillClose:(NSNotification *)notification {
-    if(notification.object == self.lyricsWindow) {
-        DLog(@"Lyrics Window is closing");
-        [self.lyricsWindowMenuItem setState:NSOffState];
-    } else if(notification.object == self.slideshowWindow) {
-        DLog(@"Slideshow Window is closing");
-        [self unscheduleImagesTimer];
-        [self.slideshowWindowMenuItem setState:NSOffState];
-    } else if(notification.object == self.window) {
-        DLog(@"Main UI closing");
-        [self.mainUIMenuItem setState:NSOffState];        
-    }
-}
-
 
 #pragma mark - Audio Fading
 
@@ -786,17 +778,14 @@
     DLog(@"called.");
     [self.window makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
-    [self.mainUIMenuItem setState:NSOnState];
 }
 
 - (IBAction)showLyricsWindow:(id)sender {
     [self.lyricsWindow makeKeyAndOrderFront:self];
-    [self.lyricsWindowMenuItem setState:NSOnState];
 }
 
 - (IBAction)showSlideshowWindow:(id)sender {
     [self.slideshowWindow makeKeyAndOrderFront:self];
-    [self.slideshowWindowMenuItem setState:NSOnState];
 }
 
 - (void)selectBitrate:(NSInteger)index {

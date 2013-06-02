@@ -821,6 +821,7 @@
 }
 
 - (IBAction)showSlideshowWindow:(id)sender {
+    [self scheduleImagesTimer];
     [self.slideshowWindow makeKeyAndOrderFront:self];
     [GTPiwikAddOn trackEvent:@"showSlideshowWindow"];
 }

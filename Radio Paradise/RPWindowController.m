@@ -13,6 +13,7 @@
 
 #import "RPLoginWindowController.h"
 #import "STKeychain.h"
+#import "GTPiwikAddOn.h"
 
 @interface RPWindowController () <RPLoginWindowControllerDelegate>
 
@@ -112,6 +113,10 @@
     self.volumeSlider.intValue = 100 * self.volumeLevel;
     // Set menu
     [self statusItemSetup];
+    // Delay a little the first piwik event
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
+        [GTPiwikAddOn trackEvent:@"mainUILoaded"];
+    });
     // Let's see if we already have a preferred bitrate
     long savedBitrate = [[NSUserDefaults standardUserDefaults] integerForKey:@"bitrate"];
     if(savedBitrate == 0) {
@@ -129,7 +134,14 @@
 - (void)windowWillClose:(NSNotification *)notification {
     if(notification.object == self.slideshowWindow) {
         DLog(@"Slideshow Window is closing");
+        [GTPiwikAddOn trackEvent:@"hideSlideshowWindow"];
         [self unscheduleImagesTimer];
+    }
+    if (notification.object == self.lyricsWindow) {
+        [GTPiwikAddOn trackEvent:@"hideLyricsWindow"];
+    }
+    if(notification.object == self.window) {
+        [GTPiwikAddOn trackEvent:@"hideMainUIWindow"];
     }
 }
 
@@ -664,6 +676,7 @@
     {
         // If PSD is running, simply get back to the main stream by firing the end timer...
         DLog(@"Manually firing the PSD timer (starting fading now)");
+        [GTPiwikAddOn trackEvent:@"stopPSD"];
         [self fadeOutCurrentTrackNow:self.thePsdStreamer forSeconds:kPsdFadeOutTime];
         [self.thePsdTimer fire];
     }
@@ -671,6 +684,7 @@
     {
         [self interfaceStopPending];
         // Process stop request.
+        [GTPiwikAddOn trackEvent:@"stop"];
         [self.theStreamer pause];
         // Let's give the stream a couple seconds to really stop itself
         double delayInSeconds = 1.0;    //was 2.0: MONITOR!
@@ -732,6 +746,7 @@
                  // Begin buffering...
                  self.thePsdStreamer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:psdSongUrl]];
                  self.thePsdStreamer.volume = self.volumeLevel;
+                 [GTPiwikAddOn trackEvent:@"playPSD"];
                  // Add observer for real start and stop.
                  self.psdDurationInSeconds = @(([psdSongLenght doubleValue] / 1000.0));
                  [self.thePsdStreamer addObserver:self forKeyPath:@"status" options:0 context:nil];
@@ -749,6 +764,7 @@
     [self interfacePlayPending];
     self.theStreamer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:self.theRedirector]];
     self.theStreamer.volume = self.volumeLevel;
+    [GTPiwikAddOn trackEvent:@"play"];
     [self activateNotifications];
     [self.theStreamer play];
 }
@@ -796,17 +812,17 @@
     DLog(@"called.");
     [self.window makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"mainWindowClosed"];
+    [GTPiwikAddOn trackEvent:@"showMainUIWindow"];
 }
 
 - (IBAction)showLyricsWindow:(id)sender {
     [self.lyricsWindow makeKeyAndOrderFront:self];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"lyricsWindowClosed"];
+    [GTPiwikAddOn trackEvent:@"showLyricsWindow"];
 }
 
 - (IBAction)showSlideshowWindow:(id)sender {
     [self.slideshowWindow makeKeyAndOrderFront:self];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"slideshowWindowClosed"];
+    [GTPiwikAddOn trackEvent:@"showSlideshowWindow"];
 }
 
 - (void)selectBitrate:(NSInteger)index {
@@ -814,12 +830,15 @@
     {
         case 0:
             [self bitrateSelected:self.menuItem24K];
+            [GTPiwikAddOn trackEvent:@"24Kselected"];
             break;
         case 1:
             [self bitrateSelected:self.menuItem64K];
+            [GTPiwikAddOn trackEvent:@"64Kselected"];
             break;
         case 2:
             [self bitrateSelected:self.menuItem128K];
+            [GTPiwikAddOn trackEvent:@"128Kselected"];
             break;
         default:
             break;

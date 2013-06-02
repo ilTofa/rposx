@@ -11,6 +11,16 @@
 		64054688170DBC17008A0B43 /* logo_2011_horiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64054686170DBC17008A0B43 /* logo_2011_horiz@2x.png */; };
 		640546B1170DC2DD008A0B43 /* RPWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 640546B0170DC2DC008A0B43 /* RPWindowController.m */; };
 		640546B3170DC6B5008A0B43 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640546B2170DC6B5008A0B43 /* AVFoundation.framework */; };
+		6417FCBB175BEEB5006D9236 /* PiwikTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCAC175BEEB5006D9236 /* PiwikTracker.m */; };
+		6417FCBC175BEEB5006D9236 /* PiwikTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCAD175BEEB5006D9236 /* PiwikTracker.xcdatamodeld */; };
+		6417FCBD175BEEB5006D9236 /* PTCounterDispatchStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCB0175BEEB5006D9236 /* PTCounterDispatchStrategy.m */; };
+		6417FCBE175BEEB5006D9236 /* PTEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCB2175BEEB5006D9236 /* PTEvent.m */; };
+		6417FCBF175BEEB5006D9236 /* PTRetryDispatchStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCB4175BEEB5006D9236 /* PTRetryDispatchStrategy.m */; };
+		6417FCC0175BEEB5006D9236 /* PTTimerDispatchStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCB6175BEEB5006D9236 /* PTTimerDispatchStrategy.m */; };
+		6417FCC2175BEEB5006D9236 /* PTUserAgentReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCBA175BEEB5006D9236 /* PTUserAgentReader.m */; };
+		6417FCC4175BEF09006D9236 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6417FCC3175BEF09006D9236 /* SystemConfiguration.framework */; };
+		6417FCC6175BEF2F006D9236 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6417FCC5175BEF2F006D9236 /* WebKit.framework */; };
+		6417FCC9175BEF5D006D9236 /* GTPiwikAddOn.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCC8175BEF5D006D9236 /* GTPiwikAddOn.m */; };
 		6419CCC8175907420001FEF6 /* sessionitem-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6419CCC6175907420001FEF6 /* sessionitem-icon.png */; };
 		6419CCC9175907420001FEF6 /* sessionitem-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6419CCC7175907420001FEF6 /* sessionitem-icon@2x.png */; };
 		643499A517122E5C00012413 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 643499A417122E5C00012413 /* icon.icns */; };
@@ -47,6 +57,23 @@
 		640546AF170DC2DC008A0B43 /* RPWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPWindowController.h; sourceTree = "<group>"; };
 		640546B0170DC2DC008A0B43 /* RPWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPWindowController.m; sourceTree = "<group>"; };
 		640546B2170DC6B5008A0B43 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6417FCAB175BEEB5006D9236 /* PiwikTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiwikTracker.h; sourceTree = "<group>"; };
+		6417FCAC175BEEB5006D9236 /* PiwikTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiwikTracker.m; sourceTree = "<group>"; };
+		6417FCAE175BEEB5006D9236 /* PiwikTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PiwikTracker.xcdatamodel; sourceTree = "<group>"; };
+		6417FCAF175BEEB5006D9236 /* PTCounterDispatchStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTCounterDispatchStrategy.h; sourceTree = "<group>"; };
+		6417FCB0175BEEB5006D9236 /* PTCounterDispatchStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTCounterDispatchStrategy.m; sourceTree = "<group>"; };
+		6417FCB1175BEEB5006D9236 /* PTEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTEvent.h; sourceTree = "<group>"; };
+		6417FCB2175BEEB5006D9236 /* PTEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTEvent.m; sourceTree = "<group>"; };
+		6417FCB3175BEEB5006D9236 /* PTRetryDispatchStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTRetryDispatchStrategy.h; sourceTree = "<group>"; };
+		6417FCB4175BEEB5006D9236 /* PTRetryDispatchStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTRetryDispatchStrategy.m; sourceTree = "<group>"; };
+		6417FCB5175BEEB5006D9236 /* PTTimerDispatchStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTTimerDispatchStrategy.h; sourceTree = "<group>"; };
+		6417FCB6175BEEB5006D9236 /* PTTimerDispatchStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTTimerDispatchStrategy.m; sourceTree = "<group>"; };
+		6417FCB9175BEEB5006D9236 /* PTUserAgentReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTUserAgentReader.h; sourceTree = "<group>"; };
+		6417FCBA175BEEB5006D9236 /* PTUserAgentReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTUserAgentReader.m; sourceTree = "<group>"; };
+		6417FCC3175BEF09006D9236 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6417FCC5175BEF2F006D9236 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		6417FCC7175BEF5D006D9236 /* GTPiwikAddOn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTPiwikAddOn.h; path = "Radio Paradise/GTPiwikAddOn.h"; sourceTree = SOURCE_ROOT; };
+		6417FCC8175BEF5D006D9236 /* GTPiwikAddOn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTPiwikAddOn.m; path = "Radio Paradise/GTPiwikAddOn.m"; sourceTree = SOURCE_ROOT; };
 		6419CCC6175907420001FEF6 /* sessionitem-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sessionitem-icon.png"; path = "Radio Paradise/Images/sessionitem-icon.png"; sourceTree = "<group>"; };
 		6419CCC7175907420001FEF6 /* sessionitem-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sessionitem-icon@2x.png"; path = "Radio Paradise/Images/sessionitem-icon@2x.png"; sourceTree = "<group>"; };
 		643499A417122E5C00012413 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = icon.icns; path = ../icon.icns; sourceTree = "<group>"; };
@@ -92,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6417FCC6175BEF2F006D9236 /* WebKit.framework in Frameworks */,
+				6417FCC4175BEF09006D9236 /* SystemConfiguration.framework in Frameworks */,
 				643499E01712AC3300012413 /* Security.framework in Frameworks */,
 				64510446170ECE660060C2FB /* CoreMedia.framework in Frameworks */,
 				640546B3170DC6B5008A0B43 /* AVFoundation.framework in Frameworks */,
@@ -114,6 +143,29 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		6417FCAA175BEEB5006D9236 /* PiwikTracker */ = {
+			isa = PBXGroup;
+			children = (
+				6417FCC7175BEF5D006D9236 /* GTPiwikAddOn.h */,
+				6417FCC8175BEF5D006D9236 /* GTPiwikAddOn.m */,
+				6417FCAB175BEEB5006D9236 /* PiwikTracker.h */,
+				6417FCAC175BEEB5006D9236 /* PiwikTracker.m */,
+				6417FCAD175BEEB5006D9236 /* PiwikTracker.xcdatamodeld */,
+				6417FCAF175BEEB5006D9236 /* PTCounterDispatchStrategy.h */,
+				6417FCB0175BEEB5006D9236 /* PTCounterDispatchStrategy.m */,
+				6417FCB1175BEEB5006D9236 /* PTEvent.h */,
+				6417FCB2175BEEB5006D9236 /* PTEvent.m */,
+				6417FCB3175BEEB5006D9236 /* PTRetryDispatchStrategy.h */,
+				6417FCB4175BEEB5006D9236 /* PTRetryDispatchStrategy.m */,
+				6417FCB5175BEEB5006D9236 /* PTTimerDispatchStrategy.h */,
+				6417FCB6175BEEB5006D9236 /* PTTimerDispatchStrategy.m */,
+				6417FCB9175BEEB5006D9236 /* PTUserAgentReader.h */,
+				6417FCBA175BEEB5006D9236 /* PTUserAgentReader.m */,
+			);
+			name = PiwikTracker;
+			path = PiwikTracker/PiwikTracker;
+			sourceTree = "<group>";
+		};
 		643499DB1712AB6100012413 /* STKeychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +178,7 @@
 		648EB8B6170DB873000185C6 = {
 			isa = PBXGroup;
 			children = (
+				6417FCAA175BEEB5006D9236 /* PiwikTracker */,
 				648EB8C9170DB873000185C6 /* Supporting Files */,
 				64054684170DBC07008A0B43 /* Images */,
 				648EB8C8170DB873000185C6 /* Radio Paradise */,
@@ -145,6 +198,8 @@
 		648EB8C1170DB873000185C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6417FCC5175BEF2F006D9236 /* WebKit.framework */,
+				6417FCC3175BEF09006D9236 /* SystemConfiguration.framework */,
 				643499DF1712AC3300012413 /* Security.framework */,
 				64510445170ECE660060C2FB /* CoreMedia.framework */,
 				640546B2170DC6B5008A0B43 /* AVFoundation.framework */,
@@ -307,6 +362,14 @@
 				640546B1170DC2DD008A0B43 /* RPWindowController.m in Sources */,
 				643499D9171234C500012413 /* RPLoginWindowController.m in Sources */,
 				643499DE1712AB6100012413 /* STKeychain.m in Sources */,
+				6417FCBB175BEEB5006D9236 /* PiwikTracker.m in Sources */,
+				6417FCBC175BEEB5006D9236 /* PiwikTracker.xcdatamodeld in Sources */,
+				6417FCBD175BEEB5006D9236 /* PTCounterDispatchStrategy.m in Sources */,
+				6417FCBE175BEEB5006D9236 /* PTEvent.m in Sources */,
+				6417FCBF175BEEB5006D9236 /* PTRetryDispatchStrategy.m in Sources */,
+				6417FCC0175BEEB5006D9236 /* PTTimerDispatchStrategy.m in Sources */,
+				6417FCC2175BEEB5006D9236 /* PTUserAgentReader.m in Sources */,
+				6417FCC9175BEF5D006D9236 /* GTPiwikAddOn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +516,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6417FCAD175BEEB5006D9236 /* PiwikTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6417FCAE175BEEB5006D9236 /* PiwikTracker.xcdatamodel */,
+			);
+			currentVersion = 6417FCAE175BEEB5006D9236 /* PiwikTracker.xcdatamodel */;
+			path = PiwikTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 648EB8B7170DB873000185C6 /* Project object */;
 }

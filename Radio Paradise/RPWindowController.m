@@ -19,6 +19,8 @@
 @property (strong, nonatomic) AVPlayer *theStreamer;
 @property (strong, nonatomic) AVPlayer *thePsdStreamer;
 @property (strong, nonatomic) AVPlayer *theOldPsdStreamer;
+@property double volumeLevel;
+@property (weak) IBOutlet NSSlider *volumeSlider;
 
 @property (copy, nonatomic) NSString *rawMetadataString;
 @property (copy, nonatomic) NSString *theRedirector;
@@ -80,6 +82,8 @@
 
 - (IBAction)bitrateSelected:(id)sender;
 
+- (IBAction)sliderChanged:(id)sender;
+
 @end
 
 @implementation RPWindowController
@@ -100,6 +104,12 @@
     [self.slideshowWindow setContentAspectRatio:NSMakeSize(16.0, 9.0)];
     // reset text
     self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.metadataOnSlideShow.stringValue = self.rawMetadataString = self.lyricsText.string = @"";
+    // Set volume
+    self.volumeLevel = [[NSUserDefaults standardUserDefaults] floatForKey:@"volumeLevel"];
+    if (self.volumeLevel == 0.0) {
+        self.volumeLevel = 0.5;
+    }
+    self.volumeSlider.intValue = 100 * self.volumeLevel;
     // Set menu
     [self statusItemSetup];
     // Let's see if we already have a preferred bitrate
@@ -721,6 +731,7 @@
                  }
                  // Begin buffering...
                  self.thePsdStreamer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:psdSongUrl]];
+                 self.thePsdStreamer.volume = self.volumeLevel;
                  // Add observer for real start and stop.
                  self.psdDurationInSeconds = @(([psdSongLenght doubleValue] / 1000.0));
                  [self.thePsdStreamer addObserver:self forKeyPath:@"status" options:0 context:nil];
@@ -737,6 +748,7 @@
 {
     [self interfacePlayPending];
     self.theStreamer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:self.theRedirector]];
+    self.theStreamer.volume = self.volumeLevel;
     [self activateNotifications];
     [self.theStreamer play];
 }
@@ -840,6 +852,13 @@
     // If needed, stop the stream
     if(self.theStreamer.rate != 0.0)
         [self stopPressed:self];
+}
+
+- (IBAction)sliderChanged:(id)sender {
+    DLog(@"Slider value: %d", [sender intValue]);
+    self.volumeLevel = [sender intValue] / 100.0;
+    self.thePsdStreamer.volume = self.theStreamer.volume = self.volumeLevel;
+    [[NSUserDefaults standardUserDefaults] setFloat:self.volumeLevel forKey:@"volumeLevel"];
 }
 
 @end

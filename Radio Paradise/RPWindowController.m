@@ -109,12 +109,18 @@
     } else {
         [self selectBitrate:savedBitrate - 1];
     }
-
     self.imageLoadQueue = [[NSOperationQueue alloc] init];
     // Set PSD to not logged, not playing
     self.cookieString = nil;
     self.isPSDPlaying = NO;
     [self playMainStream];
+}
+
+- (void)windowWillClose:(NSNotification *)notification {
+    if(notification.object == self.slideshowWindow) {
+        DLog(@"Slideshow Window is closing");
+        [self unscheduleImagesTimer];
+    }
 }
 
 #pragma mark - HD images loading
@@ -778,14 +784,17 @@
     DLog(@"called.");
     [self.window makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"mainWindowClosed"];
 }
 
 - (IBAction)showLyricsWindow:(id)sender {
     [self.lyricsWindow makeKeyAndOrderFront:self];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"lyricsWindowClosed"];
 }
 
 - (IBAction)showSlideshowWindow:(id)sender {
     [self.slideshowWindow makeKeyAndOrderFront:self];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"slideshowWindowClosed"];
 }
 
 - (void)selectBitrate:(NSInteger)index {

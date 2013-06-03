@@ -24,20 +24,6 @@
 		6419CCC8175907420001FEF6 /* sessionitem-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6419CCC6175907420001FEF6 /* sessionitem-icon.png */; };
 		6419CCC9175907420001FEF6 /* sessionitem-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6419CCC7175907420001FEF6 /* sessionitem-icon@2x.png */; };
 		643499A517122E5C00012413 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 643499A417122E5C00012413 /* icon.icns */; };
-		643499C21712305300012413 /* pbutton-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499AA1712305300012413 /* pbutton-left.png */; };
-		643499C31712305300012413 /* pbutton-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499AB1712305300012413 /* pbutton-left@2x.png */; };
-		643499C81712305300012413 /* pbutton-play.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B01712305300012413 /* pbutton-play.png */; };
-		643499C91712305300012413 /* pbutton-play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B11712305300012413 /* pbutton-play@2x.png */; };
-		643499CA1712305300012413 /* pbutton-psd-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B21712305300012413 /* pbutton-psd-active.png */; };
-		643499CB1712305300012413 /* pbutton-psd-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B31712305300012413 /* pbutton-psd-active@2x.png */; };
-		643499CC1712305300012413 /* pbutton-psd.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B41712305300012413 /* pbutton-psd.png */; };
-		643499CD1712305300012413 /* pbutton-psd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B51712305300012413 /* pbutton-psd@2x.png */; };
-		643499CE1712305300012413 /* pbutton-songinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B61712305300012413 /* pbutton-songinfo.png */; };
-		643499CF1712305300012413 /* pbutton-songinfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499B71712305300012413 /* pbutton-songinfo@2x.png */; };
-		643499D21712305300012413 /* pbutton-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499BA1712305300012413 /* pbutton-stop.png */; };
-		643499D31712305300012413 /* pbutton-stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499BB1712305300012413 /* pbutton-stop@2x.png */; };
-		643499D41712305300012413 /* pbutton-supportrp.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499BC1712305300012413 /* pbutton-supportrp.png */; };
-		643499D51712305300012413 /* pbutton-supportrp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643499BD1712305300012413 /* pbutton-supportrp@2x.png */; };
 		643499D9171234C500012413 /* RPLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643499D7171234C500012413 /* RPLoginWindowController.m */; };
 		643499DA171234C500012413 /* RPLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 643499D8171234C500012413 /* RPLoginWindowController.xib */; };
 		643499DE1712AB6100012413 /* STKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 643499DD1712AB6100012413 /* STKeychain.m */; };
@@ -49,6 +35,8 @@
 		648EB8D3170DB873000185C6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 648EB8D1170DB873000185C6 /* Credits.rtf */; };
 		648EB8D6170DB873000185C6 /* RPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 648EB8D5170DB873000185C6 /* RPAppDelegate.m */; };
 		648EB8D9170DB873000185C6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648EB8D7170DB873000185C6 /* MainMenu.xib */; };
+		64AFBC78175C92120036EA67 /* logo_2011_horiz_darker.png in Resources */ = {isa = PBXBuildFile; fileRef = 64AFBC76175C92120036EA67 /* logo_2011_horiz_darker.png */; };
+		64AFBC79175C92120036EA67 /* logo_2011_horiz_darker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64AFBC77175C92120036EA67 /* logo_2011_horiz_darker@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,20 +65,6 @@
 		6419CCC6175907420001FEF6 /* sessionitem-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sessionitem-icon.png"; path = "Radio Paradise/Images/sessionitem-icon.png"; sourceTree = "<group>"; };
 		6419CCC7175907420001FEF6 /* sessionitem-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sessionitem-icon@2x.png"; path = "Radio Paradise/Images/sessionitem-icon@2x.png"; sourceTree = "<group>"; };
 		643499A417122E5C00012413 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = icon.icns; path = ../icon.icns; sourceTree = "<group>"; };
-		643499AA1712305300012413 /* pbutton-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-left.png"; sourceTree = "<group>"; };
-		643499AB1712305300012413 /* pbutton-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-left@2x.png"; sourceTree = "<group>"; };
-		643499B01712305300012413 /* pbutton-play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-play.png"; sourceTree = "<group>"; };
-		643499B11712305300012413 /* pbutton-play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-play@2x.png"; sourceTree = "<group>"; };
-		643499B21712305300012413 /* pbutton-psd-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-psd-active.png"; sourceTree = "<group>"; };
-		643499B31712305300012413 /* pbutton-psd-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-psd-active@2x.png"; sourceTree = "<group>"; };
-		643499B41712305300012413 /* pbutton-psd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-psd.png"; sourceTree = "<group>"; };
-		643499B51712305300012413 /* pbutton-psd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-psd@2x.png"; sourceTree = "<group>"; };
-		643499B61712305300012413 /* pbutton-songinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-songinfo.png"; sourceTree = "<group>"; };
-		643499B71712305300012413 /* pbutton-songinfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-songinfo@2x.png"; sourceTree = "<group>"; };
-		643499BA1712305300012413 /* pbutton-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-stop.png"; sourceTree = "<group>"; };
-		643499BB1712305300012413 /* pbutton-stop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-stop@2x.png"; sourceTree = "<group>"; };
-		643499BC1712305300012413 /* pbutton-supportrp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-supportrp.png"; sourceTree = "<group>"; };
-		643499BD1712305300012413 /* pbutton-supportrp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pbutton-supportrp@2x.png"; sourceTree = "<group>"; };
 		643499D6171234C500012413 /* RPLoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPLoginWindowController.h; sourceTree = "<group>"; };
 		643499D7171234C500012413 /* RPLoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPLoginWindowController.m; sourceTree = "<group>"; };
 		643499D8171234C500012413 /* RPLoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RPLoginWindowController.xib; sourceTree = "<group>"; };
@@ -112,6 +86,8 @@
 		648EB8D5170DB873000185C6 /* RPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RPAppDelegate.m; sourceTree = "<group>"; };
 		648EB8D8170DB873000185C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		648EB8DF170DB88A000185C6 /* Radio Paradise.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Radio Paradise.entitlements"; sourceTree = "<group>"; };
+		64AFBC76175C92120036EA67 /* logo_2011_horiz_darker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_2011_horiz_darker.png; path = "Radio Paradise/Images/logo_2011_horiz_darker.png"; sourceTree = "<group>"; };
+		64AFBC77175C92120036EA67 /* logo_2011_horiz_darker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo_2011_horiz_darker@2x.png"; path = "Radio Paradise/Images/logo_2011_horiz_darker@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +112,10 @@
 			children = (
 				6419CCC6175907420001FEF6 /* sessionitem-icon.png */,
 				6419CCC7175907420001FEF6 /* sessionitem-icon@2x.png */,
-				648EB8E0170DB945000185C6 /* Buttons */,
 				64054685170DBC17008A0B43 /* logo_2011_horiz.png */,
 				64054686170DBC17008A0B43 /* logo_2011_horiz@2x.png */,
+				64AFBC76175C92120036EA67 /* logo_2011_horiz_darker.png */,
+				64AFBC77175C92120036EA67 /* logo_2011_horiz_darker@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -250,28 +227,6 @@
 			path = "Radio Paradise";
 			sourceTree = "<group>";
 		};
-		648EB8E0170DB945000185C6 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				643499AA1712305300012413 /* pbutton-left.png */,
-				643499AB1712305300012413 /* pbutton-left@2x.png */,
-				643499B01712305300012413 /* pbutton-play.png */,
-				643499B11712305300012413 /* pbutton-play@2x.png */,
-				643499B21712305300012413 /* pbutton-psd-active.png */,
-				643499B31712305300012413 /* pbutton-psd-active@2x.png */,
-				643499B41712305300012413 /* pbutton-psd.png */,
-				643499B51712305300012413 /* pbutton-psd@2x.png */,
-				643499B61712305300012413 /* pbutton-songinfo.png */,
-				643499B71712305300012413 /* pbutton-songinfo@2x.png */,
-				643499BA1712305300012413 /* pbutton-stop.png */,
-				643499BB1712305300012413 /* pbutton-stop@2x.png */,
-				643499BC1712305300012413 /* pbutton-supportrp.png */,
-				643499BD1712305300012413 /* pbutton-supportrp@2x.png */,
-			);
-			name = Buttons;
-			path = "Radio Paradise/Images";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -330,23 +285,11 @@
 				64054687170DBC17008A0B43 /* logo_2011_horiz.png in Resources */,
 				64054688170DBC17008A0B43 /* logo_2011_horiz@2x.png in Resources */,
 				643499A517122E5C00012413 /* icon.icns in Resources */,
-				643499C21712305300012413 /* pbutton-left.png in Resources */,
-				643499C31712305300012413 /* pbutton-left@2x.png in Resources */,
-				643499C81712305300012413 /* pbutton-play.png in Resources */,
-				643499C91712305300012413 /* pbutton-play@2x.png in Resources */,
-				643499CA1712305300012413 /* pbutton-psd-active.png in Resources */,
-				643499CB1712305300012413 /* pbutton-psd-active@2x.png in Resources */,
-				643499CC1712305300012413 /* pbutton-psd.png in Resources */,
-				643499CD1712305300012413 /* pbutton-psd@2x.png in Resources */,
-				643499CE1712305300012413 /* pbutton-songinfo.png in Resources */,
-				643499CF1712305300012413 /* pbutton-songinfo@2x.png in Resources */,
-				643499D21712305300012413 /* pbutton-stop.png in Resources */,
-				643499D31712305300012413 /* pbutton-stop@2x.png in Resources */,
-				643499D41712305300012413 /* pbutton-supportrp.png in Resources */,
-				643499D51712305300012413 /* pbutton-supportrp@2x.png in Resources */,
 				643499DA171234C500012413 /* RPLoginWindowController.xib in Resources */,
 				6419CCC8175907420001FEF6 /* sessionitem-icon.png in Resources */,
 				6419CCC9175907420001FEF6 /* sessionitem-icon@2x.png in Resources */,
+				64AFBC78175C92120036EA67 /* logo_2011_horiz_darker.png in Resources */,
+				64AFBC79175C92120036EA67 /* logo_2011_horiz_darker@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

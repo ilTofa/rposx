@@ -101,6 +101,7 @@
 
 -(void)awakeFromNib {
     DLog(@"Initing UI");
+//    self.window.backgroundColor = [NSColor grayColor];
     [self.window setExcludedFromWindowsMenu:YES];
     [self.slideshowWindow setContentAspectRatio:NSMakeSize(16.0, 9.0)];
     // reset text
@@ -273,7 +274,7 @@
                  // Update metadata info
                  NSArray *songPieces = [metaText componentsSeparatedByString:@" - "];
                  if([songPieces count] == 2) {
-                     self.coverImage = nil;
+                     self.coverImageView.image = [NSImage imageNamed:@"icon"];
                      self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = [NSString stringWithFormat:@"%@\n%@", songPieces[0], songPieces[1]];
                      self.songNameMenuItem.title = songPieces[0];
                      self.singerMenuItem.title = songPieces[1];
@@ -380,8 +381,12 @@
     self.songNameMenuItem.title = @"Radio Paradise";
     self.singerMenuItem.title = @"Commercial Free, Listener Supported Radio";
     [self.bitrateMenu setEnabled:YES];
-    [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-play"]];
-    [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd"]];
+    [self.playOrStopButton setTitle:@"Play"];
+//    [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-play"]];
+    NSMutableAttributedString *attributedButtonTitle = [self.psdButton.attributedTitle mutableCopy];
+    [attributedButtonTitle addAttribute:NSForegroundColorAttributeName value:[NSColor blackColor] range:NSMakeRange(0,[attributedButtonTitle length] )];
+    [self.psdButton setAttributedTitle:attributedButtonTitle];
+//    [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd"]];
     self.playOrStopButton.enabled = YES;
     [self.playOrStopMenuItem setTitle:@"Play"];
     [self.playOrStopMenuItem setEnabled:YES];
@@ -393,7 +398,7 @@
     self.songIsAlreadySaved = YES;
 //    if(self.isLyricsToBeShown)
 //        [self showLyrics:nil];
-    self.coverImageView.image = nil;
+    self.coverImageView.image = [NSImage imageNamed:@"icon"];
     if(self.theStreamMetadataTimer != nil)
     {
         [self.theStreamMetadataTimer invalidate];
@@ -417,8 +422,12 @@
 {
     DLog(@"*** interfacePlay");
     [self.bitrateMenu setEnabled:YES];
-    [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-stop"]];
-    [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd"]];
+    [self.playOrStopButton setTitle:@"Stop"];
+//    [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-stop"]];
+    NSMutableAttributedString *attributedButtonTitle = [self.psdButton.attributedTitle mutableCopy];
+    [attributedButtonTitle addAttribute:NSForegroundColorAttributeName value:[NSColor blackColor] range:NSMakeRange(0,[attributedButtonTitle length] )];
+    [self.psdButton setAttributedTitle:attributedButtonTitle];
+//    [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd"]];
     self.playOrStopButton.enabled = YES;
     [self.playOrStopMenuItem setTitle:@"Stop"];
     [self.playOrStopMenuItem setEnabled:YES];
@@ -452,8 +461,12 @@
     DLog(@"*** interfacePsd");
     [self.psdMenuItem setEnabled:YES];
     [self.bitrateMenu setEnabled:NO];
-    [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-left"]];
-    [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd-active"]];
+    [self.playOrStopButton setTitle:@"Stop\nPSD"];
+//    [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-left"]];
+    NSMutableAttributedString *attributedButtonTitle = [self.psdButton.attributedTitle mutableCopy];
+    [attributedButtonTitle addAttribute:NSForegroundColorAttributeName value:[NSColor blueColor] range:NSMakeRange(0,[attributedButtonTitle length] )];
+    [self.psdButton setAttributedTitle:attributedButtonTitle];
+//    [self.psdButton setImage:[NSImage imageNamed:@"pbutton-psd-active"]];
     self.playOrStopButton.enabled = YES;
     self.psdButton.enabled = YES;
     [self.playOrStopMenuItem setTitle:@"Stop PSD"];
@@ -462,8 +475,11 @@
     [self.songNameMenuItem setEnabled:YES];
     self.songIsAlreadySaved = NO;
     self.hdImage.hidden = NO;
-    if([self.slideshowWindow isVisible])
-        [self scheduleImagesTimer];
+    if([self.slideshowWindow isVisible]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
+            [self scheduleImagesTimer];
+        });
+    }
     DLog(@"Getting PSD metadata...");
     [self metatadaHandler:nil];
 }
@@ -518,7 +534,7 @@
             [self.thePsdStreamer play];
             DLog(@"Setting fade out after %@ sec for %.0f sec", startPsdFadingTime, kPsdFadeOutTime);
             [self presetFadeOutToCurrentTrack:self.thePsdStreamer startingAt:[startPsdFadingTime intValue] forSeconds:kPsdFadeOutTime];
-            // Stop main streamer, remove observers and and reset timers it.
+            // Stop main streamer, remove observers and and reset timers.
             if(self.theImagesTimer)
                 [self unscheduleImagesTimer];
             if(self.isPSDPlaying)

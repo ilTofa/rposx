@@ -1321,9 +1321,9 @@
 				<string key="NSName">_NSMainMenu</string>
 			</object>
 			<object class="NSWindowTemplate" id="972006081">
-				<int key="NSWindowStyleMask">271</int>
+				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{335, 390}, {384, 176}}</string>
+				<string key="NSWindowRect">{{335, 390}, {416, 176}}</string>
 				<int key="NSWTFlags">1954021376</int>
 				<string key="NSWindowTitle">Radio Paradise</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1337,7 +1337,7 @@
 						<object class="NSTextField" id="1055274750">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">270</int>
-							<string key="NSFrame">{{161, 130}, {206, 34}}</string>
+							<string key="NSFrame">{{161, 132}, {238, 34}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="261768123"/>
@@ -1381,7 +1381,7 @@
 						<object class="NSButton" id="261768123">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{164, 87}, {35, 35}}</string>
+							<string key="NSFrame">{{162, 84}, {56, 42}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="630138081"/>
@@ -1390,19 +1390,20 @@
 							<object class="NSButtonCell" key="NSCell" id="917638827">
 								<int key="NSCellFlags">-2080374784</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents"/>
-								<object class="NSFont" key="NSSupport" id="831095184">
-									<string key="NSName">LucidaGrande</string>
-									<double key="NSSize">13</double>
-									<int key="NSfFlags">1044</int>
+								<string key="NSContents">Play</string>
+								<object class="NSFont" key="NSSupport" id="23">
+									<string key="NSName">LucidaGrande-Bold</string>
+									<double key="NSSize">9</double>
+									<int key="NSfFlags">3871</int>
 								</object>
 								<string key="NSCellIdentifier">_NS:22</string>
 								<reference key="NSControlView" ref="261768123"/>
-								<int key="NSButtonFlags">-2041823232</int>
-								<int key="NSButtonFlags2">134</int>
-								<object class="NSCustomResource" key="NSNormalImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pbutton-play</string>
+								<int key="NSButtonFlags">-2038022144</int>
+								<int key="NSButtonFlags2">130</int>
+								<object class="NSFont" key="NSAlternateImage">
+									<string key="NSName">LucidaGrande</string>
+									<double key="NSSize">9</double>
+									<int key="NSfFlags">16</int>
 								</object>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
@@ -1414,7 +1415,7 @@
 						<object class="NSButton" id="630138081">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{219, 87}, {35, 35}}</string>
+							<string key="NSFrame">{{222, 84}, {56, 42}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="790166457"/>
@@ -1423,16 +1424,12 @@
 							<object class="NSButtonCell" key="NSCell" id="603576683">
 								<int key="NSCellFlags">-2080374784</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents"/>
-								<reference key="NSSupport" ref="831095184"/>
+								<string key="NSContents">PSD</string>
+								<reference key="NSSupport" ref="23"/>
 								<string key="NSCellIdentifier">_NS:22</string>
 								<reference key="NSControlView" ref="630138081"/>
-								<int key="NSButtonFlags">-2041823232</int>
-								<int key="NSButtonFlags2">134</int>
-								<object class="NSCustomResource" key="NSNormalImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pbutton-psd</string>
-								</object>
+								<int key="NSButtonFlags">-2033434624</int>
+								<int key="NSButtonFlags2">130</int>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">400</int>
@@ -1443,7 +1440,7 @@
 						<object class="NSButton" id="790166457">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{274, 87}, {35, 35}}</string>
+							<string key="NSFrame">{{282, 84}, {56, 42}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="462493764"/>
@@ -1452,16 +1449,12 @@
 							<object class="NSButtonCell" key="NSCell" id="336443392">
 								<int key="NSCellFlags">-2080374784</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents"/>
-								<reference key="NSSupport" ref="831095184"/>
+								<string type="base64-UTF8" key="NSContents">U29uZwpJbmZvA</string>
+								<reference key="NSSupport" ref="23"/>
 								<string key="NSCellIdentifier">_NS:22</string>
 								<reference key="NSControlView" ref="790166457"/>
-								<int key="NSButtonFlags">-2041823232</int>
-								<int key="NSButtonFlags2">134</int>
-								<object class="NSCustomResource" key="NSNormalImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pbutton-songinfo</string>
-								</object>
+								<int key="NSButtonFlags">-2033434624</int>
+								<int key="NSButtonFlags2">130</int>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">400</int>
@@ -1472,24 +1465,21 @@
 						<object class="NSButton" id="462493764">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{329, 87}, {35, 35}}</string>
+							<string key="NSFrame">{{342, 84}, {56, 42}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="346548153"/>
 							<string key="NSReuseIdentifierKey">_NS:22</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="997068554">
 								<int key="NSCellFlags">-2080374784</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents"/>
-								<reference key="NSSupport" ref="831095184"/>
+								<string type="base64-UTF8" key="NSContents">U3VwcG9ydApSUA</string>
+								<reference key="NSSupport" ref="23"/>
 								<string key="NSCellIdentifier">_NS:22</string>
 								<reference key="NSControlView" ref="462493764"/>
-								<int key="NSButtonFlags">-2041823232</int>
-								<int key="NSButtonFlags2">134</int>
-								<object class="NSCustomResource" key="NSNormalImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pbutton-supportrp</string>
-								</object>
+								<int key="NSButtonFlags">-2033434624</int>
+								<int key="NSButtonFlags2">130</int>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">400</int>
@@ -1524,7 +1514,7 @@
 								<string key="NSCellIdentifier">_NS:9</string>
 								<int key="NSAlign">0</int>
 								<int key="NSScale">0</int>
-								<int key="NSStyle">0</int>
+								<int key="NSStyle">1</int>
 								<bool key="NSAnimates">NO</bool>
 							</object>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -1541,17 +1531,18 @@
 								<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
 								<string>NeXT TIFF v4.0 pasteboard type</string>
 							</set>
-							<string key="NSFrame">{{164, 17}, {200, 47}}</string>
+							<string key="NSFrame">{{180, 15}, {200, 47}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="511819319"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="334899332">
 								<int key="NSCellFlags">134217728</int>
 								<int key="NSCellFlags2">33554432</int>
-								<object class="NSCustomResource" key="NSContents" id="700818748">
+								<object class="NSCustomResource" key="NSContents">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">logo_2011_horiz</string>
+									<string key="NSResourceName">logo_2011_horiz_darker</string>
 								</object>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<int key="NSAlign">0</int>
@@ -1565,9 +1556,10 @@
 						<object class="NSSlider" id="511819319">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">270</int>
-							<string key="NSFrame">{{162, 60}, {204, 21}}</string>
+							<string key="NSFrame">{{207, 60}, {191, 21}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSSliderCell" key="NSCell" id="752656302">
@@ -1587,8 +1579,38 @@
 							</object>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						</object>
+						<object class="NSTextField" id="346548153">
+							<reference key="NSNextResponder" ref="439893737"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{161, 66}, {43, 11}}</string>
+							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="360587171"/>
+							<string key="NSReuseIdentifierKey">_NS:1535</string>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSTextFieldCell" key="NSCell" id="296073646">
+								<int key="NSCellFlags">68157504</int>
+								<int key="NSCellFlags2">71304192</int>
+								<string key="NSContents">Volume: </string>
+								<object class="NSFont" key="NSSupport">
+									<string key="NSName">LucidaGrande</string>
+									<double key="NSSize">9</double>
+									<int key="NSfFlags">3614</int>
+								</object>
+								<string key="NSCellIdentifier">_NS:1535</string>
+								<reference key="NSControlView" ref="346548153"/>
+								<reference key="NSBackgroundColor" ref="571842548"/>
+								<object class="NSColor" key="NSTextColor" id="1000324265">
+									<int key="NSColorSpace">6</int>
+									<string key="NSCatalogName">System</string>
+									<string key="NSColorName">controlTextColor</string>
+									<reference key="NSColor" ref="793076960"/>
+								</object>
+							</object>
+							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+						</object>
 					</array>
-					<string key="NSFrameSize">{384, 176}</string>
+					<string key="NSFrameSize">{416, 176}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="254463874"/>
@@ -1670,7 +1692,10 @@
 							<object class="NSImageCell" key="NSCell" id="1055690076">
 								<int key="NSCellFlags">134217728</int>
 								<int key="NSCellFlags2">33554432</int>
-								<reference key="NSContents" ref="700818748"/>
+								<object class="NSCustomResource" key="NSContents">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">logo_2011_horiz</string>
+								</object>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<int key="NSAlign">0</int>
 								<int key="NSScale">3</int>
@@ -1686,6 +1711,7 @@
 							<string key="NSFrame">{{17, 20}, {1246, 24}}</string>
 							<reference key="NSSuperview" ref="780105183"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="1030867759">
@@ -1746,7 +1772,7 @@
 											<string key="NSFrameSize">{293, 398}</string>
 											<reference key="NSSuperview" ref="960294417"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="484380570"/>
+											<reference key="NSNextKeyView" ref="270201206"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
 											<object class="NSTextContainer" key="NSTextContainer" id="509086140">
 												<object class="NSLayoutManager" key="NSLayoutManager">
@@ -1844,6 +1870,7 @@
 									<string key="NSFrame">{{299, 0}, {16, 538}}</string>
 									<reference key="NSSuperview" ref="248807607"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:83</string>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<reference key="NSTarget" ref="248807607"/>
@@ -1871,7 +1898,7 @@
 							<string key="NSFrame">{{20, 20}, {280, 398}}</string>
 							<reference key="NSSuperview" ref="228886046"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="960294417"/>
+							<reference key="NSNextKeyView" ref="484380570"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<int key="NSsFlags">133776</int>
 							<reference key="NSVScroller" ref="270201206"/>
@@ -2006,7 +2033,11 @@
 								</object>
 							</array>
 							<bool key="NSNoAutoenable">YES</bool>
-							<reference key="NSMenuFont" ref="831095184"/>
+							<object class="NSFont" key="NSMenuFont" id="831095184">
+								<string key="NSName">LucidaGrande</string>
+								<double key="NSSize">13</double>
+								<int key="NSfFlags">1044</int>
+							</object>
 						</object>
 					</object>
 					<object class="NSMenuItem" id="11954328">
@@ -2113,12 +2144,7 @@
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
 					</object>
-					<object class="NSColor" key="NSTextColor" id="1000324265">
-						<int key="NSColorSpace">6</int>
-						<string key="NSCatalogName">System</string>
-						<string key="NSColorName">controlTextColor</string>
-						<reference key="NSColor" ref="793076960"/>
-					</object>
+					<reference key="NSTextColor" ref="1000324265"/>
 					<int key="NSVisibleItemCount">5</int>
 					<bool key="NSHasVerticalScroller">YES</bool>
 					<reference key="NSDelegate" ref="440382269"/>
@@ -3778,13 +3804,14 @@
 						<reference key="object" ref="439893737"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="254463874"/>
-							<reference ref="1055274750"/>
-							<reference ref="360587171"/>
+							<reference ref="511819319"/>
 							<reference ref="261768123"/>
 							<reference ref="630138081"/>
 							<reference ref="790166457"/>
+							<reference ref="1055274750"/>
+							<reference ref="360587171"/>
 							<reference ref="462493764"/>
-							<reference ref="511819319"/>
+							<reference ref="346548153"/>
 						</array>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -4630,6 +4657,19 @@
 						<reference key="object" ref="752656302"/>
 						<reference key="parent" ref="511819319"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">894</int>
+						<reference key="object" ref="346548153"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="296073646"/>
+						</array>
+						<reference key="parent" ref="439893737"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">895</int>
+						<reference key="object" ref="296073646"/>
+						<reference key="parent" ref="346548153"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -4845,13 +4885,15 @@
 				<string key="888.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="890.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="891.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="894.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="895.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">893</int>
+			<int key="maxID">895</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5071,10 +5113,7 @@
 			<string key="NSMenuMixedState">{10, 3}</string>
 			<string key="icon">{512, 512}</string>
 			<string key="logo_2011_horiz">{267, 40}</string>
-			<string key="pbutton-play">{43, 43}</string>
-			<string key="pbutton-psd">{43, 43}</string>
-			<string key="pbutton-songinfo">{43, 43}</string>
-			<string key="pbutton-supportrp">{43, 43}</string>
+			<string key="logo_2011_horiz_darker">{267, 40}</string>
 		</dictionary>
 	</data>
 </archive>

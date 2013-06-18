@@ -833,12 +833,14 @@
 
 - (IBAction)showLyricsWindow:(id)sender {
     [self.lyricsWindow makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
     [GTPiwikAddOn trackEvent:@"showLyricsWindow"];
 }
 
 - (IBAction)showSlideshowWindow:(id)sender {
     [self scheduleImagesTimer];
     [self.slideshowWindow makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
     [GTPiwikAddOn trackEvent:@"showSlideshowWindow"];
 }
 

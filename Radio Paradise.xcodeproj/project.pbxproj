@@ -11,6 +11,8 @@
 		64054688170DBC17008A0B43 /* logo_2011_horiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64054686170DBC17008A0B43 /* logo_2011_horiz@2x.png */; };
 		640546B1170DC2DD008A0B43 /* RPWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 640546B0170DC2DC008A0B43 /* RPWindowController.m */; };
 		640546B3170DC6B5008A0B43 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640546B2170DC6B5008A0B43 /* AVFoundation.framework */; };
+		6409E1F317704E3E0014380D /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6409E1F117704E3D0014380D /* menu-icon.png */; };
+		6409E1F417704E3E0014380D /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6409E1F217704E3D0014380D /* menu-icon@2x.png */; };
 		6417FCBB175BEEB5006D9236 /* PiwikTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCAC175BEEB5006D9236 /* PiwikTracker.m */; };
 		6417FCBC175BEEB5006D9236 /* PiwikTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCAD175BEEB5006D9236 /* PiwikTracker.xcdatamodeld */; };
 		6417FCBD175BEEB5006D9236 /* PTCounterDispatchStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCB0175BEEB5006D9236 /* PTCounterDispatchStrategy.m */; };
@@ -45,6 +47,8 @@
 		640546AF170DC2DC008A0B43 /* RPWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPWindowController.h; sourceTree = "<group>"; };
 		640546B0170DC2DC008A0B43 /* RPWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPWindowController.m; sourceTree = "<group>"; };
 		640546B2170DC6B5008A0B43 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6409E1F117704E3D0014380D /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-icon.png"; path = "Radio Paradise/Images/menu-icon.png"; sourceTree = "<group>"; };
+		6409E1F217704E3D0014380D /* menu-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-icon@2x.png"; path = "Radio Paradise/Images/menu-icon@2x.png"; sourceTree = "<group>"; };
 		6417FCAB175BEEB5006D9236 /* PiwikTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiwikTracker.h; sourceTree = "<group>"; };
 		6417FCAC175BEEB5006D9236 /* PiwikTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiwikTracker.m; sourceTree = "<group>"; };
 		6417FCAE175BEEB5006D9236 /* PiwikTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PiwikTracker.xcdatamodel; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 		64054684170DBC07008A0B43 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6409E1F117704E3D0014380D /* menu-icon.png */,
+				6409E1F217704E3D0014380D /* menu-icon@2x.png */,
 				6419CCC6175907420001FEF6 /* sessionitem-icon.png */,
 				6419CCC7175907420001FEF6 /* sessionitem-icon@2x.png */,
 				64054685170DBC17008A0B43 /* logo_2011_horiz.png */,
@@ -290,6 +296,8 @@
 				6419CCC9175907420001FEF6 /* sessionitem-icon@2x.png in Resources */,
 				64AFBC78175C92120036EA67 /* logo_2011_horiz_darker.png in Resources */,
 				64AFBC79175C92120036EA67 /* logo_2011_horiz_darker@2x.png in Resources */,
+				6409E1F317704E3E0014380D /* menu-icon.png in Resources */,
+				6409E1F417704E3E0014380D /* menu-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

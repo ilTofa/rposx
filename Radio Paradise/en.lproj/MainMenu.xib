@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
-		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.SystemVersion">13A476u</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.37</string>
-		<string key="IBDocument.HIToolboxVersion">626.00</string>
+		<string key="IBDocument.AppKitVersion">1238.11</string>
+		<string key="IBDocument.HIToolboxVersion">678.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			<string key="NS.object.0">3084</string>
@@ -65,6 +65,7 @@
 							<string key="NSResourceName">NSMenuMixedState</string>
 						</object>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="110575045"/>
 						<object class="NSMenu" key="NSSubmenu" id="110575045">
 							<string key="NSTitle">Radio Paradise</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -116,6 +117,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 									<string key="NSAction">submenuAction:</string>
+									<reference key="NSTarget" ref="752062318"/>
 									<object class="NSMenu" key="NSSubmenu" id="752062318">
 										<string key="NSTitle">Services</string>
 										<array class="NSMutableArray" key="NSMenuItems"/>
@@ -193,6 +195,7 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="720053764"/>
 						<object class="NSMenu" key="NSSubmenu" id="720053764">
 							<string key="NSTitle">File</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -223,6 +226,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 									<string key="NSAction">submenuAction:</string>
+									<reference key="NSTarget" ref="1065607017"/>
 									<object class="NSMenu" key="NSSubmenu" id="1065607017">
 										<string key="NSTitle">Open Recent</string>
 										<array class="NSMutableArray" key="NSMenuItems">
@@ -318,6 +322,7 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="789758025"/>
 						<object class="NSMenu" key="NSSubmenu" id="789758025">
 							<string key="NSTitle">Edit</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -424,6 +429,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 									<string key="NSAction">submenuAction:</string>
+									<reference key="NSTarget" ref="963351320"/>
 									<object class="NSMenu" key="NSSubmenu" id="963351320">
 										<string key="NSTitle">Find</string>
 										<array class="NSMutableArray" key="NSMenuItems">
@@ -498,6 +504,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 									<string key="NSAction">submenuAction:</string>
+									<reference key="NSTarget" ref="769623530"/>
 									<object class="NSMenu" key="NSSubmenu" id="769623530">
 										<string key="NSTitle">Spelling and Grammar</string>
 										<array class="NSMutableArray" key="NSMenuItems">
@@ -567,6 +574,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 									<string key="NSAction">submenuAction:</string>
+									<reference key="NSTarget" ref="698887838"/>
 									<object class="NSMenu" key="NSSubmenu" id="698887838">
 										<string key="NSTitle">Substitutions</string>
 										<array class="NSMutableArray" key="NSMenuItems">
@@ -645,6 +653,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 									<string key="NSAction">submenuAction:</string>
+									<reference key="NSTarget" ref="579392910"/>
 									<object class="NSMenu" key="NSSubmenu" id="579392910">
 										<string key="NSTitle">Transformations</string>
 										<array class="NSMutableArray" key="NSMenuItems">
@@ -684,6 +693,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 									<string key="NSAction">submenuAction:</string>
+									<reference key="NSTarget" ref="785027613"/>
 									<object class="NSMenu" key="NSSubmenu" id="785027613">
 										<string key="NSTitle">Speech</string>
 										<array class="NSMutableArray" key="NSMenuItems">
@@ -719,6 +729,7 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="941447902"/>
 						<object class="NSMenu" key="NSSubmenu" id="941447902">
 							<string key="NSTitle">Format</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -730,6 +741,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 									<string key="NSAction">submenuAction:</string>
+									<reference key="NSTarget" ref="786677654"/>
 									<object class="NSMenu" key="NSSubmenu" id="786677654">
 										<string key="NSTitle">Font</string>
 										<array class="NSMutableArray" key="NSMenuItems">
@@ -819,6 +831,7 @@
 												<reference key="NSOnImage" ref="35465992"/>
 												<reference key="NSMixedImage" ref="502551668"/>
 												<string key="NSAction">submenuAction:</string>
+												<reference key="NSTarget" ref="175441468"/>
 												<object class="NSMenu" key="NSSubmenu" id="175441468">
 													<string key="NSTitle">Kern</string>
 													<array class="NSMutableArray" key="NSMenuItems">
@@ -865,6 +878,7 @@
 												<reference key="NSOnImage" ref="35465992"/>
 												<reference key="NSMixedImage" ref="502551668"/>
 												<string key="NSAction">submenuAction:</string>
+												<reference key="NSTarget" ref="1058217995"/>
 												<object class="NSMenu" key="NSSubmenu" id="1058217995">
 													<string key="NSTitle">Ligatures</string>
 													<array class="NSMutableArray" key="NSMenuItems">
@@ -903,6 +917,7 @@
 												<reference key="NSOnImage" ref="35465992"/>
 												<reference key="NSMixedImage" ref="502551668"/>
 												<string key="NSAction">submenuAction:</string>
+												<reference key="NSTarget" ref="18263474"/>
 												<object class="NSMenu" key="NSSubmenu" id="18263474">
 													<string key="NSTitle">Baseline</string>
 													<array class="NSMutableArray" key="NSMenuItems">
@@ -1008,6 +1023,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 									<string key="NSAction">submenuAction:</string>
+									<reference key="NSTarget" ref="446991534"/>
 									<object class="NSMenu" key="NSSubmenu" id="446991534">
 										<string key="NSTitle">Text</string>
 										<array class="NSMutableArray" key="NSMenuItems">
@@ -1064,6 +1080,7 @@
 												<reference key="NSOnImage" ref="35465992"/>
 												<reference key="NSMixedImage" ref="502551668"/>
 												<string key="NSAction">submenuAction:</string>
+												<reference key="NSTarget" ref="956096989"/>
 												<object class="NSMenu" key="NSSubmenu" id="956096989">
 													<string key="NSTitle">Writing Direction</string>
 													<array class="NSMutableArray" key="NSMenuItems">
@@ -1197,6 +1214,7 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="466310130"/>
 						<object class="NSMenu" key="NSSubmenu" id="466310130">
 							<string key="NSTitle">View</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -1230,6 +1248,7 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="835318025"/>
 						<object class="NSMenu" key="NSSubmenu" id="835318025">
 							<string key="NSTitle">Window</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -1301,6 +1320,7 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="992780483"/>
 						<object class="NSMenu" key="NSSubmenu" id="992780483">
 							<string key="NSTitle">Help</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -1559,7 +1579,6 @@
 							<string key="NSFrame">{{207, 60}, {191, 21}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSSliderCell" key="NSCell" id="752656302">
@@ -1615,7 +1634,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="254463874"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
 				<string key="NSMinSize">{384, 198}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -1639,7 +1658,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="780105183">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSImageView" id="654050428">
@@ -1655,7 +1674,6 @@
 							</set>
 							<string key="NSFrameSize">{1280, 720}</string>
 							<reference key="NSSuperview" ref="780105183"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1010144047"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSAntiCompressionPriority">{750, 750}</string>
@@ -1685,7 +1703,6 @@
 							</set>
 							<string key="NSFrame">{{17, 655}, {267, 40}}</string>
 							<reference key="NSSuperview" ref="780105183"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="388915225"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1710,8 +1727,6 @@
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{17, 20}, {1246, 24}}</string>
 							<reference key="NSSuperview" ref="780105183"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="1030867759">
@@ -1735,12 +1750,10 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{1280, 720}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="654050428"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<int key="NSWindowCollectionBehavior">128</int>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -1755,7 +1768,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="228886046">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSScrollView" id="248807607">
@@ -1771,8 +1784,7 @@
 											<int key="NSvFlags">2322</int>
 											<string key="NSFrameSize">{293, 398}</string>
 											<reference key="NSSuperview" ref="960294417"/>
-											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="270201206"/>
+											<reference key="NSNextKeyView" ref="484380570"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
 											<object class="NSTextContainer" key="NSTextContainer" id="509086140">
 												<object class="NSLayoutManager" key="NSLayoutManager">
@@ -1838,7 +1850,6 @@
 									</array>
 									<string key="NSFrameSize">{280, 398}</string>
 									<reference key="NSSuperview" ref="248807607"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="960533848"/>
 									<string key="NSReuseIdentifierKey">_NS:11</string>
 									<reference key="NSDocView" ref="960533848"/>
@@ -1869,8 +1880,6 @@
 									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{299, 0}, {16, 538}}</string>
 									<reference key="NSSuperview" ref="248807607"/>
-									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:83</string>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<reference key="NSTarget" ref="248807607"/>
@@ -1883,7 +1892,6 @@
 									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{-100, -100}, {87, 18}}</string>
 									<reference key="NSSuperview" ref="248807607"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="960294417"/>
 									<string key="NSReuseIdentifierKey">_NS:33</string>
 									<bool key="NSEnabled">YES</bool>
@@ -1897,8 +1905,7 @@
 							</array>
 							<string key="NSFrame">{{20, 20}, {280, 398}}</string>
 							<reference key="NSSuperview" ref="228886046"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="484380570"/>
+							<reference key="NSNextKeyView" ref="960294417"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<int key="NSsFlags">133776</int>
 							<reference key="NSVScroller" ref="270201206"/>
@@ -1913,7 +1920,6 @@
 							<int key="NSvFlags">270</int>
 							<string key="NSFrame">{{17, 426}, {286, 34}}</string>
 							<reference key="NSSuperview" ref="228886046"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="248807607"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSAntiCompressionPriority">{250, 750}</string>
@@ -1933,12 +1939,10 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{320, 480}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="736898191"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -1947,21 +1951,18 @@
 				<array class="NSMutableArray" key="NSMenuItems">
 					<object class="NSMenuItem" id="577065575">
 						<reference key="NSMenu" ref="353935360"/>
-						<bool key="NSIsDisabled">YES</bool>
-						<string key="NSTitle">Radio Paradise</string>
+						<string type="base64-UTF8" key="NSTitle">UmFkaW8gUGFyYWRpc2UKQ29tbWVyY2lhbCBGcmVlLCBMaXN0ZW5lciBTdXBwb3J0ZWQgUmFkaW8</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
+						<object class="NSCustomResource" key="NSImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">menu-icon</string>
+						</object>
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
-					</object>
-					<object class="NSMenuItem" id="230100128">
-						<reference key="NSMenu" ref="353935360"/>
-						<bool key="NSIsDisabled">YES</bool>
-						<string key="NSTitle">Commercial Free, Listener Supported Radio</string>
-						<string key="NSKeyEquiv"/>
-						<int key="NSMnemonicLoc">2147483647</int>
-						<reference key="NSOnImage" ref="35465992"/>
-						<reference key="NSMixedImage" ref="502551668"/>
+						<object class="NSAttributedString" key="NSAttributedTitle">
+							<string key="NSString"/>
+						</object>
 					</object>
 					<object class="NSMenuItem" id="282420252">
 						<reference key="NSMenu" ref="353935360"/>
@@ -1997,6 +1998,7 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="935451831"/>
 						<object class="NSMenu" key="NSSubmenu" id="935451831">
 							<string key="NSTitle">Stream Bitrate</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -2052,6 +2054,8 @@
 					</object>
 					<object class="NSMenuItem" id="92974928">
 						<reference key="NSMenu" ref="353935360"/>
+						<bool key="NSIsDisabled">YES</bool>
+						<bool key="NSIsHidden">YES</bool>
 						<string key="NSTitle">Song Information</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -2180,7 +2184,7 @@
 								</object>
 								<object class="NSTextFieldCell" key="NSDataCell">
 									<int key="NSCellFlags">338690112</int>
-									<int key="NSCellFlags2">1024</int>
+									<int key="NSCellFlags2">268436480</int>
 									<reference key="NSSupport" ref="831095184"/>
 									<reference key="NSControlView" ref="976671444"/>
 									<bool key="NSDrawsBackground">YES</bool>
@@ -3173,14 +3177,6 @@
 					<int key="connectionID">869</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">singerMenuItem</string>
-						<reference key="source" ref="43696333"/>
-						<reference key="destination" ref="230100128"/>
-					</object>
-					<int key="connectionID">870</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">supportRP:</string>
 						<reference key="source" ref="43696333"/>
@@ -3259,6 +3255,14 @@
 						<reference key="destination" ref="511819319"/>
 					</object>
 					<int key="connectionID">893</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showSongInformations:</string>
+						<reference key="source" ref="43696333"/>
+						<reference key="destination" ref="577065575"/>
+					</object>
+					<int key="connectionID">896</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -4505,7 +4509,6 @@
 							<reference ref="653673959"/>
 							<reference ref="529010873"/>
 							<reference ref="577065575"/>
-							<reference ref="230100128"/>
 							<reference ref="282420252"/>
 							<reference ref="1015062946"/>
 							<reference ref="573872991"/>
@@ -4581,11 +4584,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">867</int>
 						<reference key="object" ref="577065575"/>
-						<reference key="parent" ref="353935360"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">868</int>
-						<reference key="object" ref="230100128"/>
 						<reference key="parent" ref="353935360"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -4872,7 +4870,6 @@
 				<string key="859.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="860.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="867.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="868.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="871.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="872.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="873.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4893,7 +4890,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">895</int>
+			<int key="maxID">896</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4986,7 +4983,6 @@
 						<string key="playOrStopMenuItem">NSMenuItem</string>
 						<string key="psdButton">NSButton</string>
 						<string key="psdMenuItem">NSMenuItem</string>
-						<string key="singerMenuItem">NSMenuItem</string>
 						<string key="slideshowWindow">NSWindow</string>
 						<string key="slideshowWindowMenuItem">NSMenuItem</string>
 						<string key="songInfoButton">NSButton</string>
@@ -5064,10 +5060,6 @@
 							<string key="name">psdMenuItem</string>
 							<string key="candidateClassName">NSMenuItem</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="singerMenuItem">
-							<string key="name">singerMenuItem</string>
-							<string key="candidateClassName">NSMenuItem</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="slideshowWindow">
 							<string key="name">slideshowWindow</string>
 							<string key="candidateClassName">NSWindow</string>
@@ -5114,6 +5106,7 @@
 			<string key="icon">{512, 512}</string>
 			<string key="logo_2011_horiz">{267, 40}</string>
 			<string key="logo_2011_horiz_darker">{267, 40}</string>
+			<string key="menu-icon">{64, 64}</string>
 		</dictionary>
 	</data>
 </archive>

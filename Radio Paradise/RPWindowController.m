@@ -55,7 +55,6 @@
 @property (weak) IBOutlet NSMenuItem *slideshowWindowMenuItem;
 @property (weak) IBOutlet NSMenuItem *bitrateMenu;
 @property (weak) IBOutlet NSMenuItem *songNameMenuItem;
-@property (weak) IBOutlet NSMenuItem *singerMenuItem;
 @property (weak) IBOutlet NSMenuItem *songInfoMenuItem;
 @property (weak) IBOutlet NSMenuItem *playOrStopMenuItem;
 @property (weak) IBOutlet NSMenuItem *psdMenuItem;
@@ -275,9 +274,9 @@
                  NSArray *songPieces = [metaText componentsSeparatedByString:@" - "];
                  if([songPieces count] == 2) {
                      self.coverImageView.image = [NSImage imageNamed:@"icon"];
+                     self.songNameMenuItem.image = [NSImage imageNamed:@"menu-icon"];
+                     self.songNameMenuItem.title = [NSString stringWithFormat:@"%@\n%@", songPieces[0], songPieces[1]];;
                      self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = [NSString stringWithFormat:@"%@\n%@", songPieces[0], songPieces[1]];
-                     self.songNameMenuItem.title = songPieces[0];
-                     self.singerMenuItem.title = songPieces[1];
                  }
              });
              // remembering songid for forum view
@@ -329,6 +328,14 @@
                       {
                           dispatch_async(dispatch_get_main_queue(), ^{
                               self.coverImageView.image = self.coverImage;
+                              CGImageSourceRef source;
+                              source = CGImageSourceCreateWithData((__bridge CFDataRef)[self.coverImage TIFFRepresentation], NULL);
+                              CGImageRef maskRef =  CGImageSourceCreateImageAtIndex(source, 0, NULL);
+                              CFRelease(source);
+                              NSSize imageSize = { 64.0, 64.0 };
+                              NSImage *tempImage = [[NSImage alloc] initWithCGImage:maskRef size:imageSize];
+                              CGImageRelease(maskRef);
+                              self.songNameMenuItem.image = tempImage;
                           });
                       }
                   }
@@ -378,8 +385,7 @@
 {
     DLog(@"*** interfaceStop");
     self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.rawMetadataString = self.lyricsText.string = @"";
-    self.songNameMenuItem.title = @"Radio Paradise";
-    self.singerMenuItem.title = @"Commercial Free, Listener Supported Radio";
+    self.songNameMenuItem.title = @"Radio Paradise\nCommercial Free, Listener Supported Radio";
     [self.bitrateMenu setEnabled:YES];
     [self.playOrStopButton setTitle:@"Play"];
 //    [self.playOrStopButton setImage:[NSImage imageNamed:@"pbutton-play"]];
@@ -399,6 +405,7 @@
 //    if(self.isLyricsToBeShown)
 //        [self showLyrics:nil];
     self.coverImageView.image = [NSImage imageNamed:@"icon"];
+    self.songNameMenuItem.image = [NSImage imageNamed:@"menu-icon"];
     if(self.theStreamMetadataTimer != nil)
     {
         [self.theStreamMetadataTimer invalidate];

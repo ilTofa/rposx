@@ -1421,7 +1421,7 @@
 								<reference key="NSControlView" ref="261768123"/>
 								<int key="NSButtonFlags">-2038022144</int>
 								<int key="NSButtonFlags2">162</int>
-								<object class="NSFont" key="NSAlternateImage" id="258601571">
+								<object class="NSFont" key="NSAlternateImage" id="931551414">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">11</double>
 									<int key="NSfFlags">16</int>
@@ -1451,7 +1451,7 @@
 								<reference key="NSControlView" ref="630138081"/>
 								<int key="NSButtonFlags">-2038022144</int>
 								<int key="NSButtonFlags2">162</int>
-								<reference key="NSAlternateImage" ref="258601571"/>
+								<reference key="NSAlternateImage" ref="931551414"/>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">400</int>
@@ -1477,7 +1477,7 @@
 								<reference key="NSControlView" ref="790166457"/>
 								<int key="NSButtonFlags">-2038022144</int>
 								<int key="NSButtonFlags2">162</int>
-								<reference key="NSAlternateImage" ref="258601571"/>
+								<reference key="NSAlternateImage" ref="931551414"/>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">400</int>
@@ -1503,7 +1503,7 @@
 								<reference key="NSControlView" ref="462493764"/>
 								<int key="NSButtonFlags">-2038022144</int>
 								<int key="NSButtonFlags2">162</int>
-								<reference key="NSAlternateImage" ref="258601571"/>
+								<reference key="NSAlternateImage" ref="931551414"/>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">400</int>
@@ -1940,6 +1940,24 @@
 			<object class="NSMenu" id="353935360">
 				<string key="NSTitle">Session Menu</string>
 				<array class="NSMutableArray" key="NSMenuItems">
+					<object class="NSMenuItem" id="23674259">
+						<reference key="NSMenu" ref="353935360"/>
+						<string key="NSTitle">About this Radio Paradise Client</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="35465992"/>
+						<reference key="NSMixedImage" ref="502551668"/>
+					</object>
+					<object class="NSMenuItem" id="917999930">
+						<reference key="NSMenu" ref="353935360"/>
+						<bool key="NSIsDisabled">YES</bool>
+						<bool key="NSIsSeparator">YES</bool>
+						<string key="NSTitle"/>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="35465992"/>
+						<reference key="NSMixedImage" ref="502551668"/>
+					</object>
 					<object class="NSMenuItem" id="577065575">
 						<reference key="NSMenu" ref="353935360"/>
 						<string type="base64-UTF8" key="NSTitle">UmFkaW8gUGFyYWRpc2UKQ29tbWVyY2lhbCBGcmVlLCBMaXN0ZW5lciBTdXBwb3J0ZWQgUmFkaW8</string>
@@ -2095,7 +2113,7 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 					</object>
-					<object class="NSMenuItem" id="917999930">
+					<object class="NSMenuItem" id="541208264">
 						<reference key="NSMenu" ref="353935360"/>
 						<bool key="NSIsDisabled">YES</bool>
 						<bool key="NSIsSeparator">YES</bool>
@@ -2259,6 +2277,14 @@
 						<reference key="destination" ref="976324537"/>
 					</object>
 					<int key="connectionID">495</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">orderFrontStandardAboutPanel:</string>
+						<reference key="source" ref="1021"/>
+						<reference key="destination" ref="23674259"/>
+					</object>
+					<int key="connectionID">898</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -4498,7 +4524,6 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="36063563"/>
 							<reference ref="501122481"/>
-							<reference ref="917999930"/>
 							<reference ref="909020788"/>
 							<reference ref="676933399"/>
 							<reference ref="653673959"/>
@@ -4510,6 +4535,9 @@
 							<reference ref="92974928"/>
 							<reference ref="184958766"/>
 							<reference ref="11954328"/>
+							<reference ref="917999930"/>
+							<reference ref="23674259"/>
+							<reference ref="541208264"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -4649,6 +4677,16 @@
 						<int key="objectID">891</int>
 						<reference key="object" ref="752656302"/>
 						<reference key="parent" ref="511819319"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">897</int>
+						<reference key="object" ref="23674259"/>
+						<reference key="parent" ref="353935360"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">899</int>
+						<reference key="object" ref="541208264"/>
+						<reference key="parent" ref="353935360"/>
 					</object>
 				</array>
 			</object>
@@ -4864,13 +4902,15 @@
 				<string key="888.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="890.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="891.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="897.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="899.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">896</int>
+			<int key="maxID">899</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

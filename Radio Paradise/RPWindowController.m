@@ -479,7 +479,7 @@
     DLog(@"*** interfacePsd");
     [self.psdMenuItem setEnabled:YES];
     [self.bitrateMenu setEnabled:NO];
-    [self.playOrStopButton setTitle:@"Stop\nPSD"];
+    [self.playOrStopButton setTitle:@"Stop PSD"];
     NSMutableAttributedString *attributedButtonTitle = [self.psdButton.attributedTitle mutableCopy];
     [attributedButtonTitle addAttribute:NSForegroundColorAttributeName value:[NSColor blueColor] range:NSMakeRange(0,[attributedButtonTitle length] )];
     [self.psdButton setAttributedTitle:attributedButtonTitle];

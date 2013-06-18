@@ -1,0 +1,15 @@
+Radio Paradise is a unique blend of many styles and genres of music, carefully selected and mixed by two real human beings — enhanced by a dazzling photo slideshow, tied in thematically with the songs that are playing. There's nothing else that's quite like it.
+
+You'll hear modern and classic rock, world music, electronica, even a bit of classical and jazz — with no random computer-generated playlists, needless chatter, or commercials. The mix always includes a carefully-selected assortment of new songs & artists, many of which you won't hear anywhere else. Most selections are in English, but Radio Paradise always keeps an ear open for great music in other languages. 
+
+Our specialty is taking a diverse assortment of songs and making them flow together in a way that makes sense harmonically, rhythmically, and lyrically — an art that, to us, is the very essence of radio. If you don't care for what's playing at the moment, our PSD (Play Something Different) feature will select an alternative for you, then return you to the main playlist flow when it's done.
+
+Radio Paradise is also a community. Each song is accompanied by the thoughts & comments about it from your fellow Radio Paradise listeners.
+
+Discover why people all over the world make Radio Paradise their all-day every day soundtrack.
+
+This application is an unofficial client for the Radio Paradise streaming originally built for personal use. The source code is available on GitHub for you to tinker with or change it.
+
+URL: http://www.iltofa.com/rphd
+
+Keywords: radio paradise,paradise,streaming,radio,mp3,aac,photo,rock,progressive,FM,DJ,HD,music,free

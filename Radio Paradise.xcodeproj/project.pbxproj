@@ -31,6 +31,8 @@
 		643499DE1712AB6100012413 /* STKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 643499DD1712AB6100012413 /* STKeychain.m */; };
 		643499E01712AC3300012413 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643499DF1712AC3300012413 /* Security.framework */; };
 		64510446170ECE660060C2FB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64510445170ECE660060C2FB /* CoreMedia.framework */; };
+		64767E3017709B8500697CB7 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64767E2D17709B8500697CB7 /* iRate.bundle */; };
+		64767E3117709B8500697CB7 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64767E2F17709B8500697CB7 /* iRate.m */; };
 		648EB8C3170DB873000185C6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648EB8C2170DB873000185C6 /* Cocoa.framework */; };
 		648EB8CD170DB873000185C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 648EB8CB170DB873000185C6 /* InfoPlist.strings */; };
 		648EB8CF170DB873000185C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 648EB8CE170DB873000185C6 /* main.m */; };
@@ -76,6 +78,9 @@
 		643499DD1712AB6100012413 /* STKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKeychain.m; sourceTree = "<group>"; };
 		643499DF1712AC3300012413 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		64510445170ECE660060C2FB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		64767E2D17709B8500697CB7 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
+		64767E2E17709B8500697CB7 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		64767E2F17709B8500697CB7 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		648EB8BF170DB873000185C6 /* Radio Paradise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radio Paradise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		648EB8C2170DB873000185C6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		648EB8C5170DB873000185C6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -158,9 +163,21 @@
 			path = STKeychain;
 			sourceTree = "<group>";
 		};
+		64767E2C17709B8500697CB7 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				64767E2D17709B8500697CB7 /* iRate.bundle */,
+				64767E2E17709B8500697CB7 /* iRate.h */,
+				64767E2F17709B8500697CB7 /* iRate.m */,
+			);
+			name = iRate;
+			path = iRate/iRate;
+			sourceTree = "<group>";
+		};
 		648EB8B6170DB873000185C6 = {
 			isa = PBXGroup;
 			children = (
+				64767E2C17709B8500697CB7 /* iRate */,
 				6417FCAA175BEEB5006D9236 /* PiwikTracker */,
 				648EB8C9170DB873000185C6 /* Supporting Files */,
 				64054684170DBC07008A0B43 /* Images */,
@@ -298,6 +315,7 @@
 				64AFBC79175C92120036EA67 /* logo_2011_horiz_darker@2x.png in Resources */,
 				6409E1F317704E3E0014380D /* menu-icon.png in Resources */,
 				6409E1F417704E3E0014380D /* menu-icon@2x.png in Resources */,
+				64767E3017709B8500697CB7 /* iRate.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +339,7 @@
 				6417FCC0175BEEB5006D9236 /* PTTimerDispatchStrategy.m in Sources */,
 				6417FCC2175BEEB5006D9236 /* PTUserAgentReader.m in Sources */,
 				6417FCC9175BEF5D006D9236 /* GTPiwikAddOn.m in Sources */,
+				64767E3117709B8500697CB7 /* iRate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

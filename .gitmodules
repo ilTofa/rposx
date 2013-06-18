@@ -1,3 +1,6 @@
 [submodule "PiwikTracker"]
 	path = PiwikTracker
 	url = https://github.com/ilTofa/PiwikTracker
+[submodule "iRate"]
+	path = iRate
+	url = https://github.com/ilTofa/iRate

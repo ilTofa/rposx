@@ -9,10 +9,21 @@
 
 #import "RPAppDelegate.h"
 
+#import "iRate.h"
+
 #define PIWIK_URL @"http://piwik.iltofa.com/"
 #define SITE_ID_TEST @"7"
 
 @implementation RPAppDelegate
+
++ (void)initialize {
+    // Init iRate
+    [iRate sharedInstance].daysUntilPrompt = 5;
+    [iRate sharedInstance].usesUntilPrompt = 15;
+    [iRate sharedInstance].appStoreID = 663334697;
+    [iRate sharedInstance].appStoreGenreID = 0;
+    [iRate sharedInstance].onlyPromptIfMainWindowIsAvailable = NO;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.tracker = [PiwikTracker sharedTracker];

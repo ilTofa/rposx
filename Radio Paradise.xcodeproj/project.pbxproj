@@ -13,18 +13,11 @@
 		640546B3170DC6B5008A0B43 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640546B2170DC6B5008A0B43 /* AVFoundation.framework */; };
 		6409E1F317704E3E0014380D /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6409E1F117704E3D0014380D /* menu-icon.png */; };
 		6409E1F417704E3E0014380D /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6409E1F217704E3D0014380D /* menu-icon@2x.png */; };
-		6417FCBB175BEEB5006D9236 /* PiwikTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCAC175BEEB5006D9236 /* PiwikTracker.m */; };
-		6417FCBC175BEEB5006D9236 /* PiwikTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCAD175BEEB5006D9236 /* PiwikTracker.xcdatamodeld */; };
-		6417FCBD175BEEB5006D9236 /* PTCounterDispatchStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCB0175BEEB5006D9236 /* PTCounterDispatchStrategy.m */; };
-		6417FCBE175BEEB5006D9236 /* PTEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCB2175BEEB5006D9236 /* PTEvent.m */; };
-		6417FCBF175BEEB5006D9236 /* PTRetryDispatchStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCB4175BEEB5006D9236 /* PTRetryDispatchStrategy.m */; };
-		6417FCC0175BEEB5006D9236 /* PTTimerDispatchStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCB6175BEEB5006D9236 /* PTTimerDispatchStrategy.m */; };
-		6417FCC2175BEEB5006D9236 /* PTUserAgentReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCBA175BEEB5006D9236 /* PTUserAgentReader.m */; };
 		6417FCC4175BEF09006D9236 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6417FCC3175BEF09006D9236 /* SystemConfiguration.framework */; };
 		6417FCC6175BEF2F006D9236 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6417FCC5175BEF2F006D9236 /* WebKit.framework */; };
-		6417FCC9175BEF5D006D9236 /* GTPiwikAddOn.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417FCC8175BEF5D006D9236 /* GTPiwikAddOn.m */; };
 		6419CCC8175907420001FEF6 /* sessionitem-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6419CCC6175907420001FEF6 /* sessionitem-icon.png */; };
 		6419CCC9175907420001FEF6 /* sessionitem-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6419CCC7175907420001FEF6 /* sessionitem-icon@2x.png */; };
+		642DB2DE17D63F9B009222F4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648EB8C6170DB873000185C6 /* CoreData.framework */; };
 		643499A517122E5C00012413 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 643499A417122E5C00012413 /* icon.icns */; };
 		643499D9171234C500012413 /* RPLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643499D7171234C500012413 /* RPLoginWindowController.m */; };
 		643499DA171234C500012413 /* RPLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 643499D8171234C500012413 /* RPLoginWindowController.xib */; };
@@ -50,6 +43,10 @@
 		648EB8D9170DB873000185C6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648EB8D7170DB873000185C6 /* MainMenu.xib */; };
 		64AFBC78175C92120036EA67 /* logo_2011_horiz_darker.png in Resources */ = {isa = PBXBuildFile; fileRef = 64AFBC76175C92120036EA67 /* logo_2011_horiz_darker.png */; };
 		64AFBC79175C92120036EA67 /* logo_2011_horiz_darker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64AFBC77175C92120036EA67 /* logo_2011_horiz_darker@2x.png */; };
+		64CB546C17D62B6F00473CDB /* PiwikTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CB546717D629E000473CDB /* PiwikTracker.m */; };
+		64CB546E17D62B7700473CDB /* PTEventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CB546B17D629E000473CDB /* PTEventEntity.m */; };
+		64CB547017D62E1400473CDB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CB546F17D62E1400473CDB /* CoreLocation.framework */; };
+		64ECCAC417D6438100A1B8BD /* piwiktracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 64ECCAC217D6438100A1B8BD /* piwiktracker.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,23 +57,8 @@
 		640546B2170DC6B5008A0B43 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6409E1F117704E3D0014380D /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-icon.png"; path = "Radio Paradise/Images/menu-icon.png"; sourceTree = "<group>"; };
 		6409E1F217704E3D0014380D /* menu-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-icon@2x.png"; path = "Radio Paradise/Images/menu-icon@2x.png"; sourceTree = "<group>"; };
-		6417FCAB175BEEB5006D9236 /* PiwikTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiwikTracker.h; sourceTree = "<group>"; };
-		6417FCAC175BEEB5006D9236 /* PiwikTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiwikTracker.m; sourceTree = "<group>"; };
-		6417FCAE175BEEB5006D9236 /* PiwikTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PiwikTracker.xcdatamodel; sourceTree = "<group>"; };
-		6417FCAF175BEEB5006D9236 /* PTCounterDispatchStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTCounterDispatchStrategy.h; sourceTree = "<group>"; };
-		6417FCB0175BEEB5006D9236 /* PTCounterDispatchStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTCounterDispatchStrategy.m; sourceTree = "<group>"; };
-		6417FCB1175BEEB5006D9236 /* PTEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTEvent.h; sourceTree = "<group>"; };
-		6417FCB2175BEEB5006D9236 /* PTEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTEvent.m; sourceTree = "<group>"; };
-		6417FCB3175BEEB5006D9236 /* PTRetryDispatchStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTRetryDispatchStrategy.h; sourceTree = "<group>"; };
-		6417FCB4175BEEB5006D9236 /* PTRetryDispatchStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTRetryDispatchStrategy.m; sourceTree = "<group>"; };
-		6417FCB5175BEEB5006D9236 /* PTTimerDispatchStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTTimerDispatchStrategy.h; sourceTree = "<group>"; };
-		6417FCB6175BEEB5006D9236 /* PTTimerDispatchStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTTimerDispatchStrategy.m; sourceTree = "<group>"; };
-		6417FCB9175BEEB5006D9236 /* PTUserAgentReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTUserAgentReader.h; sourceTree = "<group>"; };
-		6417FCBA175BEEB5006D9236 /* PTUserAgentReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTUserAgentReader.m; sourceTree = "<group>"; };
 		6417FCC3175BEF09006D9236 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6417FCC5175BEF2F006D9236 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		6417FCC7175BEF5D006D9236 /* GTPiwikAddOn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTPiwikAddOn.h; path = "Radio Paradise/GTPiwikAddOn.h"; sourceTree = SOURCE_ROOT; };
-		6417FCC8175BEF5D006D9236 /* GTPiwikAddOn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTPiwikAddOn.m; path = "Radio Paradise/GTPiwikAddOn.m"; sourceTree = SOURCE_ROOT; };
 		6419CCC6175907420001FEF6 /* sessionitem-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sessionitem-icon.png"; path = "Radio Paradise/Images/sessionitem-icon.png"; sourceTree = "<group>"; };
 		6419CCC7175907420001FEF6 /* sessionitem-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sessionitem-icon@2x.png"; path = "Radio Paradise/Images/sessionitem-icon@2x.png"; sourceTree = "<group>"; };
 		643499A417122E5C00012413 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = icon.icns; path = ../icon.icns; sourceTree = "<group>"; };
@@ -125,6 +107,13 @@
 		648EB8DF170DB88A000185C6 /* Radio Paradise.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Radio Paradise.entitlements"; sourceTree = "<group>"; };
 		64AFBC76175C92120036EA67 /* logo_2011_horiz_darker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_2011_horiz_darker.png; path = "Radio Paradise/Images/logo_2011_horiz_darker.png"; sourceTree = "<group>"; };
 		64AFBC77175C92120036EA67 /* logo_2011_horiz_darker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo_2011_horiz_darker@2x.png"; path = "Radio Paradise/Images/logo_2011_horiz_darker@2x.png"; sourceTree = "<group>"; };
+		64CB546617D629E000473CDB /* PiwikTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PiwikTracker.h; path = PiwikTracker2/PiwikTracker.h; sourceTree = SOURCE_ROOT; };
+		64CB546717D629E000473CDB /* PiwikTracker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PiwikTracker.m; path = PiwikTracker2/PiwikTracker.m; sourceTree = SOURCE_ROOT; };
+		64CB546A17D629E000473CDB /* PTEventEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTEventEntity.h; path = PiwikTracker2/PTEventEntity.h; sourceTree = SOURCE_ROOT; };
+		64CB546B17D629E000473CDB /* PTEventEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTEventEntity.m; path = PiwikTracker2/PTEventEntity.m; sourceTree = SOURCE_ROOT; };
+		64CB546F17D62E1400473CDB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		64CB547117D6365500473CDB /* piwikinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = piwikinfo.h; sourceTree = "<group>"; };
+		64ECCAC317D6438100A1B8BD /* piwiktracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = piwiktracker.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +121,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				642DB2DE17D63F9B009222F4 /* CoreData.framework in Frameworks */,
+				64CB547017D62E1400473CDB /* CoreLocation.framework in Frameworks */,
 				6417FCC6175BEF2F006D9236 /* WebKit.framework in Frameworks */,
 				6417FCC4175BEF09006D9236 /* SystemConfiguration.framework in Frameworks */,
 				643499E01712AC3300012413 /* Security.framework in Frameworks */,
@@ -162,24 +153,14 @@
 		6417FCAA175BEEB5006D9236 /* PiwikTracker */ = {
 			isa = PBXGroup;
 			children = (
-				6417FCC7175BEF5D006D9236 /* GTPiwikAddOn.h */,
-				6417FCC8175BEF5D006D9236 /* GTPiwikAddOn.m */,
-				6417FCAB175BEEB5006D9236 /* PiwikTracker.h */,
-				6417FCAC175BEEB5006D9236 /* PiwikTracker.m */,
-				6417FCAD175BEEB5006D9236 /* PiwikTracker.xcdatamodeld */,
-				6417FCAF175BEEB5006D9236 /* PTCounterDispatchStrategy.h */,
-				6417FCB0175BEEB5006D9236 /* PTCounterDispatchStrategy.m */,
-				6417FCB1175BEEB5006D9236 /* PTEvent.h */,
-				6417FCB2175BEEB5006D9236 /* PTEvent.m */,
-				6417FCB3175BEEB5006D9236 /* PTRetryDispatchStrategy.h */,
-				6417FCB4175BEEB5006D9236 /* PTRetryDispatchStrategy.m */,
-				6417FCB5175BEEB5006D9236 /* PTTimerDispatchStrategy.h */,
-				6417FCB6175BEEB5006D9236 /* PTTimerDispatchStrategy.m */,
-				6417FCB9175BEEB5006D9236 /* PTUserAgentReader.h */,
-				6417FCBA175BEEB5006D9236 /* PTUserAgentReader.m */,
+				64ECCAC217D6438100A1B8BD /* piwiktracker.xcdatamodeld */,
+				64CB546617D629E000473CDB /* PiwikTracker.h */,
+				64CB546717D629E000473CDB /* PiwikTracker.m */,
+				64CB546A17D629E000473CDB /* PTEventEntity.h */,
+				64CB546B17D629E000473CDB /* PTEventEntity.m */,
 			);
 			name = PiwikTracker;
-			path = PiwikTracker/PiwikTracker;
+			path = PiwikTracker2;
 			sourceTree = "<group>";
 		};
 		643499DB1712AB6100012413 /* STKeychain */ = {
@@ -254,6 +235,7 @@
 		648EB8C1170DB873000185C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				64CB546F17D62E1400473CDB /* CoreLocation.framework */,
 				6417FCC5175BEF2F006D9236 /* WebKit.framework */,
 				6417FCC3175BEF09006D9236 /* SystemConfiguration.framework */,
 				643499DF1712AC3300012413 /* Security.framework */,
@@ -301,6 +283,7 @@
 				648EB8CE170DB873000185C6 /* main.m */,
 				648EB8D0170DB873000185C6 /* Radio Paradise-Prefix.pch */,
 				648EB8D1170DB873000185C6 /* Credits.rtf */,
+				64CB547117D6365500473CDB /* piwikinfo.h */,
 			);
 			name = "Supporting Files";
 			path = "Radio Paradise";
@@ -333,7 +316,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RP;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Giacomo Tufano";
 			};
 			buildConfigurationList = 648EB8BA170DB873000185C6 /* Build configuration list for PBXProject "Radio Paradise" */;
@@ -387,14 +370,6 @@
 				640546B1170DC2DD008A0B43 /* RPWindowController.m in Sources */,
 				643499D9171234C500012413 /* RPLoginWindowController.m in Sources */,
 				643499DE1712AB6100012413 /* STKeychain.m in Sources */,
-				6417FCBB175BEEB5006D9236 /* PiwikTracker.m in Sources */,
-				6417FCBC175BEEB5006D9236 /* PiwikTracker.xcdatamodeld in Sources */,
-				6417FCBD175BEEB5006D9236 /* PTCounterDispatchStrategy.m in Sources */,
-				6417FCBE175BEEB5006D9236 /* PTEvent.m in Sources */,
-				6417FCBF175BEEB5006D9236 /* PTRetryDispatchStrategy.m in Sources */,
-				6417FCC0175BEEB5006D9236 /* PTTimerDispatchStrategy.m in Sources */,
-				6417FCC2175BEEB5006D9236 /* PTUserAgentReader.m in Sources */,
-				6417FCC9175BEF5D006D9236 /* GTPiwikAddOn.m in Sources */,
 				64767E3117709B8500697CB7 /* iRate.m in Sources */,
 				6441652B17D5EE6200CD14A7 /* AFHTTPClient.m in Sources */,
 				6441652C17D5EE6200CD14A7 /* AFHTTPRequestOperation.m in Sources */,
@@ -405,6 +380,9 @@
 				6441653117D5EE6200CD14A7 /* AFURLConnectionOperation.m in Sources */,
 				6441653217D5EE6200CD14A7 /* AFXMLRequestOperation.m in Sources */,
 				6441653317D5EE6200CD14A7 /* UIImageView+AFNetworking.m in Sources */,
+				64CB546C17D62B6F00473CDB /* PiwikTracker.m in Sources */,
+				64CB546E17D62B7700473CDB /* PTEventEntity.m in Sources */,
+				64ECCAC417D6438100A1B8BD /* piwiktracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +420,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -475,7 +452,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -500,6 +476,7 @@
 		648EB8DD170DB873000185C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "Radio Paradise/Radio Paradise.entitlements";
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -516,6 +493,7 @@
 		648EB8DE170DB873000185C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "Radio Paradise/Radio Paradise.entitlements";
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -553,13 +531,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		6417FCAD175BEEB5006D9236 /* PiwikTracker.xcdatamodeld */ = {
+		64ECCAC217D6438100A1B8BD /* piwiktracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				6417FCAE175BEEB5006D9236 /* PiwikTracker.xcdatamodel */,
+				64ECCAC317D6438100A1B8BD /* piwiktracker.xcdatamodel */,
 			);
-			currentVersion = 6417FCAE175BEEB5006D9236 /* PiwikTracker.xcdatamodel */;
-			path = PiwikTracker.xcdatamodeld;
+			currentVersion = 64ECCAC317D6438100A1B8BD /* piwiktracker.xcdatamodel */;
+			path = piwiktracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

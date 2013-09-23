@@ -10,12 +10,13 @@
 #import <Cocoa/Cocoa.h>
 
 #import "PiwikTracker.h"
+#import "iRate.h"
 
 // global notifications
 #define kMainUIBusy     @"Action Pending On Main UI"
 #define kMainUIReady    @"Main UI pending"
 
-@interface RPAppDelegate : NSObject <NSApplicationDelegate>
+@interface RPAppDelegate : NSObject <NSApplicationDelegate, iRateDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 

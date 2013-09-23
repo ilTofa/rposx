@@ -9,8 +9,6 @@
 
 #import "RPAppDelegate.h"
 
-#import "iRate.h"
-
 // This header defines PIWIK_URL, SITE_ID and PIWIK_TOKEN (substitute your piwik info)
 #import "piwikinfo.h"
 
@@ -28,10 +26,25 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.tracker = [PiwikTracker sharedInstanceWithBaseURL:[NSURL URLWithString:PIWIK_URL] siteID:SITE_ID authenticationToken:PIWIK_TOKEN];
     self.tracker.debug = NO;
+    [iRate sharedInstance].delegate = self;
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
     return NSTerminateNow;
+}
+
+#pragma mark - iRateDelegate
+
+- (void)iRateUserDidAttemptToRateApp {
+    [[PiwikTracker sharedInstance] sendEventWithCategory:@"rate" action:@"iRateUserDidAttemptToRateApp" label:@""];
+}
+
+- (void)iRateUserDidDeclineToRateApp {
+    [[PiwikTracker sharedInstance] sendEventWithCategory:@"rate" action:@"iRateUserDidDeclineToRateApp" label:@""];
+}
+
+- (void)iRateUserDidRequestReminderToRateApp {
+    [[PiwikTracker sharedInstance] sendEventWithCategory:@"rate" action:@"iRateUserDidRequestReminderToRateApp" label:@""];
 }
 
 @end

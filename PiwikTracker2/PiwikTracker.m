@@ -521,7 +521,7 @@ inline NSString* customVariable(NSString* name, NSString* value) {
   
   NSMutableArray *encodedVariables = [NSMutableArray array];
   [variables enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-    [encodedVariables addObject:[NSString stringWithFormat:@"\"%ld\":%@", idx + 1, obj]];
+    [encodedVariables addObject:[NSString stringWithFormat:@"\"%ld\":%@", (long)idx + 1, obj]];
   }];
   
   return [NSString stringWithFormat:@"{%@}", [encodedVariables componentsJoinedByString:@","]];

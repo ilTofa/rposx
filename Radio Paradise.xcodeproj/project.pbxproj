@@ -33,7 +33,6 @@
 		6441653217D5EE6200CD14A7 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6441652817D5EE6200CD14A7 /* AFXMLRequestOperation.m */; };
 		6441653317D5EE6200CD14A7 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6441652A17D5EE6200CD14A7 /* UIImageView+AFNetworking.m */; };
 		64510446170ECE660060C2FB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64510445170ECE660060C2FB /* CoreMedia.framework */; };
-		64767E3017709B8500697CB7 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64767E2D17709B8500697CB7 /* iRate.bundle */; };
 		64767E3117709B8500697CB7 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64767E2F17709B8500697CB7 /* iRate.m */; };
 		648EB8C3170DB873000185C6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648EB8C2170DB873000185C6 /* Cocoa.framework */; };
 		648EB8CD170DB873000185C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 648EB8CB170DB873000185C6 /* InfoPlist.strings */; };
@@ -88,7 +87,6 @@
 		6441652917D5EE6200CD14A7 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		6441652A17D5EE6200CD14A7 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		64510445170ECE660060C2FB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		64767E2D17709B8500697CB7 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
 		64767E2E17709B8500697CB7 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		64767E2F17709B8500697CB7 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		648EB8BF170DB873000185C6 /* Radio Paradise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radio Paradise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +200,6 @@
 		64767E2C17709B8500697CB7 /* iRate */ = {
 			isa = PBXGroup;
 			children = (
-				64767E2D17709B8500697CB7 /* iRate.bundle */,
 				64767E2E17709B8500697CB7 /* iRate.h */,
 				64767E2F17709B8500697CB7 /* iRate.m */,
 			);
@@ -354,7 +351,6 @@
 				64AFBC79175C92120036EA67 /* logo_2011_horiz_darker@2x.png in Resources */,
 				6409E1F317704E3E0014380D /* menu-icon.png in Resources */,
 				6409E1F417704E3E0014380D /* menu-icon@2x.png in Resources */,
-				64767E3017709B8500697CB7 /* iRate.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

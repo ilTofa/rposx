@@ -1,6 +1,6 @@
 [submodule "iRate"]
 	path = iRate
-	url = https://github.com/ilTofa/iRate
+url=https://github.com/nicklockwood/iRate
 [submodule "AFNetworking"]
 	path = AFNetworking
 	url = https://github.com/AFNetworking/AFNetworking

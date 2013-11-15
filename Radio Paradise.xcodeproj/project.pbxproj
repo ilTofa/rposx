@@ -315,6 +315,11 @@
 				CLASSPREFIX = RP;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Giacomo Tufano";
+				TargetAttributes = {
+					648EB8BE170DB873000185C6 = {
+						DevelopmentTeam = 6483W56522;
+					};
+				};
 			};
 			buildConfigurationList = 648EB8BA170DB873000185C6 /* Build configuration list for PBXProject "Radio Paradise" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -474,7 +479,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "Radio Paradise/Radio Paradise.entitlements";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Radio Paradise/Radio Paradise-Prefix.pch";
@@ -491,14 +496,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "Radio Paradise/Radio Paradise.entitlements";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Radio Paradise/Radio Paradise-Prefix.pch";
 				INFOPLIST_FILE = "Radio Paradise/Radio Paradise-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7CF3C09B-04F3-4945-89F7-08894B782D5B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

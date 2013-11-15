@@ -9,9 +9,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define kRPURL24K @"http://www.radioparadise.com/musiclinks/rp_24aac.m3u"
-#define kRPURL64K @"http://www.radioparadise.com/musiclinks/rp_64aac.m3u"
-#define kRPURL128K @"http://www.radioparadise.com/musiclinks/rp_128aac.m3u"
+#define kRPURL24K @"http://radioparadise.com/m3u/aac-32.m3u"
+#define kRPURL64K @"http://radioparadise.com/m3u/aac-64.m3u"
+#define kRPURL128K @"http://radioparadise.com/m3u/aac-128.m3u"
 
 #define kHDImageURLURL @"http://radioparadise.com/readtxt.php"
 #define kHDImagePSDURL @"http://www.radioparadise.com/ajax_image_ipad.php"

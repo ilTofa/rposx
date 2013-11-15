@@ -746,14 +746,21 @@
 {
     DLog(@"playPSDNow called. Cookie is <%@>", self.cookieString);
     [self interfacePsdPending];
-    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.radioparadise.com/ajax_replace.php?option=0"]];
+    long savedBitrate = [[NSUserDefaults standardUserDefaults] integerForKey:@"bitrate"];
+    if(savedBitrate == 0) {
+        savedBitrate = 2;
+    } else {
+        savedBitrate = savedBitrate - 1;
+    }
+    NSString *psdURLString = [NSString stringWithFormat:@"http://www.radioparadise.com/ajax_replace-x.php?option=0&agent=iOS&bitrate=%ld", savedBitrate];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:psdURLString]];
     [req addValue:self.cookieString forHTTPHeaderField:@"Cookie"];
     [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err) {
          if(data) {
              NSString *retValue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
              retValue = [retValue stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
              NSArray *values = [retValue componentsSeparatedByString:@"|"];
-             if([values count] != 4) {
+             if([values count] != 5) {
                  NSLog(@"ERROR: too many values (%ld) returned from ajax_replace", (unsigned long)[values count]);
                  NSLog(@"retValue: <%@>", retValue);
                  [self playMainStream];
@@ -763,6 +770,7 @@
              NSNumber *psdSongLenght = [values objectAtIndex:1];
              NSNumber * __unused psdSongFadeIn = [values objectAtIndex:2];
              NSNumber * __unused psdSongFadeOut = [values objectAtIndex:3];
+             NSNumber * __unused psdWhatever = [values objectAtIndex:4];
              DLog(@"Got PSD song information: <%@>, should run for %@ ms, with fade-in, fade-out for %@ and %@", psdSongUrl, psdSongLenght, psdSongFadeIn, psdSongFadeOut);
              // reset stream on main thread
              dispatch_async(dispatch_get_main_queue(), ^{

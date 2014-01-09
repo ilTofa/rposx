@@ -793,7 +793,7 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="684"/>
                     </imageView>
                     <imageView id="820">
-                        <rect key="frame" x="17" y="655.00000116138938" width="267" height="40"/>
+                        <rect key="frame" x="17" y="655" width="267" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="logo_2011_horiz" id="821"/>
                     </imageView>
@@ -955,6 +955,9 @@ Commercial Free, Listener Supported Radio</string>
                     <connections>
                         <action selector="terminate:" target="-3" id="843"/>
                     </connections>
+                </menuItem>
+                <menuItem title="Item" id="GEC-ZX-LK8">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
             </items>
         </menu>

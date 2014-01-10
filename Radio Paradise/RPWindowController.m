@@ -247,6 +247,20 @@
     [attributed_title addAttributes:title_options range:[title rangeOfString:singer]];
     [attributed_title addAttributes:sub_title_options range:[title rangeOfString:songName]];
     // finally set our attributed to the menu item
+    
+    
+    NSUserNotification *notification = [[NSUserNotification alloc] init];
+    [notification setTitle:singer];
+    [notification setInformativeText:songName];
+    /* 
+     [notification setSubtitle:@"subtitle"];
+     [notification setDeliveryDate:[NSDate dateWithTimeInterval:1 sinceDate:[NSDate date]]];
+     [notification setSoundName:NSUserNotificationDefaultSoundName];
+    */
+     NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
+   
+    [center deliverNotification:notification];
+    
     return attributed_title;
 }
 

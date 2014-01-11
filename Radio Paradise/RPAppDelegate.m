@@ -10,7 +10,7 @@
 #import "RPAppDelegate.h"
 
 // This header defines PIWIK_URL, SITE_ID and PIWIK_TOKEN (substitute your piwik info)
-//#import "piwikinfo.h"
+#import "piwikinfo.h"
 
 @implementation RPAppDelegate
 
@@ -24,8 +24,8 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-  //  self.tracker = [PiwikTracker sharedInstanceWithBaseURL:[NSURL URLWithString:PIWIK_URL] siteID:SITE_ID authenticationToken:PIWIK_TOKEN];
-   // self.tracker.debug = NO;
+    self.tracker = [PiwikTracker sharedInstanceWithBaseURL:[NSURL URLWithString:PIWIK_URL] siteID:SITE_ID authenticationToken:PIWIK_TOKEN];
+    self.tracker.debug = NO;
     [iRate sharedInstance].delegate = self;
 }
 

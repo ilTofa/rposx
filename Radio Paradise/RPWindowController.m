@@ -23,6 +23,9 @@
 @property double volumeLevel;
 @property (weak) IBOutlet NSSlider *volumeSlider;
 
+@property (copy, nonatomic) NSAttributedString *currentSongMetadata;
+@property (copy, nonatomic) NSAttributedString *lastSongMetadata;
+
 @property (copy, nonatomic) NSString *rawMetadataString;
 @property (copy, nonatomic) NSString *theRedirector;
 @property (copy, nonatomic) NSString *cookieString;
@@ -253,12 +256,18 @@
 
 - (void)updateSongInformationWithSinger:(NSString *)singer andSongName:(NSString *)songName
 {
-    NSAttributedString *currentSongMetadata=[self getSongMetadataStringWithSinger:singer andSongName:songName];
+    self.currentSongMetadata=[self getSongMetadataStringWithSinger:singer andSongName:songName];
+    
+    //Avoid double notifications
+    if ([self.currentSongMetadata isEqualToAttributedString:self.lastSongMetadata])
+        return;
+    
+    self.lastSongMetadata=self.currentSongMetadata;
     self.coverImageView.image = [NSImage imageNamed:@"icon"];
     self.metadataIntoLyrics.stringValue = [NSString stringWithFormat:@"%@\n%@", singer,songName];
-    [self.metadataInfo setAttributedStringValue:currentSongMetadata];
+    [self.metadataInfo setAttributedStringValue:self.currentSongMetadata];
     self.songNameMenuItem.image = [NSImage imageNamed:@"menu-icon"];
-    [self.songNameMenuItem setAttributedTitle:currentSongMetadata];
+    [self.songNameMenuItem setAttributedTitle:self.currentSongMetadata];
     
     //Notification Center stuff
     NSUserNotification *notification = [[NSUserNotification alloc] init];
@@ -342,6 +351,8 @@
                      whenRefresh = @([whenRefresh intValue] + 25);
                  DLog(@"This song will last for %.0f seconds, rescheduling ourselves for refresh", [whenRefresh doubleValue]);
              }
+             /* whenRefresh=@(10); //Produce lots of metadata updates for de-duplication test */
+             
              dispatch_async(dispatch_get_main_queue(), ^{
                  self.theStreamMetadataTimer = [NSTimer scheduledTimerWithTimeInterval:[whenRefresh doubleValue] target:self selector:@selector(metatadaHandler:) userInfo:nil repeats:NO];
              });

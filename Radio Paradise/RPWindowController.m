@@ -100,7 +100,7 @@
 
 -(void)awakeFromNib {
     DLog(@"Initing UI");
-//    self.window.backgroundColor = [NSColor grayColor];
+    //    self.window.backgroundColor = [NSColor grayColor];
     [self.window setExcludedFromWindowsMenu:YES];
     [self.slideshowWindow setContentAspectRatio:NSMakeSize(16.0, 9.0)];
     // reset text
@@ -248,20 +248,30 @@
     [attributed_title addAttributes:sub_title_options range:[title rangeOfString:songName]];
     // finally set our attributed to the menu item
     
+    return attributed_title;
+}
+
+- (void)updateSongInformationWithSinger:(NSString *)singer andSongName:(NSString *)songName
+{
+    NSAttributedString *currentSongMetadata=[self getSongMetadataStringWithSinger:singer andSongName:songName];
+    self.coverImageView.image = [NSImage imageNamed:@"icon"];
+    self.metadataIntoLyrics.stringValue = [NSString stringWithFormat:@"%@\n%@", singer,songName];
+    [self.metadataInfo setAttributedStringValue:currentSongMetadata];
+    self.songNameMenuItem.image = [NSImage imageNamed:@"menu-icon"];
+    [self.songNameMenuItem setAttributedTitle:currentSongMetadata];
     
+    //Notification Center stuff
     NSUserNotification *notification = [[NSUserNotification alloc] init];
     [notification setTitle:singer];
     [notification setInformativeText:songName];
-    /* 
+    /*
      [notification setSubtitle:@"subtitle"];
      [notification setDeliveryDate:[NSDate dateWithTimeInterval:1 sinceDate:[NSDate date]]];
      [notification setSoundName:NSUserNotificationDefaultSoundName];
-    */
-     NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
-   
-    [center deliverNotification:notification];
+     */
+    NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
     
-    return attributed_title;
+    [center deliverNotification:notification];
 }
 
 -(void)metatadaHandler:(NSTimer *)timer
@@ -297,14 +307,9 @@
                  self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.metadataOnSlideShow.stringValue = self.rawMetadataString = metaText;
                  // Update metadata info
                  NSArray *songPieces = [metaText componentsSeparatedByString:@" - "];
-                 if([songPieces count] == 2) {
-                     self.coverImageView.image = [NSImage imageNamed:@"icon"];
-                     self.metadataIntoLyrics.stringValue = [NSString stringWithFormat:@"%@\n%@", songPieces[0], songPieces[1]];
-                     [self.metadataInfo setAttributedStringValue:[self getSongMetadataStringWithSinger:songPieces[0] andSongName:songPieces[1]]];
-                     self.songNameMenuItem.image = [NSImage imageNamed:@"menu-icon"];
-                     [self.songNameMenuItem setAttributedTitle:[self getSongMetadataStringWithSinger:songPieces[0] andSongName:songPieces[1]]];
-                     //                     self.songNameMenuItem.title = [NSString stringWithFormat:@"%@\n%@", songPieces[0], songPieces[1]];;
-                 }
+                 if([songPieces count] == 2)
+                     [self updateSongInformationWithSinger:songPieces[0] andSongName:songPieces[1]];
+                 
              });
              // remembering songid for forum view
              self.currentSongId = [values objectAtIndex:1];
@@ -413,7 +418,7 @@
     DLog(@"*** interfaceStop");
     self.currentSongId = 0;
     self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.rawMetadataString = self.lyricsText.string = @"";
-    [self.songNameMenuItem setAttributedTitle:[self getSongMetadataStringWithSinger:@"Radio Paradise" andSongName:@"Commercial Free, Listener Supported Radio"]];
+    [self updateSongInformationWithSinger:@"Radio Paradise" andSongName:@"Commercial Free, Listener Supported Radio"];
     [self.bitrateMenu setEnabled:YES];
     [self.playOrStopButton setTitle:@"Play"];
     NSMutableAttributedString *attributedButtonTitle = [self.psdButton.attributedTitle mutableCopy];
@@ -770,43 +775,43 @@
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:psdURLString]];
     [req addValue:self.cookieString forHTTPHeaderField:@"Cookie"];
     [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err) {
-         if(data) {
-             NSString *retValue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-             retValue = [retValue stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-             NSArray *values = [retValue componentsSeparatedByString:@"|"];
-             if([values count] != 5) {
-                 NSLog(@"ERROR: too many values (%ld) returned from ajax_replace", (unsigned long)[values count]);
-                 NSLog(@"retValue: <%@>", retValue);
-                 [self playMainStream];
-                 return;
-             }
-             NSString *psdSongUrl = [values objectAtIndex:0];
-             NSNumber *psdSongLenght = [values objectAtIndex:1];
-             NSNumber * __unused psdSongFadeIn = [values objectAtIndex:2];
-             NSNumber * __unused psdSongFadeOut = [values objectAtIndex:3];
-             NSNumber * __unused psdWhatever = [values objectAtIndex:4];
-             DLog(@"Got PSD song information: <%@>, should run for %@ ms, with fade-in, fade-out for %@ and %@", psdSongUrl, psdSongLenght, psdSongFadeIn, psdSongFadeOut);
-             // reset stream on main thread
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 // If PSD is already running...
-                 if(self.isPSDPlaying) {
-                     self.theOldPsdStreamer = self.thePsdStreamer;
-                     [self.thePsdStreamer removeObserver:self forKeyPath:@"status"];
-                 }
-                 // Begin buffering...
-                 self.thePsdStreamer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:psdSongUrl]];
-                 self.thePsdStreamer.volume = self.volumeLevel;
-                 [[PiwikTracker sharedInstance] sendEventWithCategory:@"action" action:@"playPSD" label:@""];
-                 // Add observer for real start and stop.
-                 self.psdDurationInSeconds = @(([psdSongLenght doubleValue] / 1000.0));
-                 [self.thePsdStreamer addObserver:self forKeyPath:@"status" options:0 context:nil];
-             });
-         }
-         else // we have an error in PSD processing, (re)start main stream)
-         {
-             [self playMainStream];
-         }
-     }];
+        if(data) {
+            NSString *retValue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            retValue = [retValue stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+            NSArray *values = [retValue componentsSeparatedByString:@"|"];
+            if([values count] != 5) {
+                NSLog(@"ERROR: too many values (%ld) returned from ajax_replace", (unsigned long)[values count]);
+                NSLog(@"retValue: <%@>", retValue);
+                [self playMainStream];
+                return;
+            }
+            NSString *psdSongUrl = [values objectAtIndex:0];
+            NSNumber *psdSongLenght = [values objectAtIndex:1];
+            NSNumber * __unused psdSongFadeIn = [values objectAtIndex:2];
+            NSNumber * __unused psdSongFadeOut = [values objectAtIndex:3];
+            NSNumber * __unused psdWhatever = [values objectAtIndex:4];
+            DLog(@"Got PSD song information: <%@>, should run for %@ ms, with fade-in, fade-out for %@ and %@", psdSongUrl, psdSongLenght, psdSongFadeIn, psdSongFadeOut);
+            // reset stream on main thread
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // If PSD is already running...
+                if(self.isPSDPlaying) {
+                    self.theOldPsdStreamer = self.thePsdStreamer;
+                    [self.thePsdStreamer removeObserver:self forKeyPath:@"status"];
+                }
+                // Begin buffering...
+                self.thePsdStreamer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:psdSongUrl]];
+                self.thePsdStreamer.volume = self.volumeLevel;
+                [[PiwikTracker sharedInstance] sendEventWithCategory:@"action" action:@"playPSD" label:@""];
+                // Add observer for real start and stop.
+                self.psdDurationInSeconds = @(([psdSongLenght doubleValue] / 1000.0));
+                [self.thePsdStreamer addObserver:self forKeyPath:@"status" options:0 context:nil];
+            });
+        }
+        else // we have an error in PSD processing, (re)start main stream)
+        {
+            [self playMainStream];
+        }
+    }];
 }
 
 - (void)playMainStream

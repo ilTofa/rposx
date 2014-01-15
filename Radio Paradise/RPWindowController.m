@@ -794,11 +794,23 @@
         if(data) {
             NSString *retValue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             retValue = [retValue stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+            if (!retValue || [retValue length] == 0) {
+                // This is an invalid login
+                [STKeychain deleteItemForUsername:@"cookies" andServiceName:@"RP" error:&err];
+                self.cookieString = nil;
+                [self startPSD:self];
+                return;
+            }
             NSArray *values = [retValue componentsSeparatedByString:@"|"];
             if([values count] != 5) {
                 NSLog(@"ERROR: wrong number of values (%ld) returned from ajax_replace", (unsigned long)[values count]);
                 NSLog(@"retValue: <%@>", retValue);
-                [self playMainStream];
+                // This could be from the password changed on the RP web site in itself. Reset the cache so that the next PSD request will trigger a new login and get back to the current stream.
+                self.cookieString = nil;
+                [STKeychain deleteItemForUsername:@"cookies" andServiceName:@"RP" error:&err];
+                NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:@"userName"];
+                [STKeychain deleteItemForUsername:userName andServiceName:@"RP" error:&err];
+                [self startPSD:self];
                 return;
             }
             NSString *psdSongUrl = [values objectAtIndex:0];

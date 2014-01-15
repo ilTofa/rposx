@@ -53,7 +53,7 @@
 - (void)piwikSetup {
     NSLog(@"Setting up piwik");
     self.piwikTracker = [PiwikTracker sharedInstanceWithBaseURL:[NSURL URLWithString:PIWIK_URL] siteID:SITE_ID authenticationToken:PIWIK_TOKEN];
-    self.piwikTracker.debug = YES;
+    self.piwikTracker.debug = NO;
 }
 
 @end

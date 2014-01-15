@@ -796,7 +796,7 @@
             retValue = [retValue stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
             NSArray *values = [retValue componentsSeparatedByString:@"|"];
             if([values count] != 5) {
-                NSLog(@"ERROR: too many values (%ld) returned from ajax_replace", (unsigned long)[values count]);
+                NSLog(@"ERROR: wrong number of values (%ld) returned from ajax_replace", (unsigned long)[values count]);
                 NSLog(@"retValue: <%@>", retValue);
                 [self playMainStream];
                 return;

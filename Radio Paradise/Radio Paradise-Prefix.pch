@@ -7,7 +7,7 @@
     #import <SystemConfiguration/SystemConfiguration.h>
 #endif
 
-#ifdef VERBOSE_DLOG
+#if VERBOSE_DLOG
 #define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
 #define DLog(...) /* */

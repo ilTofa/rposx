@@ -20,6 +20,8 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
-@property (nonatomic, strong) PiwikTracker *tracker;
+@property (nonatomic, strong) PiwikTracker *piwikTracker;
+
+- (void)piwikSetup;
 
 @end

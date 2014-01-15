@@ -488,6 +488,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Radio Paradise/Radio Paradise-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"VERBOSE_DLOG=0",
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "Radio Paradise/Radio Paradise-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";

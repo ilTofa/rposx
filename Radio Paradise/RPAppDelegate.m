@@ -24,8 +24,9 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    self.tracker = [PiwikTracker sharedInstanceWithBaseURL:[NSURL URLWithString:PIWIK_URL] siteID:SITE_ID authenticationToken:PIWIK_TOKEN];
-    self.tracker.debug = NO;
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"disallowPiwik"]) {
+        [self piwikSetup];
+    }
     [iRate sharedInstance].delegate = self;
 }
 
@@ -36,15 +37,23 @@
 #pragma mark - iRateDelegate
 
 - (void)iRateUserDidAttemptToRateApp {
-    [[PiwikTracker sharedInstance] sendEventWithCategory:@"rate" action:@"iRateUserDidAttemptToRateApp" label:@""];
+    [self.piwikTracker sendEventWithCategory:@"rate" action:@"iRateUserDidAttemptToRateApp" label:@""];
 }
 
 - (void)iRateUserDidDeclineToRateApp {
-    [[PiwikTracker sharedInstance] sendEventWithCategory:@"rate" action:@"iRateUserDidDeclineToRateApp" label:@""];
+    [self.piwikTracker sendEventWithCategory:@"rate" action:@"iRateUserDidDeclineToRateApp" label:@""];
 }
 
 - (void)iRateUserDidRequestReminderToRateApp {
-    [[PiwikTracker sharedInstance] sendEventWithCategory:@"rate" action:@"iRateUserDidRequestReminderToRateApp" label:@""];
+    [self.piwikTracker sendEventWithCategory:@"rate" action:@"iRateUserDidRequestReminderToRateApp" label:@""];
+}
+
+#pragma mark piwik setup
+
+- (void)piwikSetup {
+    NSLog(@"Setting up piwik");
+    self.piwikTracker = [PiwikTracker sharedInstanceWithBaseURL:[NSURL URLWithString:PIWIK_URL] siteID:SITE_ID authenticationToken:PIWIK_TOKEN];
+    self.piwikTracker.debug = YES;
 }
 
 @end

@@ -45,6 +45,8 @@
 		64CB546C17D62B6F00473CDB /* PiwikTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CB546717D629E000473CDB /* PiwikTracker.m */; };
 		64CB546E17D62B7700473CDB /* PTEventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CB546B17D629E000473CDB /* PTEventEntity.m */; };
 		64CB547017D62E1400473CDB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CB546F17D62E1400473CDB /* CoreLocation.framework */; };
+		64E4832F1886FDD300DEB470 /* sessionitem-icon-bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E4832D1886FDD300DEB470 /* sessionitem-icon-bw.png */; };
+		64E483301886FDD300DEB470 /* sessionitem-icon-bw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E4832E1886FDD300DEB470 /* sessionitem-icon-bw@2x.png */; };
 		64ECCAC417D6438100A1B8BD /* piwiktracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 64ECCAC217D6438100A1B8BD /* piwiktracker.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +113,8 @@
 		64CB546B17D629E000473CDB /* PTEventEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTEventEntity.m; path = PiwikTracker2/PTEventEntity.m; sourceTree = SOURCE_ROOT; };
 		64CB546F17D62E1400473CDB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		64CB547117D6365500473CDB /* piwikinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = piwikinfo.h; sourceTree = "<group>"; };
+		64E4832D1886FDD300DEB470 /* sessionitem-icon-bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sessionitem-icon-bw.png"; path = "Radio Paradise/Images/sessionitem-icon-bw.png"; sourceTree = "<group>"; };
+		64E4832E1886FDD300DEB470 /* sessionitem-icon-bw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sessionitem-icon-bw@2x.png"; path = "Radio Paradise/Images/sessionitem-icon-bw@2x.png"; sourceTree = "<group>"; };
 		64ECCAC317D6438100A1B8BD /* piwiktracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = piwiktracker.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +144,8 @@
 				6409E1F217704E3D0014380D /* menu-icon@2x.png */,
 				6419CCC6175907420001FEF6 /* sessionitem-icon.png */,
 				6419CCC7175907420001FEF6 /* sessionitem-icon@2x.png */,
+				64E4832D1886FDD300DEB470 /* sessionitem-icon-bw.png */,
+				64E4832E1886FDD300DEB470 /* sessionitem-icon-bw@2x.png */,
 				64054685170DBC17008A0B43 /* logo_2011_horiz.png */,
 				64054686170DBC17008A0B43 /* logo_2011_horiz@2x.png */,
 				64AFBC76175C92120036EA67 /* logo_2011_horiz_darker.png */,
@@ -352,9 +358,11 @@
 				648EB8D3170DB873000185C6 /* Credits.rtf in Resources */,
 				648EB8D9170DB873000185C6 /* MainMenu.xib in Resources */,
 				64054687170DBC17008A0B43 /* logo_2011_horiz.png in Resources */,
+				64E483301886FDD300DEB470 /* sessionitem-icon-bw@2x.png in Resources */,
 				64054688170DBC17008A0B43 /* logo_2011_horiz@2x.png in Resources */,
 				643499A517122E5C00012413 /* icon.icns in Resources */,
 				643499DA171234C500012413 /* RPLoginWindowController.xib in Resources */,
+				64E4832F1886FDD300DEB470 /* sessionitem-icon-bw.png in Resources */,
 				6419CCC8175907420001FEF6 /* sessionitem-icon.png in Resources */,
 				6419CCC9175907420001FEF6 /* sessionitem-icon@2x.png in Resources */,
 				64AFBC78175C92120036EA67 /* logo_2011_horiz_darker.png in Resources */,
@@ -489,7 +497,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Radio Paradise/Radio Paradise-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"VERBOSE_DLOG=0",
+					"VERBOSE_DLOG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);

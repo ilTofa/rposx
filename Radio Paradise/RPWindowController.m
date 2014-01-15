@@ -76,6 +76,7 @@
 @property (weak) IBOutlet NSTextField *metadataOnSlideShow;
 @property (unsafe_unretained) IBOutlet NSWindow *settingsWindow;
 @property (weak) IBOutlet NSButton *allowPiwikButton;
+@property (weak) IBOutlet NSButton *systemMenuIconButton;
 
 - (IBAction)playOrStop:(id)sender;
 - (IBAction)supportRP:(id)sender;
@@ -87,6 +88,7 @@
 - (IBAction)showSlideshowWindow:(id)sender;
 - (IBAction)showSettings:(id)sender;
 - (IBAction)piwikStateChanged:(id)sender;
+- (IBAction)systemMenuIconSelected:(id)sender;
 
 - (IBAction)bitrateSelected:(id)sender;
 
@@ -418,13 +420,26 @@
 
 #pragma mark - UI management
 
+-(void)statusItemIconSetup {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"bwmenuicon"]) {
+        [self.theStatusItem setImage:[NSImage imageNamed:@"sessionitem-icon-bw"]];
+    } else {
+        [self.theStatusItem setImage:[NSImage imageNamed:@"sessionitem-icon"]];
+    }
+}
+
 -(void)statusItemSetup
 {
+    if (self.theStatusItem) {
+        DLog(@"Refreshing icon.");
+        [self statusItemIconSetup];
+        return;
+    }
     DLog(@"Creating status menu.");
     // Init the status menu
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     self.theStatusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
-    [self.theStatusItem setImage:[NSImage imageNamed:@"sessionitem-icon"]];
+    [self statusItemIconSetup];
     [self.theStatusItem setHighlightMode:YES];
     [self.theStatusItem setMenu:self.theStatusMenu];
 }
@@ -930,6 +945,10 @@
         DLog(@"Deactivating piwik");
         ((RPAppDelegate *)[NSApp delegate]).piwikTracker = nil;
     }
+}
+
+- (IBAction)systemMenuIconSelected:(id)sender {
+    [self statusItemIconSetup];
 }
 
 - (void)selectBitrate:(NSInteger)index {

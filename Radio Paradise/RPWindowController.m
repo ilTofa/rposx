@@ -250,44 +250,39 @@
     NSString *title = [NSString stringWithFormat:@"%@\n%@", singer, songName];
     NSMutableAttributedString *attributed_title = [[NSMutableAttributedString alloc] initWithString:title];
     // This is the system default for controls. anything else and it looks off
-    NSDictionary *title_options = [NSDictionary dictionaryWithObjectsAndKeys:[NSFont menuFontOfSize:0],NSFontAttributeName,nil];
-    //make our subtitle a different color as it is just auxillary information
-    NSDictionary *sub_title_options = [NSDictionary dictionaryWithObjectsAndKeys:[NSColor disabledControlTextColor],NSForegroundColorAttributeName,nil];
+    NSDictionary *title_options = @{NSFontAttributeName: [NSFont menuFontOfSize:0]};
+    // make our subtitle a different color as it is just auxillary information
+    NSDictionary *sub_title_options = @{NSForegroundColorAttributeName: [NSColor disabledControlTextColor]};
     // apply our color attributes to the ranges of the string they are applicable to...
     [attributed_title addAttributes:title_options range:[title rangeOfString:singer]];
     [attributed_title addAttributes:sub_title_options range:[title rangeOfString:songName]];
     // finally set our attributed to the menu item
-    
     return attributed_title;
 }
 
 - (void)updateSongInformationWithSinger:(NSString *)singer andSongName:(NSString *)songName
 {
-    self.currentSongMetadata=[self getSongMetadataStringWithSinger:singer andSongName:songName];
+    self.currentSongMetadata = [self getSongMetadataStringWithSinger:singer andSongName:songName];
     
-    //Avoid double notifications
-    if ([self.currentSongMetadata isEqualToAttributedString:self.lastSongMetadata])
+    // Avoid double notifications
+    if ([self.currentSongMetadata isEqualToAttributedString:self.lastSongMetadata]) {
         return;
-    
-    self.lastSongMetadata=self.currentSongMetadata;
+    }
+    self.lastSongMetadata = self.currentSongMetadata;
     self.coverImageView.image = [NSImage imageNamed:@"icon"];
     self.metadataIntoLyrics.stringValue = [NSString stringWithFormat:@"%@\n%@", singer,songName];
     [self.metadataInfo setAttributedStringValue:self.currentSongMetadata];
     self.songNameMenuItem.image = [NSImage imageNamed:@"menu-icon"];
     [self.songNameMenuItem setAttributedTitle:self.currentSongMetadata];
     
-    //Notification Center stuff
-    NSUserNotification *notification = [[NSUserNotification alloc] init];
-    [notification setTitle:singer];
-    [notification setInformativeText:songName];
-    /*
-     [notification setSubtitle:@"subtitle"];
-     [notification setDeliveryDate:[NSDate dateWithTimeInterval:1 sinceDate:[NSDate date]]];
-     [notification setSoundName:NSUserNotificationDefaultSoundName];
-     */
-    NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
-    
-    [center deliverNotification:notification];
+    // Notification Center stuff
+    if ([NSUserNotification class]) {
+        NSUserNotification *notification = [[NSUserNotification alloc] init];
+        [notification setTitle:singer];
+        [notification setInformativeText:songName];
+        [notification setHasActionButton:NO];
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+    }
 }
 
 -(void)metatadaHandler:(NSTimer *)timer

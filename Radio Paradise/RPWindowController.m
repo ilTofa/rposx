@@ -166,7 +166,7 @@
         NSTimeInterval howMuchTimeBetweenImages;
         if ([self.theRedirector isEqualToString:kRPURL24K]) {
             howMuchTimeBetweenImages = 60.0;
-        } if ([self.theRedirector isEqualToString:kRPURL64K]) {
+        } else if ([self.theRedirector isEqualToString:kRPURL64K]) {
             howMuchTimeBetweenImages = 25.0;
         } else {
             howMuchTimeBetweenImages = 15.0;

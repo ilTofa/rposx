@@ -12,6 +12,7 @@
 #define kRPURL24K @"http://radioparadise.com/m3u/aac-32.m3u"
 #define kRPURL64K @"http://radioparadise.com/m3u/aac-64.m3u"
 #define kRPURL128K @"http://radioparadise.com/m3u/aac-128.m3u"
+#define kRPURL320K @"http://radioparadise.com/m3u/aac-320.m3u"
 
 #define kHDImageURLURL @"http://radioparadise.com/readtxt.php"
 #define kHDImagePSDURL @"http://www.radioparadise.com/ajax_image_ipad.php"

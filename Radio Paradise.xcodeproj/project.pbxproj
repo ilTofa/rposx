@@ -319,7 +319,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RP;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Giacomo Tufano";
 				TargetAttributes = {
 					648EB8BE170DB873000185C6 = {
@@ -490,7 +490,6 @@
 		648EB8DD170DB873000185C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "Radio Paradise/Radio Paradise.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
@@ -513,7 +512,6 @@
 		648EB8DE170DB873000185C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "Radio Paradise/Radio Paradise.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";

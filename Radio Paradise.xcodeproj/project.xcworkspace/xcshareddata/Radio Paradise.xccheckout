@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>705B6821-D1CA-432E-84F8-06F0E6D535DF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Radio Paradise</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3EA6525D7F62ED84009EFE25B950B63B079B07B8</key>
+		<string>https://github.com/ilTofa/rposx.git</string>
+		<key>823FA7801445CB41A1B20407B9AF1CDEA08EB4A1</key>
+		<string>https://github.com/nicklockwood/iRate</string>
+		<key>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</key>
+		<string>https://github.com/AFNetworking/AFNetworking</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Radio Paradise.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3EA6525D7F62ED84009EFE25B950B63B079B07B8</key>
+		<string>../..</string>
+		<key>823FA7801445CB41A1B20407B9AF1CDEA08EB4A1</key>
+		<string>../..iRate/</string>
+		<key>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</key>
+		<string>../..AFNetworking/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ilTofa/rposx.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3EA6525D7F62ED84009EFE25B950B63B079B07B8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AFNetworking</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>823FA7801445CB41A1B20407B9AF1CDEA08EB4A1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iRate</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3EA6525D7F62ED84009EFE25B950B63B079B07B8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Radio%20Paradise</string>
+		</dict>
+	</array>
+</dict>
+</plist>

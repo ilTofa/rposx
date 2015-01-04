@@ -55,6 +55,7 @@
 @property (weak) IBOutlet NSMenuItem *menuItem24K;
 @property (weak) IBOutlet NSMenuItem *menuItem64K;
 @property (weak) IBOutlet NSMenuItem *menuItem128K;
+@property (weak) IBOutlet NSMenuItem *menuItem320K;
 @property (weak) IBOutlet NSMenuItem *lyricsWindowMenuItem;
 @property (weak) IBOutlet NSMenuItem *slideshowWindowMenuItem;
 @property (weak) IBOutlet NSMenuItem *bitrateMenu;
@@ -961,6 +962,10 @@
             [self bitrateSelected:self.menuItem128K];
             [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"bitrateChanged" action:@"128Kselected" label:@""];
             break;
+        case 3:
+            [self bitrateSelected:self.menuItem320K];
+            [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"bitrateChanged" action:@"320Kselected" label:@""];
+            break;
         default:
             break;
     }
@@ -968,24 +973,26 @@
 
 - (IBAction)bitrateSelected:(id)sender {
     NSInteger selectedIndex;
+    [self.menuItem24K setState:NSOffState];
+    [self.menuItem64K setState:NSOffState];
+    [self.menuItem128K setState:NSOffState];
+    [self.menuItem320K setState:NSOffState];
     if (sender == self.menuItem24K) {
         selectedIndex = 1;
         self.theRedirector = kRPURL24K;
         [self.menuItem24K setState:NSOnState];
-        [self.menuItem64K setState:NSOffState];
-        [self.menuItem128K setState:NSOffState];
     } else if (sender == self.menuItem64K) {
         selectedIndex = 2;
         self.theRedirector = kRPURL64K;
-        [self.menuItem24K setState:NSOffState];
         [self.menuItem64K setState:NSOnState];
-        [self.menuItem128K setState:NSOffState];
-    } else {
+    } else if (sender == self.menuItem128K) {
         selectedIndex = 3;
         self.theRedirector = kRPURL128K;
-        [self.menuItem24K setState:NSOffState];
-        [self.menuItem64K setState:NSOffState];
         [self.menuItem128K setState:NSOnState];
+    } else {
+        selectedIndex = 4;
+        self.theRedirector = kRPURL320K;
+        [self.menuItem320K setState:NSOnState];
     }
     // Save it for next time (+1 to use 0 as "not saved")
     [[NSUserDefaults standardUserDefaults] setInteger:selectedIndex forKey:@"bitrate"];

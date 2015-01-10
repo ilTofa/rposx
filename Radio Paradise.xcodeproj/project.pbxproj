@@ -120,15 +120,6 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		6417FCAA175BEEB5006D9236 /* PiwikTracker */ = {
-			isa = PBXGroup;
-			children = (
-				64ECCAC217D6438100A1B8BD /* piwiktracker.xcdatamodeld */,
-			);
-			name = PiwikTracker;
-			path = PiwikTracker2;
-			sourceTree = "<group>";
-		};
 		643499DB1712AB6100012413 /* STKeychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				64767E2C17709B8500697CB7 /* iRate */,
-				6417FCAA175BEEB5006D9236 /* PiwikTracker */,
 				648EB8C9170DB873000185C6 /* Supporting Files */,
 				64054684170DBC07008A0B43 /* Images */,
 				648EB8C8170DB873000185C6 /* Radio Paradise */,
@@ -213,6 +203,7 @@
 		648EB8C9170DB873000185C6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				64ECCAC217D6438100A1B8BD /* piwiktracker.xcdatamodeld */,
 				643499A417122E5C00012413 /* icon.icns */,
 				648EB8DF170DB88A000185C6 /* Radio Paradise.entitlements */,
 				648EB8CA170DB873000185C6 /* Radio Paradise-Info.plist */,
@@ -479,7 +470,8 @@
 				64ECCAC317D6438100A1B8BD /* piwiktracker.xcdatamodel */,
 			);
 			currentVersion = 64ECCAC317D6438100A1B8BD /* piwiktracker.xcdatamodel */;
-			path = piwiktracker.xcdatamodeld;
+			name = piwiktracker.xcdatamodeld;
+			path = ../PiwikTracker2/piwiktracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

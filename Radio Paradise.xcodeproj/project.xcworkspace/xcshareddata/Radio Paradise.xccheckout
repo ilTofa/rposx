@@ -24,9 +24,9 @@
 		<key>3EA6525D7F62ED84009EFE25B950B63B079B07B8</key>
 		<string>../..</string>
 		<key>823FA7801445CB41A1B20407B9AF1CDEA08EB4A1</key>
-		<string>../..iRate/</string>
+		<string>../..iRate</string>
 		<key>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</key>
-		<string>../..AFNetworking/</string>
+		<string>../..AFNetworking</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ilTofa/rposx.git</string>
@@ -40,9 +40,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3EA6525D7F62ED84009EFE25B950B63B079B07B8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Radio%20Paradise</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</string>
 			<key>IDESourceControlWCCName</key>
-			<string>AFNetworking</string>
+			<string>Radio%20ParadiseAFNetworking</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
@@ -50,15 +58,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>823FA7801445CB41A1B20407B9AF1CDEA08EB4A1</string>
 			<key>IDESourceControlWCCName</key>
-			<string>iRate</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>3EA6525D7F62ED84009EFE25B950B63B079B07B8</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Radio%20Paradise</string>
+			<string>Radio%20ParadiseiRate</string>
 		</dict>
 	</array>
 </dict>

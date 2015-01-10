@@ -42,8 +42,6 @@
 		648EB8D9170DB873000185C6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648EB8D7170DB873000185C6 /* MainMenu.xib */; };
 		64AFBC78175C92120036EA67 /* logo_2011_horiz_darker.png in Resources */ = {isa = PBXBuildFile; fileRef = 64AFBC76175C92120036EA67 /* logo_2011_horiz_darker.png */; };
 		64AFBC79175C92120036EA67 /* logo_2011_horiz_darker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64AFBC77175C92120036EA67 /* logo_2011_horiz_darker@2x.png */; };
-		64CB546C17D62B6F00473CDB /* PiwikTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CB546717D629E000473CDB /* PiwikTracker.m */; };
-		64CB546E17D62B7700473CDB /* PTEventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CB546B17D629E000473CDB /* PTEventEntity.m */; };
 		64CB547017D62E1400473CDB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CB546F17D62E1400473CDB /* CoreLocation.framework */; };
 		64E4832F1886FDD300DEB470 /* sessionitem-icon-bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E4832D1886FDD300DEB470 /* sessionitem-icon-bw.png */; };
 		64E483301886FDD300DEB470 /* sessionitem-icon-bw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E4832E1886FDD300DEB470 /* sessionitem-icon-bw@2x.png */; };
@@ -107,10 +105,6 @@
 		648EB8DF170DB88A000185C6 /* Radio Paradise.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Radio Paradise.entitlements"; sourceTree = "<group>"; };
 		64AFBC76175C92120036EA67 /* logo_2011_horiz_darker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_2011_horiz_darker.png; path = "Radio Paradise/Images/logo_2011_horiz_darker.png"; sourceTree = "<group>"; };
 		64AFBC77175C92120036EA67 /* logo_2011_horiz_darker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo_2011_horiz_darker@2x.png"; path = "Radio Paradise/Images/logo_2011_horiz_darker@2x.png"; sourceTree = "<group>"; };
-		64CB546617D629E000473CDB /* PiwikTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PiwikTracker.h; path = PiwikTracker2/PiwikTracker.h; sourceTree = SOURCE_ROOT; };
-		64CB546717D629E000473CDB /* PiwikTracker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PiwikTracker.m; path = PiwikTracker2/PiwikTracker.m; sourceTree = SOURCE_ROOT; };
-		64CB546A17D629E000473CDB /* PTEventEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTEventEntity.h; path = PiwikTracker2/PTEventEntity.h; sourceTree = SOURCE_ROOT; };
-		64CB546B17D629E000473CDB /* PTEventEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTEventEntity.m; path = PiwikTracker2/PTEventEntity.m; sourceTree = SOURCE_ROOT; };
 		64CB546F17D62E1400473CDB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		64CB547117D6365500473CDB /* piwikinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = piwikinfo.h; sourceTree = "<group>"; };
 		64E4832D1886FDD300DEB470 /* sessionitem-icon-bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sessionitem-icon-bw.png"; path = "Radio Paradise/Images/sessionitem-icon-bw.png"; sourceTree = "<group>"; };
@@ -158,10 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				64ECCAC217D6438100A1B8BD /* piwiktracker.xcdatamodeld */,
-				64CB546617D629E000473CDB /* PiwikTracker.h */,
-				64CB546717D629E000473CDB /* PiwikTracker.m */,
-				64CB546A17D629E000473CDB /* PTEventEntity.h */,
-				64CB546B17D629E000473CDB /* PTEventEntity.m */,
 			);
 			name = PiwikTracker;
 			path = PiwikTracker2;
@@ -394,8 +384,6 @@
 				6441653117D5EE6200CD14A7 /* AFURLConnectionOperation.m in Sources */,
 				6441653217D5EE6200CD14A7 /* AFXMLRequestOperation.m in Sources */,
 				6441653317D5EE6200CD14A7 /* UIImageView+AFNetworking.m in Sources */,
-				64CB546C17D62B6F00473CDB /* PiwikTracker.m in Sources */,
-				64CB546E17D62B7700473CDB /* PTEventEntity.m in Sources */,
 				64ECCAC417D6438100A1B8BD /* piwiktracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

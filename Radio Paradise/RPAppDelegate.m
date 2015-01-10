@@ -24,36 +24,11 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"disallowPiwik"]) {
-        [self piwikSetup];
-    }
     [iRate sharedInstance].delegate = self;
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
     return NSTerminateNow;
-}
-
-#pragma mark - iRateDelegate
-
-- (void)iRateUserDidAttemptToRateApp {
-    [self.piwikTracker sendEventWithCategory:@"rate" action:@"iRateUserDidAttemptToRateApp" label:@""];
-}
-
-- (void)iRateUserDidDeclineToRateApp {
-    [self.piwikTracker sendEventWithCategory:@"rate" action:@"iRateUserDidDeclineToRateApp" label:@""];
-}
-
-- (void)iRateUserDidRequestReminderToRateApp {
-    [self.piwikTracker sendEventWithCategory:@"rate" action:@"iRateUserDidRequestReminderToRateApp" label:@""];
-}
-
-#pragma mark piwik setup
-
-- (void)piwikSetup {
-    NSLog(@"Setting up piwik");
-    self.piwikTracker = [PiwikTracker sharedInstanceWithBaseURL:[NSURL URLWithString:PIWIK_URL] siteID:SITE_ID authenticationToken:PIWIK_TOKEN];
-    self.piwikTracker.debug = NO;
 }
 
 @end

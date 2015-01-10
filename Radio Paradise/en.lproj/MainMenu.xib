@@ -750,7 +750,6 @@
         <customObject id="420" customClass="NSFontManager"/>
         <customObject id="670" customClass="RPWindowController">
             <connections>
-                <outlet property="allowPiwikButton" destination="x8p-fX-C2q" id="zFz-cd-IFI"/>
                 <outlet property="bitrateMenu" destination="839" id="866"/>
                 <outlet property="coverImageView" destination="601" id="679"/>
                 <outlet property="hdImage" destination="683" id="716"/>
@@ -977,54 +976,15 @@ Commercial Free, Listener Supported Radio</string>
         <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="FUG-B2-Dnu">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="283" y="305" width="480" height="164"/>
+            <rect key="contentRect" x="283" y="305" width="480" height="54"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="nMI-NL-Vnn">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="164"/>
+                <rect key="frame" x="0.0" y="5" width="480" height="54"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" title="piwik" borderType="line" titlePosition="noTitle" id="jpR-Qf-fpZ">
-                        <rect key="frame" x="17" y="38" width="446" height="108"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="444" height="106"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <button id="x8p-fX-C2q">
-                                    <rect key="frame" x="16" y="80" width="444" height="18"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="check" title="Allow Anonymous Analytics via piwik." bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="4TI-so-QM9">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="piwikStateChanged:" target="670" id="SwI-tO-jrS"/>
-                                        <binding destination="S9i-xg-aXp" name="value" keyPath="values.disallowPiwik" id="Ljw-Vh-rjl">
-                                            <dictionary key="options">
-                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                            </dictionary>
-                                        </binding>
-                                    </connections>
-                                </button>
-                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="cYP-ZG-UAA">
-                                    <rect key="frame" x="16" y="14" width="412" height="60"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="7qn-ia-te4">
-                                        <font key="font" metaFont="miniSystem"/>
-                                        <string key="title">With your permission, this program will track some basic information about your system and the features you use so to focalize future development efforts.
-Data are (really) fully anonymous and are stored to private servers and never shared or consolidated with anyone.</string>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
-                            </subviews>
-                        </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </box>
                     <button id="mSj-fX-PBw">
                         <rect key="frame" x="18" y="18" width="444" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Black &amp; White System Menu Icon" bezelStyle="regularSquare" imagePosition="left" inset="2" id="g7R-DZ-TKs">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -1036,6 +996,7 @@ Data are (really) fully anonymous and are stored to private servers and never sh
                     </button>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="491" y="554"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="S9i-xg-aXp"/>
     </objects>

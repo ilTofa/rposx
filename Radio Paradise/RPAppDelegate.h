@@ -9,7 +9,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "PiwikTracker.h"
 #import "iRate.h"
 
 // global notifications
@@ -19,9 +18,5 @@
 @interface RPAppDelegate : NSObject <NSApplicationDelegate, iRateDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
-
-@property (nonatomic, strong) PiwikTracker *piwikTracker;
-
-- (void)piwikSetup;
 
 @end

@@ -14,7 +14,6 @@
 #import "RPAppDelegate.h"
 #import "RPLoginWindowController.h"
 #import "STKeychain.h"
-#import "PiwikTracker.h"
 
 @interface RPWindowController () <RPLoginWindowControllerDelegate>
 
@@ -76,7 +75,6 @@
 @property (weak) IBOutlet NSTextField *metadataIntoLyrics;
 @property (weak) IBOutlet NSTextField *metadataOnSlideShow;
 @property (unsafe_unretained) IBOutlet NSWindow *settingsWindow;
-@property (weak) IBOutlet NSButton *allowPiwikButton;
 @property (weak) IBOutlet NSButton *systemMenuIconButton;
 
 - (IBAction)playOrStop:(id)sender;
@@ -88,7 +86,6 @@
 - (IBAction)showLyricsWindow:(id)sender;
 - (IBAction)showSlideshowWindow:(id)sender;
 - (IBAction)showSettings:(id)sender;
-- (IBAction)piwikStateChanged:(id)sender;
 - (IBAction)systemMenuIconSelected:(id)sender;
 
 - (IBAction)bitrateSelected:(id)sender;
@@ -124,7 +121,6 @@
     self.volumeSlider.intValue = 100 * self.volumeLevel;
     // Set menu
     [self statusItemSetup];
-    [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendView:@"mainUILoaded"];
     // Let's see if we already have a preferred bitrate
     long savedBitrate = [[NSUserDefaults standardUserDefaults] integerForKey:@"bitrate"];
     if(savedBitrate == 0) {
@@ -142,14 +138,13 @@
 - (void)windowWillClose:(NSNotification *)notification {
     if(notification.object == self.slideshowWindow) {
         DLog(@"Slideshow Window is closing");
-        [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"window" action:@"hideSlidesWindow" label:@""];
         [self unscheduleImagesTimer];
     }
     if (notification.object == self.lyricsWindow) {
-        [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"window" action:@"hideLyricsWindow" label:@""];
+        // TODO: change menu
     }
     if(notification.object == self.window) {
-        [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"window" action:@"hideMainUIWindow" label:@""];
+        // TODO: change menu
     }
 }
 
@@ -750,7 +745,6 @@
     {
         // If PSD is running, simply get back to the main stream by firing the end timer...
         DLog(@"Manually firing the PSD timer (starting fading now)");
-        [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"action" action:@"stopPSD" label:@""];
         [self fadeOutCurrentTrackNow:self.thePsdStreamer forSeconds:kPsdFadeOutTime];
         [self.thePsdTimer fire];
     }
@@ -758,7 +752,6 @@
     {
         [self interfaceStopPending];
         // Process stop request.
-        [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"action" action:@"stop" label:@""];
         [self.theStreamer pause];
         // Let's give the stream a couple seconds to really stop itself
         double delayInSeconds = 1.0;    //was 2.0: MONITOR!
@@ -840,7 +833,6 @@
                 // Begin buffering...
                 self.thePsdStreamer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:psdSongUrl]];
                 self.thePsdStreamer.volume = self.volumeLevel;
-                [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"action" action:@"playPSD" label:@""];
                 // Add observer for real start and stop.
                 self.psdDurationInSeconds = @(([psdSongLenght doubleValue] / 1000.0));
                 [self.thePsdStreamer addObserver:self forKeyPath:@"status" options:0 context:nil];
@@ -858,7 +850,6 @@
     [self interfacePlayPending];
     self.theStreamer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:self.theRedirector]];
     self.theStreamer.volume = self.volumeLevel;
-    [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"action" action:@"play" label:@""];
     [self activateNotifications];
     [self.theStreamer play];
 }
@@ -910,37 +901,22 @@
     DLog(@"called.");
     [self.window makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
-    [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendView:@"showMainUIWindow"];
 }
 
 - (IBAction)showLyricsWindow:(id)sender {
     [self.lyricsWindow makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
-    [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendView:@"showLyricsWindow"];
 }
 
 - (IBAction)showSlideshowWindow:(id)sender {
     [self scheduleImagesTimer];
     [self.slideshowWindow makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
-    [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendView:@"showSlideshowWindow"];
 }
 
 - (IBAction)showSettings:(id)sender {
     [self.settingsWindow makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
-    [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendView:@"settingsWindow"];
-}
-
-- (IBAction)piwikStateChanged:(id)sender {
-    NSLog(@"Button state changed. Now is :%ld", (long)self.allowPiwikButton.state);
-    if (self.allowPiwikButton.state == NSOnState) {
-        DLog(@"Activating piwik");
-        [((RPAppDelegate *)[NSApp delegate]) piwikSetup];
-    } else {
-        DLog(@"Deactivating piwik");
-        ((RPAppDelegate *)[NSApp delegate]).piwikTracker = nil;
-    }
 }
 
 - (IBAction)systemMenuIconSelected:(id)sender {
@@ -952,19 +928,15 @@
     {
         case 0:
             [self bitrateSelected:self.menuItem24K];
-            [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"bitrateChanged" action:@"24Kselected" label:@""];
             break;
         case 1:
             [self bitrateSelected:self.menuItem64K];
-            [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"bitrateChanged" action:@"64Kselected" label:@""];
             break;
         case 2:
             [self bitrateSelected:self.menuItem128K];
-            [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"bitrateChanged" action:@"128Kselected" label:@""];
             break;
         case 3:
             [self bitrateSelected:self.menuItem320K];
-            [((RPAppDelegate *)[NSApp delegate]).piwikTracker sendEventWithCategory:@"bitrateChanged" action:@"320Kselected" label:@""];
             break;
         default:
             break;

@@ -9,9 +9,6 @@
 
 #import "RPAppDelegate.h"
 
-// This header defines PIWIK_URL, SITE_ID and PIWIK_TOKEN (substitute your piwik info)
-#import "piwikinfo.h"
-
 @implementation RPAppDelegate
 
 + (void)initialize {
@@ -20,6 +17,7 @@
     [iRate sharedInstance].usesUntilPrompt = 15;
     [iRate sharedInstance].appStoreID = 663334697;
     [iRate sharedInstance].appStoreGenreID = 0;
+    [iRate sharedInstance].promptForNewVersionIfUserRated = YES;
     [iRate sharedInstance].onlyPromptIfMainWindowIsAvailable = NO;
 }
 

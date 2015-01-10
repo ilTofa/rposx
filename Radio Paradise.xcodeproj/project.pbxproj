@@ -78,7 +78,6 @@
 		64AFBC76175C92120036EA67 /* logo_2011_horiz_darker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_2011_horiz_darker.png; path = "Radio Paradise/Images/logo_2011_horiz_darker.png"; sourceTree = "<group>"; };
 		64AFBC77175C92120036EA67 /* logo_2011_horiz_darker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo_2011_horiz_darker@2x.png"; path = "Radio Paradise/Images/logo_2011_horiz_darker@2x.png"; sourceTree = "<group>"; };
 		64CB546F17D62E1400473CDB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		64CB547117D6365500473CDB /* piwikinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = piwikinfo.h; sourceTree = "<group>"; };
 		64E4832D1886FDD300DEB470 /* sessionitem-icon-bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sessionitem-icon-bw.png"; path = "Radio Paradise/Images/sessionitem-icon-bw.png"; sourceTree = "<group>"; };
 		64E4832E1886FDD300DEB470 /* sessionitem-icon-bw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sessionitem-icon-bw@2x.png"; path = "Radio Paradise/Images/sessionitem-icon-bw@2x.png"; sourceTree = "<group>"; };
 		64ECCAC317D6438100A1B8BD /* piwiktracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = piwiktracker.xcdatamodel; sourceTree = "<group>"; };
@@ -211,7 +210,6 @@
 				648EB8CE170DB873000185C6 /* main.m */,
 				648EB8D0170DB873000185C6 /* Radio Paradise-Prefix.pch */,
 				648EB8D1170DB873000185C6 /* Credits.rtf */,
-				64CB547117D6365500473CDB /* piwikinfo.h */,
 			);
 			name = "Supporting Files";
 			path = "Radio Paradise";

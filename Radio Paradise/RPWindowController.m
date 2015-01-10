@@ -245,6 +245,10 @@
 - (NSAttributedString *)getSongMetadataStringWithSinger:(NSString *)singer andSongName:(NSString *)songName {
     NSString *title = [NSString stringWithFormat:@"%@\n%@", singer, songName];
     NSMutableAttributedString *attributed_title = [[NSMutableAttributedString alloc] initWithString:title];
+    // Center text
+    NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
+    paragraphStyle.alignment = kCTTextAlignmentCenter;
+    [attributed_title addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [[attributed_title string] length])];
     // This is the system default for controls. anything else and it looks off
     NSDictionary *title_options = @{NSFontAttributeName: [NSFont menuFontOfSize:0]};
     // make our subtitle a different color as it is just auxillary information

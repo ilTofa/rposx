@@ -657,25 +657,25 @@
         <window title="Radio Paradise" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="371">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="416" height="171"/>
+            <rect key="contentRect" x="335" y="390" width="190" height="369"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
-            <value key="minSize" type="size" width="416" height="171"/>
-            <value key="maxSize" type="size" width="416" height="171"/>
+            <value key="minSize" type="size" width="190" height="396"/>
+            <value key="maxSize" type="size" width="190" height="396"/>
             <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="416" height="171"/>
+                <rect key="frame" x="0.0" y="5" width="190" height="369"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="624">
-                        <rect key="frame" x="165" y="127" width="234" height="34"/>
+                        <rect key="frame" x="-2" y="143" width="194" height="28"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingMiddle" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" title="Song Name Singer" allowsEditingTextAttributes="YES" id="625">
-                            <font key="font" metaFont="system"/>
+                        <textFieldCell key="cell" lineBreakMode="truncatingMiddle" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Song Name Singer" allowsEditingTextAttributes="YES" id="625">
+                            <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" id="542">
-                        <rect key="frame" x="164" y="51" width="72" height="28"/>
+                        <rect key="frame" x="10" y="77" width="72" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" title="Play" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="543">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -686,7 +686,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="571">
-                        <rect key="frame" x="164" y="87" width="72" height="28"/>
+                        <rect key="frame" x="108" y="77" width="72" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" title="PSD" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="572">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -697,7 +697,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="577">
-                        <rect key="frame" x="324" y="87" width="72" height="28"/>
+                        <rect key="frame" x="10" y="43" width="72" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" title="Song Info" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="578">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -708,7 +708,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="587">
-                        <rect key="frame" x="244" y="87" width="72" height="28"/>
+                        <rect key="frame" x="108" y="43" width="72" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" title="Support RP" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="588">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -719,28 +719,29 @@
                         </connections>
                     </button>
                     <imageView id="601">
-                        <rect key="frame" x="17" y="17" width="142" height="142"/>
+                        <rect key="frame" x="0.0" y="179" width="190" height="190"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="photo" image="icon" id="602"/>
-                    </imageView>
-                    <imageView id="651">
-                        <rect key="frame" x="180" y="6" width="200" height="47"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo_2011_horiz_darker" id="652"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="icon" id="602"/>
                     </imageView>
                     <slider verticalHuggingPriority="750" id="890">
-                        <rect key="frame" x="244" y="55" width="154" height="21"/>
+                        <rect key="frame" x="8" y="113" width="174" height="21"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="891"/>
                         <connections>
                             <action selector="sliderChanged:" target="670" id="892"/>
                         </connections>
                     </slider>
+                    <imageView id="651">
+                        <rect key="frame" x="0.0" y="0.0" width="190" height="44"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo_2011_horiz_darker" id="652"/>
+                    </imageView>
                 </subviews>
             </view>
             <connections>
                 <outlet property="delegate" destination="670" id="828"/>
             </connections>
+            <point key="canvasLocation" x="-384" y="280.5"/>
         </window>
         <customObject id="494" customClass="RPAppDelegate">
             <connections>

@@ -560,12 +560,26 @@
 {
     DLog(@"*** activateNotifications");
     [self.theStreamer addObserver:self forKeyPath:@"status" options:0 context:nil];
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(appWillSleep:) name:NSWorkspaceWillSleepNotification object:NULL];
 }
 
 -(void)removeNotifications
 {
     DLog(@"*** removeNotifications");
     [self.theStreamer removeObserver:self forKeyPath:@"status"];
+    [[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self name:NSWorkspaceWillSleepNotification object:NULL];
+}
+
+-(void)appWillSleep:(NSNotification *)notification {
+    DLog(@"System is going to sleep, stop play (and wait for resume)");
+    [self stopPressed:nil];
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(appIsAwake:) name:NSWorkspaceDidWakeNotification object: NULL];
+}
+
+-(void)appIsAwake:(NSNotification *)notification {
+    DLog(@"Awake from sleep, received notification so (re)start play");
+    [[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self name:NSWorkspaceDidWakeNotification object:NULL];
+    [self playOrStop:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

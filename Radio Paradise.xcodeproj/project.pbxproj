@@ -416,7 +416,7 @@
 				INFOPLIST_FILE = "Radio Paradise/Radio Paradise-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0f9fda9f-a5a1-4a49-99e0-a31eee22c1fb";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -433,7 +433,7 @@
 				INFOPLIST_FILE = "Radio Paradise/Radio Paradise-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0f9fda9f-a5a1-4a49-99e0-a31eee22c1fb";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3EA6525D7F62ED84009EFE25B950B63B079B07B8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : 0,
+    "823FA7801445CB41A1B20407B9AF1CDEA08EB4A1" : 0,
+    "3EA6525D7F62ED84009EFE25B950B63B079B07B8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "705B6821-D1CA-432E-84F8-06F0E6D535DF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : "Radio%20ParadiseAFNetworking",
+    "823FA7801445CB41A1B20407B9AF1CDEA08EB4A1" : "Radio%20ParadiseiRate",
+    "3EA6525D7F62ED84009EFE25B950B63B079B07B8" : "Radio%20Paradise"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Radio Paradise",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Radio Paradise.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ilTofa\/rposx.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3EA6525D7F62ED84009EFE25B950B63B079B07B8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nicklockwood\/iRate",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "823FA7801445CB41A1B20407B9AF1CDEA08EB4A1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/AFNetworking\/AFNetworking",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8"
+    }
+  ]
+}

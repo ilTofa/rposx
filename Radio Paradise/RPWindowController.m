@@ -247,7 +247,7 @@
     NSMutableAttributedString *attributed_title = [[NSMutableAttributedString alloc] initWithString:title];
     // Center text
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
-    paragraphStyle.alignment = kCTTextAlignmentCenter;
+    paragraphStyle.alignment = NSCenterTextAlignment;
     [attributed_title addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [[attributed_title string] length])];
     // This is the system default for controls. anything else and it looks off
     NSDictionary *title_options = @{NSFontAttributeName: [NSFont menuFontOfSize:0]};

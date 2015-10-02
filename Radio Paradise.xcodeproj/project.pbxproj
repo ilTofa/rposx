@@ -409,7 +409,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Radio Paradise/Radio Paradise-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"VERBOSE_DLOG=0",
+					"VERBOSE_DLOG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);

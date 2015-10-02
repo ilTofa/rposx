@@ -300,9 +300,9 @@
         [req addValue:self.cookieString forHTTPHeaderField:@"Cookie"];
     [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err)
      {
-         DLog(@"metadata received %@ ", (data) ? @"successfully." : @"with errors.");
          if(data)
          {
+             DLog(@"metadata received succesfully.");
              // Get name and massage it (it's web encoded and with triling spaces)
              NSString *stringData = [[NSString alloc]  initWithBytes:[data bytes] length:[data length] encoding: NSUTF8StringEncoding];
              NSArray *values = [stringData componentsSeparatedByString:@"|"];
@@ -408,6 +408,8 @@
                       });
                   }
               }];
+         } else {
+             ALog(@"Error receiving metadata: %@.", err);
          }
      }];
 }

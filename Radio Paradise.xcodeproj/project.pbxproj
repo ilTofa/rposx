@@ -242,7 +242,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RP;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Giacomo Tufano";
 				TargetAttributes = {
 					648EB8BE170DB873000185C6 = {
@@ -355,6 +355,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -414,6 +415,7 @@
 				);
 				INFOPLIST_FILE = "Radio Paradise/Radio Paradise-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.iltofa.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -430,6 +432,7 @@
 				GCC_PREFIX_HEADER = "Radio Paradise/Radio Paradise-Prefix.pch";
 				INFOPLIST_FILE = "Radio Paradise/Radio Paradise-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.iltofa.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

@@ -230,51 +230,47 @@
 -(void)loadNewImage:(NSTimer *)timer
 {
     NSMutableURLRequest *req;
-    if(self.isPSDPlaying)
-    {
+    if(self.isPSDPlaying) {
         DLog(@"Requesting PSD image");
         req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:kHDImagePSDURL]];
         [req addValue:self.cookieString forHTTPHeaderField:@"Cookie"];
-    }
-    else
-    {
+    } else {
         req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:kHDImageURLURL]];
     }
     [req setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
     [req addValue:@"no-cache" forHTTPHeaderField:@"Cache-Control"];
-    [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err)
-     {
-         if(data)
-         {
+    [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err) {
+         if(data) {
              NSString *imageUrl = [[[NSString alloc]  initWithBytes:[data bytes] length:[data length] encoding: NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-             if(imageUrl)
-             {
+             DLog(@"image URL: %@", imageUrl);
+             NSRange range = [imageUrl rangeOfString:@"|"];
+             if (range.location != NSNotFound) {
+                 imageUrl = [[imageUrl substringToIndex:range.location] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                 DLog(@"Trimmed string to: %@", imageUrl);
+             }
+             if(imageUrl) {
                  NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:imageUrl]];
-                 [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err)
-                  {
-                      if(data)
-                      {
+                 [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err) {
+                      if(data) {
                           NSImage *temp = [[NSImage alloc] initWithData:data];
                           DLog(@"Loaded %@, sending it to screen", [res URL]);
                           // Protect from 404's
-                          if(temp)
-                          {
+                          if(temp) {
                               // load images on the main thread
                               dispatch_async(dispatch_get_main_queue(), ^{
                                   self.hdImage.image = temp;
                                   self.hdImage.hidden = NO;
                               });
                           }
-                      }
-                      else
-                      {
+                      } else {
                           DLog(@"Failed loading image from: <%@>", [res URL]);
                       }
                   }];
-             }
-             else {
+             } else {
                  DLog(@"Got an invalid URL");
              }
+         } else {
+             DLog(@"Error loading image: %@", err);
          }
      }];
 }
@@ -330,7 +326,7 @@
     // This function get metadata directly in case of PSD (no stream metadata)
     DLog(@"This is metatadaHandler: called %@", (timer == nil) ? @"directly" : @"from the 'self-timer'");
     // Get song name first
-    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.radioparadise.com/ajax_rp2_playlist_ipad.php"]];
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:kRPMetadataURL]];
     // Shutdown cache (don't) and cookie management (we'll send them manually, if needed)
     [req setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
     [req addValue:@"no-cache" forHTTPHeaderField:@"Cache-Control"];
@@ -348,7 +344,7 @@
              NSArray *values = [stringData componentsSeparatedByString:@"|"];
              if([values count] != 4)
              {
-                 NSLog(@"Error in reading metadata from http://www.radioparadise.com/ajax_rp2_playlist_ipad.php: <%@> received.", stringData);
+                 NSLog(@"Error in reading metadata from %@: <%@> received.", kRPMetadataURL, stringData);
                  return;
              }
              NSString *metaText = [values objectAtIndex:0];

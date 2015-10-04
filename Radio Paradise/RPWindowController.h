@@ -16,6 +16,7 @@
 
 #define kHDImageURLURL @"http://radioparadise.com/readtxt.php"
 #define kHDImagePSDURL @"http://www.radioparadise.com/ajax_image_ipad.php"
+#define kRPMetadataURL @"http://www.radioparadise.com/ajax_nowplaying_data.php"
 
 #define kPsdFadeOutTime 4.0
 #define kFadeInTime 2.5

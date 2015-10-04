@@ -242,7 +242,6 @@
     [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err) {
          if(data) {
              NSString *imageUrl = [[[NSString alloc]  initWithBytes:[data bytes] length:[data length] encoding: NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-             DLog(@"image URL: %@", imageUrl);
              NSRange range = [imageUrl rangeOfString:@"|"];
              if (range.location != NSNotFound) {
                  imageUrl = [[imageUrl substringToIndex:range.location] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -321,8 +320,7 @@
     }
 }
 
--(void)metatadaHandler:(NSTimer *)timer
-{
+-(void)metatadaHandler:(NSTimer *)timer {
     // This function get metadata directly in case of PSD (no stream metadata)
     DLog(@"This is metatadaHandler: called %@", (timer == nil) ? @"directly" : @"from the 'self-timer'");
     // Get song name first
@@ -332,122 +330,111 @@
     [req addValue:@"no-cache" forHTTPHeaderField:@"Cache-Control"];
     [req setHTTPShouldHandleCookies:NO];
     // Add cookies only for PSD play
-    if(self.isPSDPlaying)
+    if(self.isPSDPlaying) {
+        DLog(@"Called for a PSD song.");
         [req addValue:self.cookieString forHTTPHeaderField:@"Cookie"];
-    [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err)
-     {
-         if(data)
-         {
-             DLog(@"metadata received succesfully.");
-             // Get name and massage it (it's web encoded and with triling spaces)
-             NSString *stringData = [[NSString alloc]  initWithBytes:[data bytes] length:[data length] encoding: NSUTF8StringEncoding];
-             NSArray *values = [stringData componentsSeparatedByString:@"|"];
-             if([values count] != 4)
-             {
-                 NSLog(@"Error in reading metadata from %@: <%@> received.", kRPMetadataURL, stringData);
-                 return;
-             }
-             NSString *metaText = [values objectAtIndex:0];
-             metaText = [metaText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-             metaText = [metaText stringByReplacingOccurrencesOfString:@"&mdash;" withString:@"-"];
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.metadataOnSlideShow.stringValue = self.rawMetadataString = metaText;
-                 // Update metadata info
-                 NSArray *songPieces = [metaText componentsSeparatedByString:@" - "];
-                 if([songPieces count] == 2)
-                     [self updateSongInformationWithSinger:songPieces[0] andSongName:songPieces[1]];
-                 
-             });
-             // remembering songid for forum view
-             self.currentSongId = [values objectAtIndex:1];
-             DLog(@"Song id is %@.", self.currentSongId);
-             // In any case, reset the "add song" capability (we have a new song, it seems).
-             self.songIsAlreadySaved = NO;
-             // Reschedule ourselves at the end of the song
-             if(self.theStreamMetadataTimer != nil)
-             {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     [self.theStreamMetadataTimer invalidate];
-                     self.theStreamMetadataTimer = nil;
-                 });
-             }
-             NSNumber *whenRefresh = [values objectAtIndex:2];
-             if([whenRefresh intValue] <= 0)
-             {
-                 whenRefresh = @([whenRefresh intValue] * -1);
-                 if([whenRefresh intValue] < 5 || [whenRefresh intValue] > 30)
-                     whenRefresh = @(5);
-                 DLog(@"We're into the fade out... skipping %@ seconds", whenRefresh);
-             }
-             else
-             {
-                 DLog(@"Given value for song duration is: %@. Now calculating encode skew.", whenRefresh);
-                 // Manually compensate for skew in encoder on lower bitrates.
-                 if([self.theRedirector isEqualToString:kRPURL24K] && !self.isPSDPlaying)
-                     whenRefresh = @([whenRefresh intValue] + 70);
-                 else if([self.theRedirector isEqualToString:kRPURL64K] && !self.isPSDPlaying)
-                     whenRefresh = @([whenRefresh intValue] + 25);
-                 DLog(@"This song will last for %.0f seconds, rescheduling ourselves for refresh", [whenRefresh doubleValue]);
-             }
-             /* whenRefresh=@(10); //Produce lots of metadata updates for de-duplication test */
-             
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 self.theStreamMetadataTimer = [NSTimer scheduledTimerWithTimeInterval:[whenRefresh doubleValue] target:self selector:@selector(metatadaHandler:) userInfo:nil repeats:NO];
-             });
-             // Now get album artwork
-             NSString *temp = [NSString stringWithFormat:@"http://www.radioparadise.com/graphics/covers/l/%@.jpg", [values objectAtIndex:3]];
-             DLog(@"URL for Artwork: <%@>", temp);
-             [self.imageLoadQueue cancelAllOperations];
-             NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:temp]];
-             [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err)
-              {
-                  if(data)
-                  {
-                      self.coverImage = [[NSImage alloc] initWithData:data];
-                      // Update metadata info
-                      if(self.coverImage != nil)
-                      {
-                          dispatch_async(dispatch_get_main_queue(), ^{
-                              self.coverImageView.image = self.coverImage;
-                              CGImageSourceRef source;
-                              source = CGImageSourceCreateWithData((__bridge CFDataRef)[self.coverImage TIFFRepresentation], NULL);
-                              CGImageRef maskRef =  CGImageSourceCreateImageAtIndex(source, 0, NULL);
-                              CFRelease(source);
-                              NSSize imageSize = { 64.0, 64.0 };
-                              NSImage *tempImage = [[NSImage alloc] initWithCGImage:maskRef size:imageSize];
-                              CGImageRelease(maskRef);
-                              self.songNameMenuItem.image = tempImage;
-                          });
-                      }
-                  }
-              }];
-             // Now get song text
-             temp = [NSString stringWithFormat:@"http://radioparadise.com/lyrics/%@.txt", self.currentSongId];
-             NSURLRequest *lyricsReq = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:temp]];
-             [NSURLConnection sendAsynchronousRequest:lyricsReq queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *res, NSData *data, NSError *err)
-              {
-                  if(data)
-                  {
-                      NSString *lyrics;
-                      if(((NSHTTPURLResponse *)res).statusCode == 404)
-                      {
-                          DLog(@"No lyrics for the song");
-                          lyrics = @"\r\r\r\r\rNo Lyrics Found.";
-                      }
-                      else
-                      {
-                          DLog(@"Got lyrics for the song!");
-                          lyrics = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                      }
-                      dispatch_async(dispatch_get_main_queue(), ^{
-                          [self.lyricsText setString:lyrics];
-                      });
-                  }
-              }];
-         } else {
-             ALog(@"Error receiving metadata: %@.", err);
-         }
-     }];
+    }
+    [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err) {
+        DLog(@"Returning from call to %@. Err: %ld", req.URL, (long)[(NSHTTPURLResponse *)res statusCode]);
+        if(data) {
+            // Get name and massage it (it's web encoded and with triling spaces)
+            NSString *stringData = [[NSString alloc]  initWithBytes:[data bytes] length:[data length] encoding: NSUTF8StringEncoding];
+            DLog(@"Metadata received succesfully: '%@'", stringData);
+            NSArray *values = [stringData componentsSeparatedByString:@"|"];
+            if([values count] != 4) {
+                NSLog(@"Error in reading metadata from %@: <%@> received.", kRPMetadataURL, stringData);
+                return;
+            }
+            NSString *metaText = [values objectAtIndex:0];
+            metaText = [metaText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            metaText = [metaText stringByReplacingOccurrencesOfString:@"&mdash;" withString:@"-"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.metadataInfo.stringValue = self.metadataIntoLyrics.stringValue = self.metadataOnSlideShow.stringValue = self.rawMetadataString = metaText;
+                // Update metadata info
+                NSArray *songPieces = [metaText componentsSeparatedByString:@" - "];
+                if([songPieces count] == 2) {
+                    [self updateSongInformationWithSinger:songPieces[0] andSongName:songPieces[1]];
+                }
+                
+            });
+            // remembering songid for forum view
+            self.currentSongId = [values objectAtIndex:1];
+            DLog(@"Song id is %@.", self.currentSongId);
+            // In any case, reset the "add song" capability (we have a new song, it seems).
+            self.songIsAlreadySaved = NO;
+            // Reschedule ourselves at the end of the song
+            if(self.theStreamMetadataTimer != nil) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.theStreamMetadataTimer invalidate];
+                    self.theStreamMetadataTimer = nil;
+                });
+            }
+            NSNumber *whenRefresh = [values objectAtIndex:2];
+            if([whenRefresh intValue] <= 0) {
+                whenRefresh = @([whenRefresh intValue] * -1);
+                if([whenRefresh intValue] < 5 || [whenRefresh intValue] > 30)
+                    whenRefresh = @(5);
+                DLog(@"We're into the fade out... skipping %@ seconds", whenRefresh);
+            } else {
+                DLog(@"Given value for song duration is: %@. Now calculating encode skew.", whenRefresh);
+                // Manually compensate for skew in encoder on lower bitrates.
+                if([self.theRedirector isEqualToString:kRPURL24K] && !self.isPSDPlaying)
+                    whenRefresh = @([whenRefresh intValue] + 70);
+                else if([self.theRedirector isEqualToString:kRPURL64K] && !self.isPSDPlaying)
+                    whenRefresh = @([whenRefresh intValue] + 25);
+                DLog(@"This song will last for %.0f seconds, rescheduling ourselves for refresh", [whenRefresh doubleValue]);
+            }
+            /* whenRefresh=@(10); //Produce lots of metadata updates for de-duplication test */
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.theStreamMetadataTimer = [NSTimer scheduledTimerWithTimeInterval:[whenRefresh doubleValue] target:self selector:@selector(metatadaHandler:) userInfo:nil repeats:NO];
+            });
+            // Now get album artwork
+            NSString *temp = [NSString stringWithFormat:@"http://www.radioparadise.com/graphics/covers/l/%@.jpg", [values objectAtIndex:3]];
+            DLog(@"URL for Artwork: <%@>", temp);
+            [self.imageLoadQueue cancelAllOperations];
+            NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:temp]];
+            [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err) {
+                if(data) {
+                    self.coverImage = [[NSImage alloc] initWithData:data];
+                    // Update metadata info
+                    if(self.coverImage != nil) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.coverImageView.image = self.coverImage;
+                            CGImageSourceRef source;
+                            source = CGImageSourceCreateWithData((__bridge CFDataRef)[self.coverImage TIFFRepresentation], NULL);
+                            CGImageRef maskRef =  CGImageSourceCreateImageAtIndex(source, 0, NULL);
+                            CFRelease(source);
+                            NSSize imageSize = { 64.0, 64.0 };
+                            NSImage *tempImage = [[NSImage alloc] initWithCGImage:maskRef size:imageSize];
+                            CGImageRelease(maskRef);
+                            self.songNameMenuItem.image = tempImage;
+                        });
+                    }
+                }
+            }];
+            // Now get song text
+            temp = [NSString stringWithFormat:@"http://radioparadise.com/lyrics/%@.txt", self.currentSongId];
+            NSURLRequest *lyricsReq = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:temp]];
+            [NSURLConnection sendAsynchronousRequest:lyricsReq queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *res, NSData *data, NSError *err) {
+                if(data) {
+                    NSString *lyrics;
+                    if(((NSHTTPURLResponse *)res).statusCode == 404) {
+                        DLog(@"No lyrics for the song");
+                        lyrics = @"\r\r\r\r\rNo Lyrics Found.";
+                    } else {
+                        DLog(@"Got lyrics for the song!");
+                        lyrics = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                    }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.lyricsText setString:lyrics];
+                    });
+                }
+            }];
+        } else {
+            ALog(@"Error receiving metadata: %@.", err);
+        }
+    }];
 }
 
 

@@ -267,7 +267,7 @@
 #pragma mark Metadata management
 
 - (NSAttributedString *)getSongMetadataStringWithSinger:(NSString *)singer andSongName:(NSString *)songName {
-    NSString *title = [NSString stringWithFormat:@"%@\n%@", singer, songName];
+    NSString *title = [NSString stringWithFormat:@"%@\n%@", songName, singer];
     NSMutableAttributedString *attributed_title = [[NSMutableAttributedString alloc] initWithString:title];
     // Center text
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
@@ -278,8 +278,8 @@
     // make our subtitle a different color as it is just auxillary information
     NSDictionary *sub_title_options = @{NSForegroundColorAttributeName: [NSColor disabledControlTextColor]};
     // apply our color attributes to the ranges of the string they are applicable to...
-    [attributed_title addAttributes:title_options range:[title rangeOfString:singer]];
-    [attributed_title addAttributes:sub_title_options range:[title rangeOfString:songName]];
+    [attributed_title addAttributes:title_options range:[title rangeOfString:songName]];
+    [attributed_title addAttributes:sub_title_options range:[title rangeOfString:singer]];
     // finally set our attributed to the menu item
     return attributed_title;
 }
@@ -294,7 +294,7 @@
     }
     self.lastSongMetadata = self.currentSongMetadata;
     self.coverImageView.image = [NSImage imageNamed:@"icon"];
-    self.metadataIntoLyrics.stringValue = [NSString stringWithFormat:@"%@\n%@", singer,songName];
+    self.metadataIntoLyrics.stringValue = [NSString stringWithFormat:@"%@\n%@", songName, singer];
     [self.metadataInfo setAttributedStringValue:self.currentSongMetadata];
     self.songNameMenuItem.image = [NSImage imageNamed:@"menu-icon"];
     [self.songNameMenuItem setAttributedTitle:self.currentSongMetadata];

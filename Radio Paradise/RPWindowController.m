@@ -910,6 +910,14 @@
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://www.radioparadise.com/rp2s-content.php?name=Support&file=settings"]];
 }
 
+- (IBAction)showHelp:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.radioparadise.com/rp_2.php?#name=Help"]];
+}
+
+- (IBAction)showForums:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.radioparadise.com/rp_2.php?#name=Forum"]];
+}
+
 - (IBAction)startPSD:(id)sender {
     // Try to understand if we have cookie string in KeyChain
     NSError *err;

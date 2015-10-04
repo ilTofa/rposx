@@ -140,6 +140,13 @@
     self.isPSDPlaying = NO;
     [self playMainStream];
     // Set tracking area
+    if ([NSWindow windowNumberAtPoint:[NSEvent mouseLocation] belowWindowWithWindowNumber:0] == self.window.windowNumber) {
+        DLog(@"Mouse inside the window, showing Chrome");
+        [self showChrome];
+    } else {
+        DLog(@"Mouse outside the window, hiding Chrome");
+        [self hideChrome];
+    }
     self.trackingArea = [[NSTrackingArea alloc] initWithRect:self.mainView.frame options: (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways) owner:self userInfo:nil];
     [self.mainView addTrackingArea:self.trackingArea];
     [[NSNotificationCenter defaultCenter] addObserverForName:NSViewFrameDidChangeNotification object:self.mainView queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * note) {
@@ -150,16 +157,22 @@
     }];
 }
 
+- (void)hideChrome {
+    [[self.upUIView animator] setFrame:CGRectMake(0, 250, 250, 100)];
+    [[self.downUIView animator] setFrame:CGRectMake(0, -100, 250, 100)];
+}
+
+- (void)showChrome {
+    [[self.upUIView animator] setFrame:CGRectMake(0, 150, 250, 100)];
+    [[self.downUIView animator] setFrame:CGRectMake(0, 0, 250, 100)];
+}
+
 - (void)mouseEntered:(NSEvent *)theEvent {
-    DLog(@"Got the mouse!");
+    [self showChrome];
 }
 
 - (void)mouseExited:(NSEvent *)theEvent {
-    DLog(@"Lost the mouse!");
-}
-
-- (void)mouseMoved:(NSEvent *)theEvent {
-    DLog(@"mouse moved: ");
+    [self hideChrome];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {

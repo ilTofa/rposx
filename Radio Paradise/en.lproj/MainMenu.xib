@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
@@ -767,6 +767,7 @@
                 <outlet property="lyricsWindow" destination="787" id="805"/>
                 <outlet property="lyricsWindowMenuItem" destination="859" id="864"/>
                 <outlet property="mainUIMenuItem" destination="845" id="847"/>
+                <outlet property="mainView" destination="372" id="mFc-4a-4Sr"/>
                 <outlet property="menuItem128K" destination="849" id="855"/>
                 <outlet property="menuItem24K" destination="851" id="853"/>
                 <outlet property="menuItem320K" destination="xKH-Tf-fo6" id="IfO-KO-H5b"/>
@@ -807,7 +808,7 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="684"/>
                     </imageView>
                     <imageView id="820">
-                        <rect key="frame" x="17" y="655.00000116138938" width="267" height="40"/>
+                        <rect key="frame" x="17" y="655" width="267" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <animations/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="logo_2011_horiz" id="821"/>

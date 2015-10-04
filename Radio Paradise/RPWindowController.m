@@ -63,6 +63,9 @@
 @property (weak) IBOutlet NSMenuItem *playOrStopMenuItem;
 @property (weak) IBOutlet NSMenuItem *psdMenuItem;
 
+@property (weak) IBOutlet NSView *mainView;
+@property NSTrackingArea *trackingArea;
+
 @property (weak, nonatomic) IBOutlet NSTextField *metadataInfo;
 @property (weak) IBOutlet NSButton *psdButton;
 @property (weak) IBOutlet NSButton *playOrStopButton;
@@ -133,6 +136,27 @@
     self.cookieString = nil;
     self.isPSDPlaying = NO;
     [self playMainStream];
+    // Set tracking area
+    self.trackingArea = [[NSTrackingArea alloc] initWithRect:self.mainView.frame options: (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways) owner:self userInfo:nil];
+    [self.mainView addTrackingArea:self.trackingArea];
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSViewFrameDidChangeNotification object:self.mainView queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * note) {
+        DLog(@"Frame changed, resetting tracking area");
+        [self.mainView removeTrackingArea:self.trackingArea];
+        self.trackingArea = [[NSTrackingArea alloc] initWithRect:self.mainView.frame options: (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways) owner:self userInfo:nil];
+        [self.mainView addTrackingArea:self.trackingArea];        
+    }];
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent {
+    DLog(@"Got the mouse!");
+}
+
+- (void)mouseExited:(NSEvent *)theEvent {
+    DLog(@"Lost the mouse!");
+}
+
+- (void)mouseMoved:(NSEvent *)theEvent {
+    DLog(@"mouse moved: ");
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
@@ -416,6 +440,8 @@
 
 
 #pragma mark - UI management
+
+
 
 -(void)statusItemIconSetup {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"bwmenuicon"]) {

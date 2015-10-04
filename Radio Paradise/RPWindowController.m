@@ -66,6 +66,9 @@
 @property (weak) IBOutlet NSView *mainView;
 @property NSTrackingArea *trackingArea;
 
+@property (weak) IBOutlet NSVisualEffectView *downUIView;
+@property (weak) IBOutlet NSVisualEffectView *upUIView;
+
 @property (weak, nonatomic) IBOutlet NSTextField *metadataInfo;
 @property (weak) IBOutlet NSButton *psdButton;
 @property (weak) IBOutlet NSButton *playOrStopButton;

@@ -657,100 +657,114 @@
         <window title="Radio Paradise" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="371">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="190" height="369"/>
+            <rect key="contentRect" x="335" y="390" width="250" height="250"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
-            <value key="minSize" type="size" width="190" height="369"/>
-            <value key="maxSize" type="size" width="190" height="369"/>
-            <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="190" height="369"/>
+            <value key="minSize" type="size" width="250" height="250"/>
+            <value key="maxSize" type="size" width="250" height="250"/>
+            <view key="contentView" wantsLayer="YES" id="372">
+                <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="624">
-                        <rect key="frame" x="-2" y="143" width="194" height="32"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <animations/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingMiddle" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Song Name Singer" allowsEditingTextAttributes="YES" id="625">
-                            <font key="font" metaFont="smallSystem"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <button verticalHuggingPriority="750" id="542">
-                        <rect key="frame" x="10" y="77" width="72" height="28"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <animations/>
-                        <buttonCell key="cell" type="smallSquare" title="Play" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="543">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="smallSystem"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="playOrStop:" target="670" id="774"/>
-                        </connections>
-                    </button>
-                    <button verticalHuggingPriority="750" id="571">
-                        <rect key="frame" x="108" y="77" width="72" height="28"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <animations/>
-                        <buttonCell key="cell" type="smallSquare" title="PSD" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="572">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="smallSystem"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="startPSD:" target="670" id="818"/>
-                        </connections>
-                    </button>
-                    <button verticalHuggingPriority="750" id="577">
-                        <rect key="frame" x="10" y="43" width="72" height="28"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <animations/>
-                        <buttonCell key="cell" type="smallSquare" title="Song Info" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="578">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="smallSystem"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="showSongInformations:" target="670" id="819"/>
-                        </connections>
-                    </button>
-                    <button verticalHuggingPriority="750" id="587">
-                        <rect key="frame" x="108" y="43" width="72" height="28"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <animations/>
-                        <buttonCell key="cell" type="smallSquare" title="Support RP" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="588">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="smallSystem"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="supportRP:" target="670" id="814"/>
-                        </connections>
-                    </button>
                     <imageView id="601">
-                        <rect key="frame" x="0.0" y="179" width="190" height="190"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <animations/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="icon" id="602"/>
                     </imageView>
-                    <slider verticalHuggingPriority="750" id="890">
-                        <rect key="frame" x="8" y="113" width="174" height="21"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <visualEffectView appearanceType="vibrantLight" blendingMode="withinWindow" state="followsWindowActiveState" id="Ii0-M4-GLt">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="115"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" id="571">
+                                <rect key="frame" x="148" y="46" width="72" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <animations/>
+                                <buttonCell key="cell" type="smallSquare" title="PSD" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="572">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startPSD:" target="670" id="818"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" id="542">
+                                <rect key="frame" x="30" y="46" width="72" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <animations/>
+                                <buttonCell key="cell" type="smallSquare" title="Play" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="543">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="playOrStop:" target="670" id="774"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" id="577">
+                                <rect key="frame" x="30" y="12" width="72" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <animations/>
+                                <buttonCell key="cell" type="smallSquare" title="Song Info" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="578">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showSongInformations:" target="670" id="819"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" id="587">
+                                <rect key="frame" x="148" y="12" width="72" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <animations/>
+                                <buttonCell key="cell" type="smallSquare" title="Support RP" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="588">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="supportRP:" target="670" id="814"/>
+                                </connections>
+                            </button>
+                            <slider verticalHuggingPriority="750" id="890">
+                                <rect key="frame" x="18" y="85" width="214" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <animations/>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="891"/>
+                                <connections>
+                                    <action selector="sliderChanged:" target="670" id="892"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <animations/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="891"/>
-                        <connections>
-                            <action selector="sliderChanged:" target="670" id="892"/>
-                        </connections>
-                    </slider>
-                    <imageView id="651">
-                        <rect key="frame" x="0.0" y="0.0" width="190" height="44"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </visualEffectView>
+                    <visualEffectView appearanceType="vibrantLight" blendingMode="withinWindow" state="followsWindowActiveState" id="JTx-JM-fnX">
+                        <rect key="frame" x="0.0" y="170" width="250" height="80"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <imageView id="651">
+                                <rect key="frame" x="30" y="36" width="190" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo_2011_horiz_darker" id="652"/>
+                            </imageView>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="624">
+                                <rect key="frame" x="-2" y="0.0" width="254" height="41"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <animations/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingMiddle" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Song Name Singer" allowsEditingTextAttributes="YES" id="625">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
                         <animations/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo_2011_horiz_darker" id="652"/>
-                    </imageView>
+                    </visualEffectView>
                 </subviews>
                 <animations/>
             </view>
             <connections>
                 <outlet property="delegate" destination="670" id="828"/>
             </connections>
-            <point key="canvasLocation" x="-384" y="280.5"/>
+            <point key="canvasLocation" x="-374" y="221"/>
         </window>
         <customObject id="494" customClass="RPAppDelegate">
             <connections>
@@ -762,6 +776,7 @@
             <connections>
                 <outlet property="bitrateMenu" destination="839" id="866"/>
                 <outlet property="coverImageView" destination="601" id="679"/>
+                <outlet property="downUIView" destination="Ii0-M4-GLt" id="fEI-hQ-TG4"/>
                 <outlet property="hdImage" destination="683" id="716"/>
                 <outlet property="lyricsText" destination="793" id="798"/>
                 <outlet property="lyricsWindow" destination="787" id="805"/>
@@ -787,6 +802,7 @@
                 <outlet property="songNameMenuItem" destination="867" id="869"/>
                 <outlet property="systemMenuIconButton" destination="mSj-fX-PBw" id="Pq8-1k-dXw"/>
                 <outlet property="theStatusMenu" destination="829" id="841"/>
+                <outlet property="upUIView" destination="JTx-JM-fnX" id="YTc-HX-xeo"/>
                 <outlet property="volumeSlider" destination="890" id="893"/>
                 <outlet property="window" destination="371" id="671"/>
             </connections>

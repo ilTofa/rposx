@@ -6,17 +6,17 @@ Introduction
 The Application
 ---------------
 
-This is an OS X client for Radio Paradise. It is derived from the [iOS app](https://github.com/ilTofa/rp20) for radio paradise (also open source).
+This is an OS X client for Radio Paradise.
 
 The app is currently published on the [Mac App Store](https://itunes.apple.com/app/id663334697). If you only ned the executable, grab it from there.
 
 The code
 --------
 
-The code is almost the same of the iOS version and is based on AVPlayer, that manage all the audio play (both "standard" and PSD).
+The code used to be almost the same of the iOS version and is based on AVPlayer, that manage all the audio play (both "standard" and PSD).
 
-Main Controller
----------------
+Program FLow
+------------
 
 The main controller is RPWindowController. Code is hopefully easy to follow. There are 3 AVPlayer objects to manage the main stream and the PSD stream (PSD needs two object to manage the "PSD to PSD transition"), state transitions for the streams are managed via KVO.
 
@@ -28,13 +28,16 @@ The main controllers also tries to manage the fading between the main stream and
 
 The application logs heavily when DLog() (defined in RadioParadise-Prefix.pch) is set to have output. Be aware to not distribute the application with logging on (it's really, really verbose).
 
+The application requires OS X Yosemite (or later). It can be built for 10.7 (just remove the NSVisualEffectView from the overlay of the main windows and from the lyrics window in the main XIB file and filter the code for the animators and the notification).
+
+Patches and improvements are always welcome.
+
 Acknowledgements
 ----------------
 
 This application uses code from:
 
 [STKeyChain](https://github.com/ldandersen/STUtils/blob/master/Security/STKeychain.m) by Buzz Andersen
-[PiwikTracker](https://github.com/mattiaslevin/PiwikTracker) by Mattias Levin
 [iRate](https://github.com/nicklockwood/iRate) by Nick Lockwood.
 
-The latest are included as submodules from my forks.
+Included as submodules from my forks.

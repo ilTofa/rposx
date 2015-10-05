@@ -114,20 +114,17 @@
                 <menuItem title="Window" id="19">
                     <menu key="submenu" title="Window" systemMenu="window" id="24">
                         <items>
-                            <menuItem title="Show Main Window" id="XOw-ai-XvV">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Show Main Window" keyEquivalent="0" id="XOw-ai-XvV">
                                 <connections>
                                     <action selector="showMainUI:" target="670" id="uPW-eM-EyL"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show Lyrics Window" id="Ph8-vU-AUG">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Show Lyrics Window" keyEquivalent="1" id="Ph8-vU-AUG">
                                 <connections>
                                     <action selector="showLyricsWindow:" target="670" id="il5-LT-6Md"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show Slideshow Window" id="NSn-2L-9fY">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Show Slideshow Window" keyEquivalent="2" id="NSn-2L-9fY">
                                 <connections>
                                     <action selector="showSlideshowWindow:" target="670" id="fNG-rG-aeR"/>
                                 </connections>
@@ -235,7 +232,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="250" height="100"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" id="571">
+                            <button toolTip="Play Something Different" verticalHuggingPriority="750" id="571">
                                 <rect key="frame" x="148" y="53" width="72" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <animations/>
@@ -259,7 +256,7 @@
                                     <action selector="playOrStop:" target="670" id="774"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" id="577">
+                            <button toolTip="Song Info and Comment of RP site" verticalHuggingPriority="750" id="577">
                                 <rect key="frame" x="30" y="19" width="72" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <animations/>
@@ -271,7 +268,7 @@
                                     <action selector="showSongInformations:" target="670" id="819"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" id="587">
+                            <button toolTip="Support Radio Paradise" verticalHuggingPriority="750" id="587">
                                 <rect key="frame" x="148" y="19" width="72" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <animations/>
@@ -373,6 +370,7 @@
             <connections>
                 <outlet property="delegate" destination="670" id="822"/>
             </connections>
+            <point key="canvasLocation" x="651" y="1071"/>
         </window>
         <window title="Song Lyrics" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="SongLyrics" animationBehavior="default" id="787">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
@@ -448,7 +446,7 @@
             <connections>
                 <outlet property="delegate" destination="670" id="823"/>
             </connections>
-            <point key="canvasLocation" x="214" y="510.5"/>
+            <point key="canvasLocation" x="17" y="398.5"/>
         </window>
         <menu title="Session Menu" id="829">
             <items>
@@ -582,7 +580,7 @@ Commercial Free, Listener Supported Radio</string>
                 </subviews>
                 <animations/>
             </view>
-            <point key="canvasLocation" x="246.5" y="574"/>
+            <point key="canvasLocation" x="-247.5" y="791"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="S9i-xg-aXp"/>
     </objects>

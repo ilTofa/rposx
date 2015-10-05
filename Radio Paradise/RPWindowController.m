@@ -977,7 +977,9 @@
 }
 
 - (IBAction)showSlideshowWindow:(id)sender {
-    [self scheduleImagesTimer];
+    if (![self.slideshowWindow isVisible]) {
+        [self scheduleImagesTimer];
+    }
     [self.slideshowWindow makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
 }

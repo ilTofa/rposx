@@ -33,6 +33,7 @@
 
 @property BOOL songIsAlreadySaved;
 @property (nonatomic) BOOL isPSDPlaying;
+@property NSString *PSDCookie;
 
 @property (strong) NSTimer *theStreamMetadataTimer;
 @property (strong) NSTimer *thePsdTimer;
@@ -324,15 +325,21 @@
     // This function get metadata directly in case of PSD (no stream metadata)
     DLog(@"This is metatadaHandler: called %@", (timer == nil) ? @"directly" : @"from the 'self-timer'");
     // Get song name first
-    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:kRPMetadataURL]];
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kRPMetadataURL, (self.isPSDPlaying) ? @"?psd=true" : @""]]];
     // Shutdown cache (don't) and cookie management (we'll send them manually, if needed)
     [req setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
     [req addValue:@"no-cache" forHTTPHeaderField:@"Cache-Control"];
     [req setHTTPShouldHandleCookies:NO];
     // Add cookies only for PSD play
     if(self.isPSDPlaying) {
-        DLog(@"Called for a PSD song.");
-        [req addValue:self.cookieString forHTTPHeaderField:@"Cookie"];
+        if (self.PSDCookie) {
+            NSString *cookieString = [NSString stringWithFormat:@"%@; %@", self.cookieString, self.PSDCookie];
+            DLog(@"Called with %@.", cookieString);
+            [req addValue:cookieString forHTTPHeaderField:@"Cookie"];
+        } else {
+            DLog(@"Called for a PSD song.");
+            [req addValue:self.cookieString forHTTPHeaderField:@"Cookie"];
+        }
     }
     [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err) {
         DLog(@"Returning from call to %@. Err: %ld", req.URL, (long)[(NSHTTPURLResponse *)res statusCode]);
@@ -841,6 +848,14 @@
     [req addValue:self.cookieString forHTTPHeaderField:@"Cookie"];
     [NSURLConnection sendAsynchronousRequest:req queue:self.imageLoadQueue completionHandler:^(NSURLResponse *res, NSData *data, NSError *err) {
         if(data) {
+            NSHTTPCookieStorage * storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+            NSArray * cookies = [storage cookiesForURL:req.URL];
+            for (NSHTTPCookie * cookie in cookies) {
+                if ([cookie.name isEqualToString:@"C_replace"]) {
+                    DLog(@"Got PSD song id: %@", cookie.value);
+                    self.PSDCookie = [NSString stringWithFormat:@"%@=%@", cookie.name, cookie.value];
+                }
+            }
             NSString *retValue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             retValue = [retValue stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
             if (!retValue || [retValue length] == 0) {

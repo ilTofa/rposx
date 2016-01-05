@@ -23,9 +23,12 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [iRate sharedInstance].delegate = self;
+    [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"NSQuitAlwaysKeepsWindows"];
+    self.appIsQuitting = NO;
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    self.appIsQuitting = YES;
     return NSTerminateNow;
 }
 

@@ -19,4 +19,6 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
+@property BOOL appIsQuitting;
+
 @end

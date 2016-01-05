@@ -115,6 +115,19 @@
 
 -(void)awakeFromNib {
     DLog(@"Initing UI");
+    // Kill unwanted windows
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"slideshowWindowHidden"] == NO) {
+        DLog(@"Show slideshow windows");
+        [self showSlideshowWindow:self];
+    }
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"lyricsWindowHidden"] == NO) {
+        DLog(@"Show lyrics windows");
+        [self showLyricsWindow:self];
+    }
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"windowHidden"] == NO) {
+        DLog(@"Show slideshow windows");
+        [self showMainUI:self];
+    }
     //    self.window.backgroundColor = [NSColor grayColor];
     [self.window setExcludedFromWindowsMenu:YES];
     [self.slideshowWindow setContentAspectRatio:NSMakeSize(16.0, 9.0)];
@@ -178,14 +191,19 @@
 
 - (void)windowWillClose:(NSNotification *)notification {
     if(notification.object == self.slideshowWindow) {
-        DLog(@"Slideshow Window is closing");
+        if (!((RPAppDelegate *)[[NSApplication sharedApplication] delegate]).appIsQuitting) {
+            DLog(@"Slideshow Window is closing");
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"slideshowWindowHidden"];
+        } else {
+            DLog(@"App is quitting...");
+        }
         [self unscheduleImagesTimer];
     }
-    if (notification.object == self.lyricsWindow) {
-        // TODO: change menu
+    if (notification.object == self.lyricsWindow && !((RPAppDelegate *)[[NSApplication sharedApplication] delegate]).appIsQuitting) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"lyricsWindowHidden"];
     }
-    if(notification.object == self.window) {
-        // TODO: change menu
+    if(notification.object == self.window && !((RPAppDelegate *)[[NSApplication sharedApplication] delegate]).appIsQuitting) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"windowHidden"];
     }
 }
 
@@ -968,11 +986,13 @@
 - (IBAction)showMainUI:(id)sender {
     DLog(@"called.");
     [self.window makeKeyAndOrderFront:self];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"windowHidden"];
     [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (IBAction)showLyricsWindow:(id)sender {
     [self.lyricsWindow makeKeyAndOrderFront:self];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"lyricsWindowHidden"];
     [NSApp activateIgnoringOtherApps:YES];
 }
 
@@ -980,6 +1000,7 @@
     if (![self.slideshowWindow isVisible]) {
         [self scheduleImagesTimer];
     }
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"slideshowWindowHidden"];
     [self.slideshowWindow makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
 }

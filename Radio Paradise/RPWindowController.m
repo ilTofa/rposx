@@ -82,6 +82,7 @@
 @property (weak) IBOutlet NSTextField *metadataOnSlideShow;
 @property (unsafe_unretained) IBOutlet NSWindow *settingsWindow;
 @property (weak) IBOutlet NSButton *systemMenuIconButton;
+@property (weak) IBOutlet NSButton *autostartButton;
 
 - (IBAction)playOrStop:(id)sender;
 - (IBAction)supportRP:(id)sender;
@@ -151,7 +152,9 @@
     // Set PSD to not logged, not playing
     self.cookieString = nil;
     self.isPSDPlaying = NO;
-    [self playMainStream];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"autostartMusic"]) {
+        [self playMainStream];
+    }
     // Set tracking area
     if ([NSWindow windowNumberAtPoint:[NSEvent mouseLocation] belowWindowWithWindowNumber:0] == self.window.windowNumber) {
         DLog(@"Mouse inside the window, showing Chrome");
@@ -461,8 +464,6 @@
 
 
 #pragma mark - UI management
-
-
 
 -(void)statusItemIconSetup {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"bwmenuicon"]) {
@@ -1029,6 +1030,9 @@
         default:
             break;
     }
+}
+
+- (IBAction)autostartMusicChanged:(id)sender {
 }
 
 - (IBAction)bitrateSelected:(id)sender {

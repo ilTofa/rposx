@@ -282,6 +282,7 @@
         <customObject id="420" customClass="NSFontManager"/>
         <customObject id="670" customClass="RPWindowController">
             <connections>
+                <outlet property="autostartButton" destination="ZHk-4t-jhs" id="Jze-ab-zrn"/>
                 <outlet property="bitrateMenu" destination="839" id="866"/>
                 <outlet property="coverImageView" destination="601" id="679"/>
                 <outlet property="hdImage" destination="683" id="716"/>
@@ -359,12 +360,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="356" height="513"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="behindWindow" state="followsWindowActiveState" id="sAn-qY-adF">
+                    <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="behindWindow" state="active" id="sAn-qY-adF">
                         <rect key="frame" x="0.0" y="0.0" width="356" height="513"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="815">
-                                <rect key="frame" x="16" y="459" width="322" height="34"/>
+                                <rect key="frame" x="20" y="459" width="320" height="34"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Song Name Singer" id="816">
                                     <font key="font" metaFont="system"/>
@@ -527,15 +528,15 @@ Commercial Free, Listener Supported Radio</string>
         <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="FUG-B2-Dnu">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="283" y="305" width="279" height="54"/>
+            <rect key="contentRect" x="283" y="305" width="279" height="94"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
-            <value key="minSize" type="size" width="279" height="54"/>
+            <value key="minSize" type="size" width="279" height="94"/>
             <view key="contentView" id="nMI-NL-Vnn">
-                <rect key="frame" x="0.0" y="0.0" width="279" height="54"/>
+                <rect key="frame" x="0.0" y="0.0" width="279" height="94"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button id="mSj-fX-PBw">
-                        <rect key="frame" x="18" y="18" width="243" height="18"/>
+                        <rect key="frame" x="18" y="58" width="243" height="18"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Black &amp; White System Menu Icon" bezelStyle="regularSquare" imagePosition="left" inset="2" id="g7R-DZ-TKs">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -546,9 +547,21 @@ Commercial Free, Listener Supported Radio</string>
                             <binding destination="S9i-xg-aXp" name="value" keyPath="values.bwmenuicon" id="m1i-Mm-Rcy"/>
                         </connections>
                     </button>
+                    <button id="ZHk-4t-jhs">
+                        <rect key="frame" x="18" y="18" width="243" height="18"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Don't autoplay at startup" bezelStyle="regularSquare" imagePosition="left" inset="2" id="dN1-mR-Li4">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="autostartMusicChanged:" target="670" id="0ng-mZ-NEA"/>
+                            <binding destination="S9i-xg-aXp" name="value" keyPath="values.autostartMusic" id="wxx-0H-tat"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="-247.5" y="791"/>
+            <point key="canvasLocation" x="-247.5" y="811"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="S9i-xg-aXp"/>
     </objects>

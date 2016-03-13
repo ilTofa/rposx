@@ -67,7 +67,6 @@
 @property (weak) IBOutlet NSView *mainView;
 @property NSTrackingArea *trackingArea;
 
-@property (weak) IBOutlet NSVisualEffectView *downUIView;
 @property (weak) IBOutlet NSVisualEffectView *upUIView;
 
 @property (weak, nonatomic) IBOutlet NSTextField *metadataInfo;
@@ -172,13 +171,11 @@
 }
 
 - (void)hideChrome {
-    [[self.upUIView animator] setFrame:CGRectMake(0, 250, 250, 100)];
-    [[self.downUIView animator] setFrame:CGRectMake(0, -100, 250, 100)];
+    [[self.upUIView animator] setFrame:CGRectMake(0, 250, 250, 250)];
 }
 
 - (void)showChrome {
-    [[self.upUIView animator] setFrame:CGRectMake(0, 150, 250, 100)];
-    [[self.downUIView animator] setFrame:CGRectMake(0, 0, 250, 100)];
+    [[self.upUIView animator] setFrame:CGRectMake(0, 0, 250, 250)];
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent {
@@ -304,7 +301,7 @@
     paragraphStyle.alignment = NSCenterTextAlignment;
     [attributed_title addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [[attributed_title string] length])];
     // This is the system default for controls. anything else and it looks off
-    NSDictionary *title_options = @{NSFontAttributeName: [NSFont menuFontOfSize:0]};
+    NSDictionary *title_options = @{NSFontAttributeName: [NSFont menuFontOfSize:15]};
     // make our subtitle a different color as it is just auxillary information
     NSDictionary *sub_title_options = @{NSForegroundColorAttributeName: [NSColor disabledControlTextColor]};
     // apply our color attributes to the ranges of the string they are applicable to...

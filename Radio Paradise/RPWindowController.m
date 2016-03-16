@@ -63,6 +63,7 @@
 @property (weak) IBOutlet NSMenuItem *songInfoMenuItem;
 @property (weak) IBOutlet NSMenuItem *playOrStopMenuItem;
 @property (weak) IBOutlet NSMenuItem *psdMenuItem;
+@property (weak) IBOutlet NSMenuItem *lyricsWindowMainMenuItem;
 
 @property (weak) IBOutlet NSView *mainView;
 @property NSTrackingArea *trackingArea;
@@ -120,10 +121,14 @@
         DLog(@"Show slideshow windows");
         [self showSlideshowWindow:self];
     }
+#ifdef FREEBUILD
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"lyricsWindowHidden"] == NO) {
         DLog(@"Show lyrics windows");
         [self showLyricsWindow:self];
     }
+#else
+    self.lyricsWindowMenuItem.hidden = self.lyricsWindowMainMenuItem.hidden = YES;
+#endif
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"windowHidden"] == NO) {
         DLog(@"Show slideshow windows");
         [self showMainUI:self];

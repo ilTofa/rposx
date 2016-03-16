@@ -119,14 +119,14 @@
                                     <action selector="showMainUI:" target="670" id="uPW-eM-EyL"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show Lyrics Window" keyEquivalent="1" id="Ph8-vU-AUG">
-                                <connections>
-                                    <action selector="showLyricsWindow:" target="670" id="il5-LT-6Md"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Show Slideshow Window" keyEquivalent="2" id="NSn-2L-9fY">
+                            <menuItem title="Show Slideshow Window" keyEquivalent="1" id="NSn-2L-9fY">
                                 <connections>
                                     <action selector="showSlideshowWindow:" target="670" id="fNG-rG-aeR"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Lyrics Window" keyEquivalent="2" id="Ph8-vU-AUG">
+                                <connections>
+                                    <action selector="showLyricsWindow:" target="670" id="il5-LT-6Md"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="825"/>
@@ -199,6 +199,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
+                            <button verticalHuggingPriority="750" id="O1q-Yk-RrL">
+                                <rect key="frame" x="165" y="300" width="12" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wCs-o6-dpq">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">l</string>
+                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                    <connections>
+                                        <action selector="showLyricsWindow:" target="670" id="p26-ML-63Q"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                             <imageView id="651">
                                 <rect key="frame" x="8" y="195" width="233" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -272,7 +285,7 @@
             <connections>
                 <outlet property="delegate" destination="670" id="828"/>
             </connections>
-            <point key="canvasLocation" x="-374" y="221"/>
+            <point key="canvasLocation" x="-529" y="465"/>
         </window>
         <customObject id="494" customClass="RPAppDelegate">
             <connections>
@@ -288,6 +301,7 @@
                 <outlet property="hdImage" destination="683" id="716"/>
                 <outlet property="lyricsText" destination="793" id="798"/>
                 <outlet property="lyricsWindow" destination="787" id="805"/>
+                <outlet property="lyricsWindowMainMenuItem" destination="Ph8-vU-AUG" id="g4H-zb-HWB"/>
                 <outlet property="lyricsWindowMenuItem" destination="859" id="864"/>
                 <outlet property="mainUIMenuItem" destination="845" id="847"/>
                 <outlet property="mainView" destination="372" id="mFc-4a-4Sr"/>
@@ -523,7 +537,7 @@ Commercial Free, Listener Supported Radio</string>
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="179.5" y="-337.5"/>
+            <point key="canvasLocation" x="-227.5" y="-149.5"/>
         </menu>
         <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="FUG-B2-Dnu">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
